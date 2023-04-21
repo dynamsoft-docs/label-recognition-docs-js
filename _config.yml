@@ -1,0 +1,31 @@
+repositoryUrl: https://github.com/dynamsoft-docs/label-recognition-docs/blob/master
+repository: Dynamsoft/label-recognition-docs
+docFullPath: https://www.dynamsoft.com/label-recognition/docs
+firstLevelUrl: /label-recognition/docs
+docHomePage: /label-recognition/docs/introduction/
+
+parameters-reference: /label-recognition/docs/core/parameters/reference/
+
+js: /label-recognition/docs/web/programming/javascript/
+js-api: /label-recognition/docs/web/programming/javascript/api-reference/
+js-release-notes: /label-recognition/docs/web/programming/javascript/release-notes/
+
+assets: /label-recognition/docs/assets/
+edit_icon: /label-recognition/docs/assets/img-icon/edit-icon.png
+smile_icon: /label-recognition/docs/assets/img-icon/icon-smile.png
+sad_icon: /label-recognition/docs/assets/img-icon/icon-sad.png
+dbr_icon: /label-recognition/docs/assets/img-icon/icon-dbr.svg
+dwt_icon: /label-recognition/docs/assets/img-icon/icon-dwt.svg
+dnt_icon: /label-recognition/docs/assets/img-icon/icon-dnt.svg
+
+release-notes: /label-recognition/docs/release-notes/
+license-activation: /label-recognition/docs/license-activation/
+
+useVersionTree: true
+
+baseurl: "/label-recognition/docs"
+plugins:
+  - jemoji
+
+url: "https://www.dynamsoft.com" # sitemap root
+

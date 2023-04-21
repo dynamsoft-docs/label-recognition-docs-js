@@ -1,1 +1,1 @@
-# label-recognition-docs-js
+# label-recognizer
