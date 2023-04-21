@@ -74,7 +74,7 @@ jobs:
         run: |
           cd /home/ubuntu
           [ ! -d DLRDocJSPreview ] && mkdir -p DLRDocJSPreview
-          [ ! -d label-recognition-docs-js-preview ] && git clone --depth 1 --branch preview https://github.com/Dynamsoft/label-recognition-docs-js.git label-recognition-docs-js-preview
+          [ ! -d label-recognition-docs-js-preview ] && git clone --depth 1 --branch preview https://${{ secrets.GIT_USER }}:${{ secrets.GIT_PAT }}@github.com/Dynamsoft/label-recognition-docs-js.git label-recognition-docs-js-preview
           [ ! -d Docs-Template-Repo-Preview-DCV2 ] && git clone --depth 1 --branch jenny-preview-branch https://github.com/dynamsoft-docs/Docs-Template-Repo.git Docs-Template-Repo-Preview-DCV2
           cd label-recognition-docs-js-preview && git pull && cd .. && cp -rfp ./label-recognition-docs-js-preview/* ./DLRDocJSPreview/
           cd Docs-Template-Repo-Preview-DCV2 && git pull && cd .. && cp -rfp ./Docs-Template-Repo-Preview-DCV2/* ./DLRDocJSPreview/
