@@ -2,7 +2,8 @@ repositoryUrl: https://github.com/dynamsoft-docs/label-recognition-docs/blob/mas
 repository: Dynamsoft/label-recognition-docs
 docFullPath: https://www.dynamsoft.com/label-recognition/docs
 firstLevelUrl: /label-recognition/docs/web
-docHomePage: /label-recognition/docs/core/introduction/
+docRootName: "Label Recognizer JS Edition" 
+docHomePage: /label-recognition/docs/web/programming/javascript/
 
 parameters-reference: /label-recognition/docs/core/parameters/reference/
 
@@ -83,8 +84,6 @@ defaults:
       noTitleIndex: true
       needAutoGenerateSidebar: true
       needGenerateH3Content: true
-      docRootName: "Label Recognizer JS Edition" 
-      docHomePage: "/label-recognition/docs/web/programming/javascript/"
 
 url: "https://www.dynamsoft.com" # sitemap root
 
