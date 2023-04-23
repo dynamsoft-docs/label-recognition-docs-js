@@ -1,7 +1,7 @@
 repositoryUrl: https://github.com/dynamsoft-docs/label-recognition-docs/blob/master
 repository: Dynamsoft/label-recognition-docs
 docFullPath: https://www.dynamsoft.com/label-recognition/docs
-firstLevelUrl: /document-normalizer/docs/web
+firstLevelUrl: /label-recognition/docs/web
 docHomePage: /label-recognition/docs/core/introduction/
 
 parameters-reference: /label-recognition/docs/core/parameters/reference/
