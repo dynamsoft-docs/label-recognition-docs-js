@@ -32,16 +32,17 @@ jobs:
           cd /home/ubuntu 
           [ -d DLRJSDoc ] && rm -rf DLRJSDoc
           [ -d label-recognition-docs-js ] && rm -rf label-recognition-docs-js
-          [ -d Docs-Template-Repo-Preview-DCV2 ] && rm -rf Docs-Template-Repo-Preview-DCV2
+          [ -d Docs-Template-Repo-Preview ] && rm -rf Docs-Template-Repo-Preview
           cd /home/ubuntu
 
       - name: Run a multi-line script
         run: |
           cd /home/ubuntu
           [ ! -d DLRJSDoc ] && mkdir -p DLRJSDoc
-          [ ! -d label-recognition-docs-js ] && git clone --depth 1 https://github.com/Dynamsoft/label-recognition-docs-js.git
-          cd label-recognition-docs-js && git pull && cd .. && cp -rfp ./label-recognition-docs-js/* ./DLRJSDoc/
-          cd Docs-Template-Repo-Preview-DCV2 && git pull && cd .. && cp -rfp ./Docs-Template-Repo-Preview-DCV2/* ./DLRJSDoc/
+          git clone --depth 1 https://github.com/dynamsoft-docs/label-recognition-docs-js.git
+          git clone --depth 1 --branch preview https://github.com/dynamsoft-docs/Docs-Template-Repo.git Docs-Template-Repo-Preview
+          cp -rfp ./label-recognition-docs-js/* ./DLRJSDoc/
+          cp -rfp ./Docs-Template-Repo-Preview/* ./DLRJSDoc/
           cd DLRJSDoc && bundle exec jekyll build --incremental
 
       - name: Sync files - Main Site
@@ -67,20 +68,20 @@ jobs:
           cd /home/ubuntu 
           [ -d DLRDocJSPreview ] && rm -rf DLRDocJSPreview
           [ -d label-recognition-docs-js-preview ] && rm -rf label-recognition-docs-js-preview
-          [ -d Docs-Template-Repo-Preview-DCV2 ] && rm -rf Docs-Template-Repo-Preview-DCV2
+          [ -d Docs-Template-Repo-Preview ] && rm -rf Docs-Template-Repo-Preview
           cd /home/ubuntu
 
       - name: Build the site
         run: |
           cd /home/ubuntu
           [ ! -d DLRDocJSPreview ] && mkdir -p DLRDocJSPreview
-          [ ! -d label-recognition-docs-js-preview ] && git clone --depth 1 --branch preview https://github.com/Dynamsoft/label-recognition-docs-js.git label-recognition-docs-js-preview
-          [ ! -d Docs-Template-Repo-Preview-DCV2 ] && git clone --depth 1 --branch jenny-preview-branch https://github.com/dynamsoft-docs/Docs-Template-Repo.git Docs-Template-Repo-Preview-DCV2
-          cd label-recognition-docs-js-preview && git pull && cd .. && cp -rfp ./label-recognition-docs-js-preview/* ./DLRDocJSPreview/
-          cd Docs-Template-Repo-Preview-DCV2 && git pull && cd .. && cp -rfp ./Docs-Template-Repo-Preview-DCV2/* ./DLRDocJSPreview/
+          git clone --depth 1 --branch preview https://github.com/dynamsoft-docs/label-recognition-docs-js.git label-recognition-docs-js-preview
+          git clone --depth 1 --branch preview https://github.com/dynamsoft-docs/Docs-Template-Repo.git Docs-Template-Repo-Preview
+          cp -rfp ./label-recognition-docs-js-preview/* ./DLRDocJSPreview/
+          cp -rfp ./Docs-Template-Repo-Preview/* ./DLRDocJSPreview/
           sed -i -e "1,3s/blob\/master$/blob\/preview/" \
           -e "1,3s/blob\/main$/blob\/preview/" /home/ubuntu/DLRDocJSPreview/_config.yml
-          cd DLRDocJSPreview && bundle exec jekyll build
+          cd DLRDocJSPreview && bundle exec jekyll build --incremental
 
       - name: Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.0

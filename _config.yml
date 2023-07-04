@@ -1,8 +1,9 @@
 repositoryUrl: https://github.com/dynamsoft-docs/label-recognition-docs/blob/master
 repository: Dynamsoft/label-recognition-docs
 docFullPath: https://www.dynamsoft.com/label-recognition/docs
-firstLevelUrl: /label-recognition/docs
-docHomePage: /label-recognition/docs/introduction/
+firstLevelUrl: /label-recognition/docs/web
+docRootName: "Label Recognizer JS Edition" 
+docHomePage: /label-recognition/docs/web/programming/javascript/
 
 parameters-reference: /label-recognition/docs/core/parameters/reference/
 
@@ -23,7 +24,7 @@ license-activation: /label-recognition/docs/core/license-activation/
 
 useVersionTree: true
 
-baseurl: "/label-recognition/docs"
+baseurl: "/label-recognition/docs/web"
 plugins:
   - jemoji
 
