@@ -1,6 +1,6 @@
-repositoryUrl: https://github.com/dynamsoft-docs/label-recognition-docs/blob/master
-repository: Dynamsoft/label-recognition-docs
-docFullPath: https://www.dynamsoft.com/label-recognition/docs
+repositoryUrl: https://github.com/dynamsoft-docs/label-recognition-docs-js/blob/main
+repository: Dynamsoft-docs/label-recognition-docs-js
+docFullPath: https://www.dynamsoft.com/label-recognition/docs/web
 firstLevelUrl: /label-recognition/docs/web
 docRootName: "Label Recognizer JS Edition" 
 docHomePage: /label-recognition/docs/web/programming/javascript/
