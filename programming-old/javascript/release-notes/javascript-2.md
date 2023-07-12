@@ -11,6 +11,13 @@ permalink: /programming/javascript/release-notes/javascript-2.html
 
 # Release Notes - JavaScript 2.x
 
+## 2.2.30
+
+### IMPROVED
+
+* Fixed a bug that would cause wrong recognition.
+* Improved the result verification of MRZ.
+
 ## 2.2.11 (08/08/2022)
 
 ### ADDED
