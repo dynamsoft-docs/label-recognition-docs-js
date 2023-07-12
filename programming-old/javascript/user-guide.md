@@ -506,7 +506,7 @@ Apart from the browsers, the operating systems may impose some limitations of th
 
 ## Release Notes
 
-Learn about what are included in each release at [https://www.dynamsoft.com/label-recognition/docs/programming/javascript/release-notes/?ver=latest](https://www.dynamsoft.com/label-recognition/docs/programming/javascript/release-notes/?ver=latest).
+Learn about what are included in each release at [https://www.dynamsoft.com/label-recognition/docs/web/programming/javascript/release-notes/?ver=latest](https://www.dynamsoft.com/label-recognition/docs/web/programming/javascript/release-notes/?ver=latest).
 
 ## Next Steps
 
