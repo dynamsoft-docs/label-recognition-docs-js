@@ -11,7 +11,7 @@ permalink: /programming/javascript/release-notes/javascript-2.html
 
 # Release Notes - JavaScript 2.x
 
-## 2.2.30
+## 2.2.30 (07/24/2023)
 
 ### IMPROVED
 
