@@ -17,7 +17,7 @@ Interface used to get or set (via the RuntimeSettings) the reference region used
 
 | Attribute | Type |
 |---------- | ---- |
-| [`localizationSourceType`](#localizationsourcetype) | [`DLRLocalizationSourceType`]({{ site.enumerations }}other-enums.html#dlrlocalizationsourcetype) |
+| [`localizationSourceType`](#localizationsourcetype) | [`DLRLocalizationSourceType`]({{ site.enumerations }}localization-source-type.html) |
 | [`points`](#points) | [`Point`](point.md)[4] |
 | [`regionMeasuredByPercentage`](#regionmeasuredbypercentage) | *number* |
 | [`regionPredetectionModesIndex`](#regionpredetectionmodesindex) | *number* |
