@@ -67,7 +67,7 @@ Sets the region pre-detection mode.
 
 * **Value range**
 
-Each array item can be any one of the [ `DLRRegionPredetectionMode` ]({{ site.enumerations }}parameter-mode-enums.html#dlrregionpredetectionmode) Enumeration items.
+Each array item can be any one of the [ `DLRRegionPredetectionMode` ]({{ site.enumerations }}region-predetection-mode.html) Enumeration items.
 
 * **Default value** 
  `[DLR_RPM_SKIP, DLR_RPM_SKIP, DLR_RPM_SKIP, DLR_RPM_SKIP, DLR_RPM_SKIP, DLR_RPM_SKIP, DLR_RPM_SKIP, DLR_RPM_SKIP]`

@@ -108,7 +108,7 @@ permalink: /programming/javascript/release-notes/javascript-2.html
 ## 2.2.0 (12/07/2021)
 
 * Developed with pure web technologies (WebAssembly, JavaScript, HTML and CSS) and work across browsers and platforms with no installation required.
-* Based on the algorithm of [Dynamsoft Label Recognizer v2.2.0](../../../release-notes/index.md#22).
+* Based on the algorithm of [Dynamsoft Label Recognizer v2.2.0](https://www.dynamsoft.com/label-recognition/docs/server/programming/c-cplusplus/release-notes/c-cpp-2.html?src=cpp#22-11302021).
 * Supports decoding of various formats of source data.
 * Integrated with Dynamsoft Camera Enhancer v2.0.3 to support continuous label scanning of frames from a video input.
 * Supports various use cases with multiple built-in templates.
