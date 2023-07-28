@@ -20,4 +20,4 @@ permalink: /programming/javascript/index.html
 
 ## Release Notes
 
-- [Version 2.x](release-notes/javascript-2.md)
+- [Version 2.x](release-notes/javascript-2.html)
