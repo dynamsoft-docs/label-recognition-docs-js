@@ -135,12 +135,13 @@ The complete code of the "MRZ Reading" example is shown below
   >| `MRZ` | For MRZ (machine-readable zone) recognition. |
   >| `passportMRZ` | For passport MRZ recognition. |
   >| `visaMRZ` | For Visa (Country not Credit Card) MRZ recognition. |
+  >| `idcardMRZ` | For ID card MRZ recognition. |
   >| `VIN` | For VIN (vehicle identification number) recognition. |
   >| `VIN_NA` | For North American VIN (vehicle identification number) recognition. |
   >
   > When recognizing from video input, add the prefix "video-" for a slightly different template optimized for continuous frame recognition. For example, use `video-passportMRZ` to read the MRZ on passports with a camera.
 
-* `onMRZRead`: This event is only used with one of the templates "MRZ", "passportMRZ" and "visaMRZ" (similarly, "onVINRead" is only used with either "VIN" or "VIN_NA"). It is triggered each time the SDK has identified and finished the recognition of a MRZ zone. The `results` object contains 2 or 3 lines of text results corresponding to the 2 or 3 lines in the MRZ. In this example, we simply print the results to the browser console.
+* `onMRZRead`: This event is only used with one of the templates "MRZ", "passportMRZ", "visaMRZ" and "idcardMRZ" (similarly, "onVINRead" is only used with either "VIN" or "VIN_NA"). It is triggered each time the SDK has identified and finished the recognition of a MRZ zone. The `results` object contains 2 or 3 lines of text results corresponding to the 2 or 3 lines in the MRZ. In this example, we simply print the results to the browser console.
 
 > The events `onImageRead` and `onUniqueRead` are used in the code but they are not required. You can compare the results returned in the 3 events and see what the differences are.
 
