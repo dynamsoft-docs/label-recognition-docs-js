@@ -192,8 +192,8 @@ To download the SDK:
 Depending on how you downloaded the SDK and where you put it. You can typically include it like this:
 
   ```html
-  <script src="/dynamsoft-label-recognizer-js-2.2.10/dist/dlr.js"></script>
-  <script src="/dynamsoft-label-recognizer-js-2.2.10/dce/dist/dce.js"></script>
+  <script src="/dlr-js-2.2.10/dist/dlr.js"></script>
+  <script src="/dlr-js-2.2.10/dce/dist/dce.js"></script>
   ```
 
 or
