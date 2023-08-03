@@ -55,7 +55,7 @@ The complete code of the "MRZ Reading" example is shown below
 <head>
     <title>MRZ Reading</title>
     <script src="https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer@2.2.31/dist/dlr.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@3.3.5/dist/dce.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@3.2.0/dist/dce.js"></script>
 </head>
 
 <body>
@@ -110,7 +110,7 @@ The complete code of the "MRZ Reading" example is shown below
 
 <p align="center" style="text-align:center; white-space: normal; ">
   <a target="_blank" href="https://jsfiddle.net/DynamsoftTeam/kc35htxd/" title="Run via JSFiddle">
-    <img src="https://cdn.jsdelivr.net/npm/simple-icons@3.3.5/icons/jsfiddle.svg" alt="Run via JSFiddle" width="20" height="20" style="width:20px;height:20px;">
+    <img src="https://cdn.jsdelivr.net/npm/simple-icons@3.2.0/icons/jsfiddle.svg" alt="Run via JSFiddle" width="20" height="20" style="width:20px;height:20px;">
   </a>
 </p>
 
@@ -184,14 +184,14 @@ The simplest way to include the SDK is to use either the [jsDelivr](https://jsde
 
   ```html
   <script src="https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer@2.2.31/dist/dlr.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@3.3.5/dist/dce.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@3.2.0/dist/dce.js"></script>
   ```
 
 * UNPKG  
 
   ```html
   <script src="https://unpkg.com/dynamsoft-label-recognizer@2.2.31/dist/dlr.js"></script>
-  <script src="https://unpkg.com/dynamsoft-camera-enhancer@3.3.5/dist/dce.js"></script>
+  <script src="https://unpkg.com/dynamsoft-camera-enhancer@3.2.0/dist/dce.js"></script>
   ```
 
 #### Host the SDK yourself
@@ -204,14 +204,14 @@ To download the SDK:
 
   ```cmd
   yarn add dynamsoft-label-recognizer@2.2.31
-  yarn add dynamsoft-camera-enhancer@3.3.5
+  yarn add dynamsoft-camera-enhancer@3.2.0
   ```
 
 * npm
 
   ```cmd
   npm install dynamsoft-label-recognizer@2.2.31
-  npm install dynamsoft-camera-enhancer@3.3.5
+  npm install dynamsoft-camera-enhancer@3.2.0
   ```
 
 Depending on how you downloaded the SDK and where you put it, you can typically include it like this:
@@ -256,7 +256,7 @@ If the engine files (\*.worker.js, \*.wasm.js and \*.wasm, etc.) are not in the 
 ```javascript
 // The following code uses the jsDelivr CDN, feel free to change it to your own location of these files.
 Dynamsoft.DLR.LabelRecognizer.engineResourcePath = "https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer@2.2.31/dist/";
-Dynamsoft.DCE.CameraEnhancer.engineResourcePath = "https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@3.3.5/dist/";
+Dynamsoft.DCE.CameraEnhancer.engineResourcePath = "https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@3.2.0/dist/";
 ```
 
 **This configuration is usually required with frameworks like Angular or React where dlr.js is compiled into another file.**
@@ -311,7 +311,7 @@ await recognizer.setImageSource(cameraEnhancer, options);
 
 #### Change the camera settings if necessary
 
-In some cases, a different camera might be required instead of the default one. Also, a different resolution might work better. To change the camera or the resolution, we use the `CameraEnhancer` object. Learn more [here](https://www.dynamsoft.com/camera-enhancer/docs/programming/javascript/api-reference/camera-control.html?ver=3.3.5&utm_source=guide&product=dlr&package=js).
+In some cases, a different camera might be required instead of the default one. Also, a different resolution might work better. To change the camera or the resolution, we use the `CameraEnhancer` object. Learn more [here](https://www.dynamsoft.com/camera-enhancer/docs/programming/javascript/api-reference/camera-control.html?ver=3.2.0&utm_source=guide&product=dlr&package=js).
 
 ```javascript
 // The following lines set which camera and what resolution to use.
