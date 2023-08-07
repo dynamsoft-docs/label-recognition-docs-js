@@ -495,15 +495,13 @@ The following table is a list of supported browsers based on the above requireme
   Chrome | v61+<sup>1</sup>
   Firefox | v52+ (v55+ on Android/iOS<sup>1</sup>)
   Edge<sup>2</sup> | v16+
-  Safari<sup>3</sup> | v11+
+  Safari | v12+
 
   <sup>1</sup> iOS 14.3+ is required for camera video streaming in Chrome and Firefox or Apps using webviews.
 
   <sup>2</sup> On Edge, due to strict Same-origin policy, you must host the SDK files on the same domain as your web page.
-  
-  <sup>3</sup> Safari v11.x already has the required features, but it has many other issues, so we recommend v12+.
 
-  <sup>4</sup> iOS 12 is currently not compatible with Dynamsoft Label Recognizer v 2.2.30+, due to certain technical limitations.
+  > Note: iOS 12 is currently not compatible with Dynamsoft Label Recognizer v 2.2.30+, due to certain technical limitations.
 
 Apart from the browsers, the operating systems may impose some limitations of their own that could restrict the use of the SDK. Browser compatibility ultimately depends on whether the browser on that particular operating system supports the features listed above.
 
