@@ -110,7 +110,7 @@ The complete code of the "MRZ Reading" example is shown below
 
 <p align="center" style="text-align:center; white-space: normal; ">
   <a target="_blank" href="https://jsfiddle.net/DynamsoftTeam/kc35htxd/" title="Run via JSFiddle">
-    <img src="https://cdn.jsdelivr.net/npm/simple-icons@3.3.5/icons/jsfiddle.svg" alt="Run via JSFiddle" width="20" height="20" style="width:20px;height:20px;">
+    <img src="https://cdn.jsdelivr.net/npm/simple-icons@3.2.0/icons/jsfiddle.svg" alt="Run via JSFiddle" width="20" height="20" style="width:20px;height:20px;">
   </a>
 </p>
 
