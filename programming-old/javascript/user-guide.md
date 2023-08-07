@@ -503,6 +503,8 @@ The following table is a list of supported browsers based on the above requireme
   
   <sup>3</sup> Safari v11.x already has the required features, but it has many other issues, so we recommend v12+.
 
+  <sup>4</sup> iOS 12 is currently not compatible with Dynamsoft Label Recognizer v 2.2.30+, due to certain technical limitations.
+
 Apart from the browsers, the operating systems may impose some limitations of their own that could restrict the use of the SDK. Browser compatibility ultimately depends on whether the browser on that particular operating system supports the features listed above.
 
 ## Release Notes
