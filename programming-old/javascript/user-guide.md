@@ -495,7 +495,7 @@ The following table is a list of supported browsers based on the above requireme
   Chrome | v61+<sup>1</sup>
   Firefox | v52+ (v55+ on Android/iOS<sup>1</sup>)
   Edge<sup>2</sup> | v16+
-  Safari | v12+
+  Safari | v13+
 
   <sup>1</sup> iOS 14.3+ is required for camera video streaming in Chrome and Firefox or Apps using webviews.
 
