@@ -96,8 +96,7 @@ The complete code of the "MRZ Reading" example is shown below
                 }
             };
             recognizer.onUniqueRead = (txt, results) => {
-                console.log("Found a new unique text:")
-                console.log(txt);
+                alert(txt);
             };
             // End of redundant code.
             await recognizer.startScanning(true);
@@ -122,7 +121,7 @@ The complete code of the "MRZ Reading" example is shown below
 
 * `CameraEnhancer.createInstance()`: this method creates a `CameraEnhancer` object called `cameraEnhancer`, which is used to control the camera as well as the default user interface. Once `cameraEnhancer` is bound to `recognizer` via `setImageSource()`, it can send video frames from the camera to `recognizer` for recognition as well as highlight the recognized text areas directly in the video feed.
 
-* `updateRuntimeSettingsFromString("video-mrz")`: this sets up `recognizer` with a built-in template optimized for reading MRZ from continous video frames. Note that all built-in templates starting with "video-" are only valid after `cameraEnhancer` has been bound to `recognizer`.
+* `updateRuntimeSettingsFromString("video-mrz")`: this sets up `recognizer` with a built-in template optimized for reading MRZ from continuous video frames. Note that all built-in templates starting with "video-" are only valid after `cameraEnhancer` has been bound to `recognizer`.
 
   > Built-in templates include
   >
@@ -148,7 +147,7 @@ The complete code of the "MRZ Reading" example is shown below
 
 * `onUniqueRead`: This event is triggered when the SDK finds a new text, which is not a duplicate among multiple frames. `txt` holds the text value while `results` is an array of objects that hold details of the text. In this example, an alert will be displayed for this new text.
 
-* `startScanning(true)`: Starts continuous video frame scanning. The return value is a Promise which resovles when the camera is opened, the video shows up on the page and the scanning begins (which means `cameraEnhancer` has started feeding `recognizer` with frames to recognize).
+* `startScanning(true)`: Starts continuous video frame scanning. The return value is a Promise which resolves when the camera is opened, the video shows up on the page and the scanning begins (which means `cameraEnhancer` has started feeding `recognizer` with frames to recognize).
 
 ### Test the code
 
