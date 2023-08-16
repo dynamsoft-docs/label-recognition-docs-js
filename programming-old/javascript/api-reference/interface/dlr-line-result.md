@@ -61,4 +61,4 @@ The character results array.
 
 ### isCheckDigitMatched
 
-Indicates whether this line of text has passed the check digit verificiation. If this line of text doesn't have a check digit, `null` is returned. Otherwise, it's either `true` or `false`.
+Indicates whether this line of text has passed the check digit verification. If this line of text doesn't have a check digit, `null` is returned. Otherwise, it's either `true` or `false`.
