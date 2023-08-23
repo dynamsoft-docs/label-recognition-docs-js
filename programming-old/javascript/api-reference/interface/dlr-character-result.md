@@ -25,7 +25,7 @@ Interface that provides more info on the specific characters of a result returne
 | [ `characterLConfidence` ](#characterlconfidence) | *number* |
 | [ `location` ](#location) | [ `Quadrilateral` ](quadrilateral.md) |
 
-<!-->
+<!--
 | [ `reserved` ](#reserved) | *string* |
 -->
 
