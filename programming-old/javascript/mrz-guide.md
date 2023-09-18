@@ -558,4 +558,5 @@ Apart from the browsers, the operating systems may impose some limitations of th
 Now that you have got the SDK integrated, you can choose to move forward in the following directions
 
 1. Check out the [official MRZ samples](https://github.com/Dynamsoft/label-recognizer-javascript-samples/tree/main/use-case/mrz-read-and-parse).
-2. Check out the official demos: [MRZ Scanner](https://demo.dynamsoft.com/label-recognizer-js/mrz-scanner.html) and the [source code for the demo](https://github.com/Dynamsoft/label-recognizer-javascript-demo).
+2. Check out the official demos [MRZ Scanner](https://demo.dynamsoft.com/label-recognizer-js/mrz-scanner.html) and the [source code for the demo](https://github.com/Dynamsoft/label-recognizer-javascript-demo).
+3. Check out the [Dynamsoft developer blog](https://www.dynamsoft.com/codepool/tag/mrz/).
