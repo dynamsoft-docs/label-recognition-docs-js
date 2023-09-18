@@ -69,21 +69,21 @@ The complete code of the "MRZ Reading" example is shown below
                 // In this event handler, you can close the visual cue if it was displayed.
                 console.log("Finished loading " + resourcePath);
             };
-            let mrzReader = await Dynamsoft.DLR.LabelRecognizer.createInstance();
+            let recognizer = await Dynamsoft.DLR.LabelRecognizer.createInstance();
             let cameraEnhancer = await Dynamsoft.DCE.CameraEnhancer.createInstance();
             let options = {
                 resultsHighlightBaseShapes: Dynamsoft.DCE.DrawingItem
             };
-            await mrzReader.setImageSource(cameraEnhancer, options);
+            await recognizer.setImageSource(cameraEnhancer, options);
             // The following line sets up the LabelRecognizer to read MRZ, which means the SDK will load a model file specifically designed for MRZ.
-            await mrzReader.updateRuntimeSettingsFromString("video-mrz");
-            mrzReader.onMRZRead = (txt, results) => {
+            await recognizer.updateRuntimeSettingsFromString("video-mrz");
+            recognizer.onMRZRead = (txt, results) => {
                 // Here we simply show the text in the browser console.
                 console.log("Found and read a MRZ:")
                 console.log(txt);
             };
             // Beginning of redundant code: just to demonstrate the use of onImageRead and onUniqueRead events
-            mrzReader.onImageRead = results => {
+            recognizer.onImageRead = results => {
                 console.log("Finished reading an image:")
                 for (let result of results) {
                     for (let lineResult of result.lineResults) {
@@ -91,33 +91,33 @@ The complete code of the "MRZ Reading" example is shown below
                     }
                 }
             };
-            mrzReader.onUniqueRead = (txt, results) => {
+            recognizer.onUniqueRead = (txt, results) => {
                 alert(txt);
             };
             // End of redundant code.
-            await mrzReader.startScanning(true);
+            await recognizer.startScanning(true);
         })();
     </script>
 </body>
 
 </html>
 ```
-<!--
+
 <p align="center" style="text-align:center; white-space: normal; ">
   <a target="_blank" href="https://jsfiddle.net/DynamsoftTeam/kc35htxd/" title="Run via JSFiddle">
     <img src="https://cdn.jsdelivr.net/npm/simple-icons@3.2.0/icons/jsfiddle.svg" alt="Run via JSFiddle" width="20" height="20" style="width:20px;height:20px;">
   </a>
 </p>
--->
+
 -----
 
 #### About the code
 
-* `LabelRecognizer.createInstance()`: This method creates a `LabelRecognizer` object called `mrzReader`.
+* `LabelRecognizer.createInstance()`: This method creates a `LabelRecognizer` object called `recognizer`.
 
-* `CameraEnhancer.createInstance()`: this method creates a `CameraEnhancer` object called `cameraEnhancer`, which is used to control the camera as well as the default user interface. Once `cameraEnhancer` is bound to `mrzReader` via `setImageSource()`, it can send video frames from the camera to `mrzReader` for recognition as well as highlight the recognized text areas directly in the video feed.
+* `CameraEnhancer.createInstance()`: this method creates a `CameraEnhancer` object called `cameraEnhancer`, which is used to control the camera as well as the default user interface. Once `cameraEnhancer` is bound to `recognizer` via `setImageSource()`, it can send video frames from the camera to `recognizer` for recognition as well as highlight the recognized text areas directly in the video feed.
 
-* `updateRuntimeSettingsFromString("video-mrz")`: this sets up `mrzReader` with a built-in template optimized for reading MRZ from continuous video frames. Note that all built-in templates starting with "video-" are only valid after `cameraEnhancer` has been bound to `mrzReader`.
+* `updateRuntimeSettingsFromString("video-mrz")`: this sets up `recognizer` with a built-in template optimized for reading MRZ from continuous video frames. Note that all built-in templates starting with "video-" are only valid after `cameraEnhancer` has been bound to `recognizer`.
 
   > Built-in MRZ templates include
   >
@@ -138,17 +138,17 @@ The complete code of the "MRZ Reading" example is shown below
 
 * `onUniqueRead`: This event is triggered when the SDK finds a new text, which is not a duplicate among multiple frames. `txt` holds the text value while `results` is an array of objects that hold details of the text. In this example, an alert will be displayed for this new text.
 
-* `startScanning(true)`: Starts continuous video frame scanning. The return value is a Promise which resolves when the camera is opened, the video shows up on the page and the scanning begins (which means `cameraEnhancer` has started feeding `mrzReader` with frames to recognize).
+* `startScanning(true)`: Starts continuous video frame scanning. The return value is a Promise which resolves when the camera is opened, the video shows up on the page and the scanning begins (which means `cameraEnhancer` has started feeding `recognizer` with frames to recognize).
 
 ### Test the code
 
 Create a text file with the name "readMRZ.html", fill it with the code above and save. After that, open the example page in a browser, allow the page to access your camera and the video will show up on the page. After that, you can point the camera at something with a MRZ to read it.
 
-<!--
+
 > You can also just test it at [https://jsfiddle.net/DynamsoftTeam/kc35htxd/](https://jsfiddle.net/DynamsoftTeam/kc35htxd/)
 
 Remember to open the browser console to check the resulting text. Also note that the found text will be highlighted on the UI.
--->
+
 
 *Note*:
 
@@ -167,6 +167,12 @@ You can also try the official sample for MRZ reading ([test in Github](https://d
 In this section, we'll break down and show all the steps required to build a web page that reads the machine readable zone (MRZ) on a passport.
 
 ### Include the SDK
+
+To build the MRZ scanner solution, we need to include these packages
+
+1. `dynamsoft-label-recognizer`: Required, it provides the ability for text recognition from image files and video stream. A license is required for its use.
+2. `dynamsoft-camera-enhancer`: Required, it provides the ability to capture images from video stream.
+3. `mrz-parser.js`: Optional, It defines the most frequently used parsing rules for two- and three-line MRZs. See [Handle the recognized text](#handle-the-recognized-text) for more details.
 
 #### Use a CDN
 
@@ -281,15 +287,15 @@ Dynamsoft.DLR.LabelRecognizer.onResourcesLoaded = (resourcePath) => {
 To use the SDK, we first create a `LabelRecognizer` object.
 
 ```javascript
-let mrzReader = null;
+let recognizer = null;
 let cameraEnhancer = await Dynamsoft.DCE.CameraEnhancer.createInstance();
 let options = {
     resultsHighlightBaseShapes: Dynamsoft.DCE.DrawingItem
 };
-await mrzReader.setImageSource(cameraEnhancer, options);
+await recognizer.setImageSource(cameraEnhancer, options);
 
 try {
-    mrzReader = await Dynamsoft.DLR.LabelRecognizer.createInstance();
+    recognizer = await Dynamsoft.DLR.LabelRecognizer.createInstance();
 } catch (ex) {
     console.error(ex);
 }
@@ -304,7 +310,7 @@ let cameraEnhancer = await Dynamsoft.DCE.CameraEnhancer.createInstance();
 let options = {
     resultsHighlightBaseShapes: Dynamsoft.DCE.DrawingItem
 };
-await mrzReader.setImageSource(cameraEnhancer, options);
+await recognizer.setImageSource(cameraEnhancer, options);
 ```
 
 #### Change the camera settings if necessary
@@ -324,7 +330,7 @@ Check out the following code:
 
 ```javascript
 // Sets up the scanner behavior
-let scanSettings = await mrzReader.getScanSettings();
+let scanSettings = await recognizer.getScanSettings();
 // Disregards duplicated results found in a specified time period (in milliseconds).
 scanSettings.duplicateForgetTime = 5000; // The default is 3000
 // Sets a scan interval in milliseconds so the SDK may release the CPU from time to time.
@@ -333,7 +339,7 @@ scanSettings.intervalTime = 100; // The default is 0.
 // Sets captureAndRecognizeInParallel to false, which tells the SDK not to acquire the next frame while decoding the first.
 // This is another way to save battery power and is recommended on low-end phones. However, it does slow down the decoding speed.
 scanSettings.captureAndRecognizeInParallel = false; // The default is true.
-await mrzReader.updateScanSettings(scanSettings);
+await recognizer.updateScanSettings(scanSettings);
 ```
 
 ```javascript
@@ -341,14 +347,14 @@ await mrzReader.updateScanSettings(scanSettings);
 // built-in RuntimeSetting templates: 
 // "MRZ", "passportMRZ", "visaMRZ", "video-MRZ", "video-passportMRZ", "video-visaMRZ"
 // NOTE: For convenience, these names are not case-sensitive.
-await mrzReader.updateRuntimeSettingsFromString("video-passportMRZ");
+await recognizer.updateRuntimeSettingsFromString("video-passportMRZ");
 ```
 
 As you can see from the above code snippets, there are two types of configurations:
 
-* `get/updateScanSettings`: Configures the behavior of the `mrzReader` which includes `duplicateForgetTime` and `intervalTime`, etc.
+* `get/updateScanSettings`: Configures the behavior of the `recognizer` which includes `duplicateForgetTime` and `intervalTime`, etc.
 
-* `updateRuntimeSettingsFromString`: Configures the `mrzReader` engine with a built-in template or a template represented by a JSON string. This will override the previous RuntimeSettings. In our case, we use the template "video-passportMRZ" which is meant for reading the machine readable zone (MRZ) on a passport.
+* `updateRuntimeSettingsFromString`: Configures the `recognizer` engine with a built-in template or a template represented by a JSON string. This will override the previous RuntimeSettings. In our case, we use the template "video-passportMRZ" which is meant for reading the machine readable zone (MRZ) on a passport.
 
   > Note that templates starting with "video-" are only valid after a `CameraEnhancer` instance has been bound to this `LabelRecognizer` instance.
 
@@ -390,13 +396,13 @@ The built-in UI of the `LabelRecognizer` object is defined in the file `dist/dlr
         (async () => {
             let cameraEnhancer = await Dynamsoft.DCE.CameraEnhancer.createInstance();
             await cameraEnhancer.setUIElement(document.getElementById('div-ui-container'));
-            let mrzReader = await Dynamsoft.DLR.LabelRecognizer.createInstance();
+            let recognizer = await Dynamsoft.DLR.LabelRecognizer.createInstance();
             let options = {
                 resultsHighlightBaseShapes: Dynamsoft.DCE.DrawingItem
             };
-            await mrzReader.setImageSource(cameraEnhancer, options);
-            await mrzReader.updateRuntimeSettingsFromString("video-passportMRZ");
-            await mrzReader.startScanning(true);
+            await recognizer.setImageSource(cameraEnhancer, options);
+            await recognizer.updateRuntimeSettingsFromString("video-passportMRZ");
+            await recognizer.startScanning(true);
         })();
     </script>
     ```
@@ -435,24 +441,74 @@ The built-in UI of the `LabelRecognizer` object is defined in the file `dist/dlr
 
     > Generally, you need to provide a resolution that the camera supports. However, in case a camera does not support the specified resolution, it usually uses the cloest supported resolution. As a result, the selected resolution may not be the actual resolution. In this case, add an option with the class name `dce-opt-gotResolution` (as shown above) and the SDK will then use it to show the **actual resolution**.
 
-#### Starts the recognition
+#### Handle the recognized text
 
-The last step is to attach event handlers to the events `onImageRead` (optional) and `onMRZRead` before calling `startScanning()` to starts the recognition process.
+In this session, we need to decide how to handle the obtained text recognition results. You can either alert it out directly or perform more parsing processes.
 
 ```javascript
-mrzReader.onImageRead = results => {
+recognizer.onImageRead = results => {
     for (let result of results) {
         for (let lineResult of result.lineResults) {
             console.log(lineResult.text);
         }
     }
 };
-mrzReader.onMRZRead = (txt, results) => {
+recognizer.onMRZRead = (txt, results) => {
     // In this event handler, you get a two-line string recognized from the MRZ on passports from which you can further decode and display meaningful information such as name, nationality, etc.
     // Note that if you use the template video-MRZ, you may also get a three-line string.
     alert(txt);
 };
-await mrzReader.startScanning(true);
+```
+
+As an example, we extract all valuable information from the recognized MRZ text here.
+
+```javascript
+// Tools for MRZ parsing
+import { mrzParseTwoLine, mrzParseThreeLine } from './mrz-parser.js'
+
+// Callback to handle MRZ recognizing result
+recognizer.onMRZRead = (txt, results) => {
+    parseMrzAndUpdateDom(results);
+}
+function parseMrzAndUpdateDom(results) {
+    let parseResults;
+    if(results.length === 2) {
+        parseResults = mrzParseTwoLine(results[0].text, results[1].text);
+    } else if(results.length === 3) {
+        parseResults = mrzParseThreeLine(results[0].text, results[1].text, results[2].text);
+    }
+    document.querySelector("#mrz-results").innerHTML = '';
+    for(let info in parseResults) {
+        let infoDiv = document.createElement('div');
+        infoDiv.style.marginTop = "10px";
+        infoDiv.innerHTML = info + " : " + parseResults[info];
+        document.querySelector("#mrz-results").appendChild(infoDiv);
+    }
+}
+```
+
+In this example, we import a tool to assist with MRZ text parsing. Alternatively, you can also implement this tool on your own.
+
+For the specific rules regarding MRZ information extraction, please refer to [mrz-parser.js](https://github.com/Dynamsoft/label-recognizer-javascript-samples/blob/main/use-case/mrz-read-and-parse/mrz-parser.js) file.
+
+#### Starts the recognition
+
+The last step is to attach event handlers to the events `onImageRead` (optional) and `onMRZRead` before calling `startScanning()` to starts the recognition process.
+
+```javascript
+recognizer.onImageRead = results => {
+    for (let result of results) {
+        for (let lineResult of result.lineResults) {
+            console.log(lineResult.text);
+        }
+    }
+};
+recognizer.onMRZRead = (txt, results) => {
+    // In this event handler, you get a two-line string recognized from the MRZ on passports from which you can further decode and display meaningful information such as name, nationality, etc.
+    // Note that if you use the template video-MRZ, you may also get a three-line string.
+    alert(txt);
+};
+await recognizer.startScanning(true);
 ```
 
 ## System Requirements
@@ -501,5 +557,5 @@ Apart from the browsers, the operating systems may impose some limitations of th
 
 Now that you have got the SDK integrated, you can choose to move forward in the following directions
 
-1. Check out the [official samples](https://github.com/Dynamsoft/label-recognizer-javascript-samples).
+1. Check out the [official MRZ samples](https://github.com/Dynamsoft/label-recognizer-javascript-samples/tree/main/use-case/mrz-read-and-parse).
 2. Check out the official demos: [MRZ Scanner](https://demo.dynamsoft.com/label-recognizer-js/mrz-scanner.html) and the [source code for the demo](https://github.com/Dynamsoft/label-recognizer-javascript-demo).
