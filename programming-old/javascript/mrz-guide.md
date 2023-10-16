@@ -3,6 +3,7 @@ layout: default-layout
 title: JavaScript User Guide - Dynamsoft Label Recognizer
 description: This is the user guide page of Dynamsoft Label Recognizer for JavaScript Language.
 keywords: javascript, user guide
+ignore: true
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 permalink: /programming/javascript/mrz-guide.html
@@ -172,7 +173,9 @@ To build the MRZ scanner solution, we need to include these packages
 
 1. `dynamsoft-label-recognizer`: Required, it provides the ability for text recognition from image files and video stream. A license is required for its use.
 2. `dynamsoft-camera-enhancer`: Required, it provides the ability to capture images from video stream.
-3. `mrz-parser.js`: Optional, It defines the most frequently used parsing rules for two- and three-line MRZs. See [Handle the recognized text](#handle-the-recognized-text) for more details.
+3. `mrz-parser.js`: Optional, It defines the most frequently used parsing rules for two- and three-line MRZs.
+
+> See [Handle the recognized text](#handle-the-recognized-text) section for more details about `mrz-parser.js`.
 
 #### Use a CDN
 
