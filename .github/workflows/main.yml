@@ -16,84 +16,19 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains jobs called "Build-Master" and "Build-Preview"
-  Build-Master:
+  Build-Main:
     if: ${{ github.ref == 'refs/heads/main' }}
-    # The type of runner that the job will run on
-    runs-on: self-hosted
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      #- uses: actions/checkout@v2
-
-      # Runs a set of commands using the runners shell
-      - name: clear space
-        run: |
-          cd /home/ubuntu 
-          [ -d DLRJSDoc ] && rm -rf DLRJSDoc
-          [ -d label-recognition-docs-js ] && rm -rf label-recognition-docs-js
-          [ -d Docs-Template-Repo-Preview ] && rm -rf Docs-Template-Repo-Preview
-          cd /home/ubuntu
-
-      - name: Run a multi-line script
-        run: |
-          cd /home/ubuntu
-          [ ! -d DLRJSDoc ] && mkdir -p DLRJSDoc
-          git clone --depth 1 https://github.com/dynamsoft-docs/label-recognition-docs-js.git
-          git clone --depth 1 --branch preview https://github.com/dynamsoft-docs/Docs-Template-Repo.git Docs-Template-Repo-Preview
-          cp -rfp ./label-recognition-docs-js/* ./DLRJSDoc/
-          cp -rfp ./Docs-Template-Repo-Preview/* ./DLRJSDoc/
-          cd DLRJSDoc && bundle install && bundle exec jekyll build
-
-      - name: Sync files - Main Site
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
-        with:
-          server: ${{ secrets.FTP_DYNAMSOFT_LOCAL_SERVER }}
-          username: ${{ secrets.FTP_DYNAMSOFT_LOCAL_USER }}
-          password: ${{ secrets.FTP_DYNAMSOFT_LOCAL_PASSWORD }}
-          port: 21 
-          local-dir: /home/ubuntu/DLRJSDoc/_site/
-          server-dir: /www.dynamsoft.com/label-recognition/docs/web/
-
-      - name: Trigger Webhook 
-        run: | 
-          curl -X POST -H "${{ secrets.WEBHOOK_USER }}" -H "${{ secrets.WEBHOOK_TOKEN }}" -H "Content-Type: application/json" -d "[\"/label-recognition/docs/web/*\"]" ${{ secrets.WEBHOOK_URL }}
-
+    uses: dynamsoft-docs/Docs-Template-Repo/.github/workflows/called-workflow-build-sync-production.yml@main
+    with:
+      doc-repo: label-recognition-docs-js
+      doc-url: label-recognition/docs/web
+    secrets: inherit
 
   Build-Preview:
     if: ${{ github.ref == 'refs/heads/preview' }}
-    # The type of runner that the job will run on
-    runs-on: self-hosted
+    uses: dynamsoft-docs/Docs-Template-Repo/.github/workflows/called-workflow-build-sync-testing.yml@preview
+    with:
+      doc-repo: label-recognition-docs-js
+      doc-url: label-recognition/docs/web
+    secrets: inherit
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Runs a set of commands using the runners shell
-      - name: clear space
-        run: |
-          cd /home/ubuntu 
-          [ -d DLRDocJSPreview ] && rm -rf DLRDocJSPreview
-          [ -d label-recognition-docs-js-preview ] && rm -rf label-recognition-docs-js-preview
-          [ -d Docs-Template-Repo-Preview ] && rm -rf Docs-Template-Repo-Preview
-          cd /home/ubuntu
-
-      - name: Build the site
-        run: |
-          cd /home/ubuntu
-          [ ! -d DLRDocJSPreview ] && mkdir -p DLRDocJSPreview
-          git clone --depth 1 --branch preview https://github.com/dynamsoft-docs/label-recognition-docs-js.git label-recognition-docs-js-preview
-          git clone --depth 1 --branch preview https://github.com/dynamsoft-docs/Docs-Template-Repo.git Docs-Template-Repo-Preview
-          cp -rfp ./label-recognition-docs-js-preview/* ./DLRDocJSPreview/
-          cp -rfp ./Docs-Template-Repo-Preview/* ./DLRDocJSPreview/
-          sed -i -e "1,3s/blob\/master$/blob\/preview/" \
-          -e "1,3s/blob\/main$/blob\/preview/" /home/ubuntu/DLRDocJSPreview/_config.yml
-          cd DLRDocJSPreview && bundle install && bundle exec jekyll build
-
-      - name: Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
-        with:
-          server: ${{ secrets.FTP_TEST_SITE_SERVER }}
-          username: ${{ secrets.FTP_TEST_SITE_USER }}
-          password: ${{ secrets.FTP_TEST_SITE_PASSWORD }}
-          port: 7500 
-          local-dir: /home/ubuntu/DLRDocJSPreview/_site/
-          server-dir: /www.dynamsoft.com/label-recognition/docs/web/   
