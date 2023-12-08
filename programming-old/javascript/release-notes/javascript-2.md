@@ -105,7 +105,7 @@ permalink: /programming/javascript/release-notes/javascript-2.html
 * Added a new template `MRZ` for recognizing Passports, Visas and IDs with Machine-readable zones.
 * Added property `isCheckDigitMatched` to the interface `DLRLineResult`.
 * Added events `onResourcesLoadStarted` / `onResourcesLoaded` which gets triggered when the resource file for a particular template starts to be loaded / finishes loading.
-* Added method `updateReferenceRegionFromBarcodeResults` to make it possible for a DLR instance to use the results of DBR as the reference region.
+* Added method `updateReferenceRegionFromBarcodeResults` to make it possible for a DLR instance to use the results of DLR as the reference region.
 
 ### IMPROVED
 
