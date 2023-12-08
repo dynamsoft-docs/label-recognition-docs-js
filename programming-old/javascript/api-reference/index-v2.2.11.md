@@ -34,14 +34,14 @@ await cameraEnhancer.setUIElement(document.getElementById('div-ui-container'));
 let recognizer = await Dynamsoft.DLR.LabelRecognizer.createInstance();
 recognizer.setImageSource(cameraEnhancer);
 await recognizer.updateRuntimeSettingsFromString("video-MRZ");
-labelRecognizer.onImageRead = results => {
+recognizer.onImageRead = results => {
     for (let result of results) {
         for (let lineResult of result.lineResults) {
             console.log(lineResult.text);
         }
     }
 };
-labelRecognizer.startScanning(true);
+recognizer.startScanning(true);
 ```
 
 The APIs for this class include

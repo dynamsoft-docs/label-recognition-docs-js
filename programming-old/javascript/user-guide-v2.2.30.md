@@ -5,7 +5,7 @@ description: This is the user guide page of Dynamsoft Label Recognizer for JavaS
 keywords: javascript, user guide
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
-permalink: /programming/javascript/user-guide-v2.2.11.html
+permalink: /programming/javascript/user-guide-v2.2.30.html
 ---
 
 <!--The original doc is hosted here => https://github.com/dynamsoft-docs/label-recognition-docs/blob/master/programming/javascript/user-guide.md -->
@@ -54,8 +54,8 @@ The complete code of the "MRZ Reading" example is shown below
 
 <head>
     <title>MRZ Reading</title>
-    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer@2.2.11/dist/dlr.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@3.0.1/dist/dce.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer@2.2.30/dist/dlr.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@3.2.0/dist/dce.js"></script>
 </head>
 
 <body>
@@ -109,7 +109,7 @@ The complete code of the "MRZ Reading" example is shown below
 
 <p align="center" style="text-align:center; white-space: normal; ">
   <a target="_blank" href="https://jsfiddle.net/DynamsoftTeam/kc35htxd/" title="Run via JSFiddle">
-    <img src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/jsfiddle.svg" alt="Run via JSFiddle" width="20" height="20" style="width:20px;height:20px;">
+    <img src="https://cdn.jsdelivr.net/npm/simple-icons@3.2.0/icons/jsfiddle.svg" alt="Run via JSFiddle" width="20" height="20" style="width:20px;height:20px;">
   </a>
 </p>
 
@@ -134,12 +134,13 @@ The complete code of the "MRZ Reading" example is shown below
   >| `MRZ` | For MRZ (machine-readable zone) recognition. |
   >| `passportMRZ` | For passport MRZ recognition. |
   >| `visaMRZ` | For Visa (Country not Credit Card) MRZ recognition. |
+  >| `idcardMRZ` | For ID card MRZ recognition. |
   >| `VIN` | For VIN (vehicle identification number) recognition. |
   >| `VIN_NA` | For North American VIN (vehicle identification number) recognition. |
   >
   > When recognizing from video input, add the prefix "video-" for a slightly different template optimized for continuous frame recognition. For example, use `video-passportMRZ` to read the MRZ on passports with a camera.
 
-* `onMRZRead`: This event is only used with one of the templates "MRZ", "passportMRZ" and "visaMRZ" (similarly, "onVINRead" is only used with either "VIN" or "VIN_NA"). It is triggered each time the SDK has identified and finished the recognition of a MRZ zone. The `results` object contains 2 or 3 lines of text results corresponding to the 2 or 3 lines in the MRZ. In this example, we simply print the results to the browser console.
+* `onMRZRead`: This event is only used with one of the templates "MRZ", "passportMRZ", "visaMRZ" and "idcardMRZ" (similarly, "onVINRead" is only used with either "VIN" or "VIN_NA"). It is triggered each time the SDK has identified and finished the recognition of a MRZ zone. The `results` object contains 2 or 3 lines of text results corresponding to the 2 or 3 lines in the MRZ. In this example, we simply print the results to the browser console.
 
 > The events `onImageRead` and `onUniqueRead` are used in the code but they are not required. You can compare the results returned in the 3 events and see what the differences are.
 
@@ -182,15 +183,15 @@ The simplest way to include the SDK is to use either the [jsDelivr](https://jsde
 * jsDelivr
 
   ```html
-  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer@2.2.11/dist/dlr.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@3.0.1/dist/dce.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer@2.2.30/dist/dlr.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@3.2.0/dist/dce.js"></script>
   ```
 
 * UNPKG  
 
   ```html
-  <script src="https://unpkg.com/dynamsoft-label-recognizer@2.2.11/dist/dlr.js"></script>
-  <script src="https://unpkg.com/dynamsoft-camera-enhancer@3.0.1/dist/dce.js"></script>
+  <script src="https://unpkg.com/dynamsoft-label-recognizer@2.2.30/dist/dlr.js"></script>
+  <script src="https://unpkg.com/dynamsoft-camera-enhancer@3.2.0/dist/dce.js"></script>
   ```
 
 #### Host the SDK yourself
@@ -202,22 +203,22 @@ To download the SDK:
 * yarn
 
   ```cmd
-  yarn add dynamsoft-label-recognizer@2.2.11
-  yarn add dynamsoft-camera-enhancer@3.0.1
+  yarn add dynamsoft-label-recognizer@2.2.30
+  yarn add dynamsoft-camera-enhancer@3.2.0
   ```
 
 * npm
 
   ```cmd
-  npm install dynamsoft-label-recognizer@2.2.11
-  npm install dynamsoft-camera-enhancer@3.0.1
+  npm install dynamsoft-label-recognizer@2.2.30
+  npm install dynamsoft-camera-enhancer@3.2.0
   ```
 
 Depending on how you downloaded the SDK and where you put it, you can typically include it like this:
 
   ```html
-  <script src="/dlr-js-2.2.11/dist/dlr.js"></script>
-  <script src="/dlr-js-2.2.11/dce/dist/dce.js"></script>
+  <script src="/dynamsoft-label-recognizer-js-2.2.30/dist/dlr.js"></script>
+  <script src="/dynamsoft-label-recognizer-js-2.2.30/dce/dist/dce.js"></script>
   ```
 
 or
@@ -254,8 +255,8 @@ If the engine files (\*.worker.js, \*.wasm.js and \*.wasm, etc.) are not in the 
 
 ```javascript
 // The following code uses the jsDelivr CDN, feel free to change it to your own location of these files.
-Dynamsoft.DLR.LabelRecognizer.engineResourcePath = "https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer@2.2.11/dist/";
-Dynamsoft.DCE.CameraEnhancer.engineResourcePath = "https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@3.0.1/dist/";
+Dynamsoft.DLR.LabelRecognizer.engineResourcePath = "https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer@2.2.30/dist/";
+Dynamsoft.DCE.CameraEnhancer.engineResourcePath = "https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@3.2.0/dist/";
 ```
 
 **This configuration is usually required with frameworks like Angular or React where dlr.js is compiled into another file.**
@@ -310,7 +311,7 @@ await recognizer.setImageSource(cameraEnhancer, options);
 
 #### Change the camera settings if necessary
 
-In some cases, a different camera might be required instead of the default one. Also, a different resolution might work better. To change the camera or the resolution, we use the `CameraEnhancer` object. Learn more [here](https://www.dynamsoft.com/camera-enhancer/docs/programming/javascript/api-reference/camera-control.html?ver=3.0.1&utm_source=guide&product=dlr&package=js).
+In some cases, a different camera might be required instead of the default one. Also, a different resolution might work better. To change the camera or the resolution, we use the `CameraEnhancer` object. Learn more [here](https://www.dynamsoft.com/camera-enhancer/docs/programming/javascript/api-reference/camera-control.html?ver=3.2.0&utm_source=guide&product=dlr&package=js).
 
 ```javascript
 // The following lines set which camera and what resolution to use.
@@ -459,7 +460,7 @@ await recognizer.startScanning(true);
 ## API Documentation
 
 You can check out the detailed documentation about the APIs of the SDK at
-[https://www.dynamsoft.com/label-recognition/docs/programming/javascript/api-reference/?ver=2.2.11&utm_source=guide&product=dlr&package=js](https://www.dynamsoft.com/label-recognition/docs/programming/javascript/api-reference/?ver=2.2.11&utm_source=guide&product=dlr&package=js).
+[https://www.dynamsoft.com/label-recognition/docs/programming/javascript/api-reference/?ver=2.2.30&utm_source=guide&product=dlr&package=js](https://www.dynamsoft.com/label-recognition/docs/programming/javascript/api-reference/?ver=2.2.30&utm_source=guide&product=dlr&package=js).
 
 ## System Requirements
 
@@ -493,19 +494,19 @@ The following table is a list of supported browsers based on the above requireme
   Chrome | v61+<sup>1</sup>
   Firefox | v52+ (v55+ on Android/iOS<sup>1</sup>)
   Edge<sup>2</sup> | v16+
-  Safari<sup>3</sup> | v11+
+  Safari | v13+
 
   <sup>1</sup> iOS 14.3+ is required for camera video streaming in Chrome and Firefox or Apps using webviews.
 
   <sup>2</sup> On Edge, due to strict Same-origin policy, you must host the SDK files on the same domain as your web page.
-  
-  <sup>3</sup> Safari v11.x already has the required features, but it has many other issues, so we recommend v12+.
+
+  > Note: iOS 12 is currently not compatible with Dynamsoft Label Recognizer v 2.2.30+, due to certain technical limitations.
 
 Apart from the browsers, the operating systems may impose some limitations of their own that could restrict the use of the SDK. Browser compatibility ultimately depends on whether the browser on that particular operating system supports the features listed above.
 
 ## Release Notes
 
-Learn about what are included in each release at [https://www.dynamsoft.com/label-recognition/docs/programming/javascript/release-notes/?ver=latest](https://www.dynamsoft.com/label-recognition/docs/programming/javascript/release-notes/?ver=latest).
+Learn about what are included in each release at [https://www.dynamsoft.com/label-recognition/docs/web/programming/javascript/release-notes/?ver=latest](https://www.dynamsoft.com/label-recognition/docs/web/programming/javascript/release-notes/?ver=latest).
 
 ## Next Steps
 

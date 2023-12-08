@@ -11,6 +11,13 @@ permalink: /programming/javascript/release-notes/javascript-2.html
 
 # Release Notes - JavaScript 2.x
 
+## 2.2.31 (08/07/2023)
+
+### FIXED
+
+* Fixed an issue where TypeScript 5 cannot locate the declaration file when importing package.
+* Fixed a regular expression error in the MRZ template that could lead to misrecognition.
+
 ## 2.2.30 (07/24/2023)
 
 ### IMPROVED
