@@ -10,7 +10,7 @@ enumerations: /label-recognition/docs/core/parameters/enum/
 dcv_enumerations: /capture-vision/docs/core/enums/
 
 js: /label-recognition/docs/web/programming/javascript/
-js-api: /label-recognition/docs/web/programming/javascript/api-reference/
+dlr_js_api: /label-recognition/docs/web/programming/javascript/api-reference/
 js-release-notes: /label-recognition/docs/web/programming/javascript/release-notes/
 dcv_js_api: /capture-vision/docs/web/programming/javascript/api-reference/
 
