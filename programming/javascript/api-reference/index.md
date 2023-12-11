@@ -7,7 +7,6 @@ needAutoGenerateSidebar: true
 needGenerateH3Content: true
 breadcrumbText: API Reference
 noTitleIndex: true
-
 ---
 
 # Dynamsoft Label Recognizer JavaScript Edition API Reference
