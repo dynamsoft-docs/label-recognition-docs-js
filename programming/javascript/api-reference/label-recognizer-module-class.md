@@ -14,7 +14,7 @@ The `LabelRecognizerModule` Class is defined in the namespace `Dynamsoft.DLR`.
 
 | API Name                                           | Description                                                         |
 | -------------------------------------------------- | ------------------------------------------------------------------- |
-| static [`getVersion()`](#getversion)               | Returns the version of the `LabelRecognizer` module.                  |
+| static [getVersion()](#getversion)               | Returns the version of the `LabelRecognizer` module.                  |
 
 ### getVersion
 

@@ -145,14 +145,14 @@ In order to make the code more predictable and readable, the library defines a s
 
 ### Interfaces
 
-* [`DLRLineResult`](interface/dlr-line-result.html)
-* [`Point`](interface/point.html)
-* [`Quadrilateral`](interface/quadrilateral.html)
-* [`DLRReferenceRegion`](interface/dlr-reference-region.html)
-* [`DLRResult`](interface/dlr-result.html)
-* [`DLRRuntimeSettings`](interface/dlr-runtime-settings.html)
-* [`ImageSource`](interface/imagesource.html)
-* [`DSImage`](interface/dsimage.html)
+* [DLRLineResult](interface/dlr-line-result.html)
+* [Point](interface/point.html)
+* [Quadrilateral](interface/quadrilateral.html)
+* [DLRReferenceRegion](interface/dlr-reference-region.html)
+* [DLRResult](interface/dlr-result.html)
+* [DLRRuntimeSettings](interface/dlr-runtime-settings.html)
+* [ImageSource](interface/imagesource.html)
+* [DSImage](interface/dsimage.html)
 
 ### Enumerations
 
