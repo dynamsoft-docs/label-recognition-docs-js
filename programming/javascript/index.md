@@ -12,7 +12,7 @@ permalink: /programming/javascript/index.html
 
 ## Getting Started
 
-- [User Guide]({{site.js}}user-guide.html)
+- [User Guide]({{site.js}}user-guide/index.html)
 
 ## API Reference
 
