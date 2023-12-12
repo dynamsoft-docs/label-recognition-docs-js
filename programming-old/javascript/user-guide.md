@@ -514,4 +514,4 @@ Now that you have got the SDK integrated, you can choose to move forward in the 
 
 1. Check out the [official samples](https://github.com/Dynamsoft/label-recognizer-javascript-samples).
 2. Check out the official demos: [MRZ Scanner](https://demo.dynamsoft.com/label-recognizer-js/mrz-scanner.html), [VIN Scanner](https://demo.dynamsoft.com/label-recognizer-js/vin.html) and the [source code for the demo](https://github.com/Dynamsoft/label-recognizer-javascript-demo).
-3. Learn about the available [APIs]({{ site.js-api }}).
+3. Learn about the available [APIs]({{ site.dlr_js_api }}).

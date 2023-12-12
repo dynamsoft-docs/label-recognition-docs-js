@@ -11,7 +11,7 @@ dcv_enumerations: /capture-vision/docs/core/enums/
 
 js: /label-recognition/docs/web/programming/javascript/
 dlr_js_api: /label-recognition/docs/web/programming/javascript/api-reference/
-js-release-notes: /label-recognition/docs/web/programming/javascript/release-notes/
+js_release_notes: /label-recognition/docs/web/programming/javascript/release-notes/
 dcv_js_api: /capture-vision/docs/web/programming/javascript/api-reference/
 
 assets: /label-recognition/docs/core/assets/
@@ -21,9 +21,6 @@ sad_icon: /label-recognition/docs/core/assets/img-icon/icon-sad.png
 dbr_icon: /label-recognition/docs/core/assets/img-icon/icon-dbr.svg
 dwt_icon: /label-recognition/docs/core/assets/img-icon/icon-dwt.svg
 dnt_icon: /label-recognition/docs/core/assets/img-icon/icon-dnt.svg
-
-release-notes: /label-recognition/docs/core/release-notes/
-license-activation: /label-recognition/docs/core/license-activation/
 
 useVersionTree: true
 
