@@ -75,7 +75,7 @@ The complete code of the example is shown below
 <html>
 <body>
   <script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.32/dist/core.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-license@3.0.20/dist/license.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-license@3.0.40/dist/license.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/dynamsoft-utility@1.0.21/dist/utility.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer@3.0.30/dist/dlr.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.32/dist/cvr.js"></script>
@@ -205,7 +205,7 @@ The simplest way to include the SDK is to use either the [jsDelivr](https://jsde
 
   ```html
   <script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.32/dist/core.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-license@3.0.20/dist/license.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-license@3.0.40/dist/license.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/dynamsoft-utility@1.0.21/dist/utility.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer@3.0.30/dist/dlr.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.32/dist/cvr.js"></script>
@@ -216,7 +216,7 @@ The simplest way to include the SDK is to use either the [jsDelivr](https://jsde
 
   ```html
   <script src="https://unpkg.com/dynamsoft-core@3.0.32/dist/core.js"></script>
-  <script src="https://unpkg.com/dynamsoft-license@3.0.20/dist/license.js"></script>
+  <script src="https://unpkg.com/dynamsoft-license@3.0.40/dist/license.js"></script>
   <script src="https://unpkg.com/dynamsoft-utility@1.0.21/dist/utility.js"></script>
   <script src="https://unpkg.com/dynamsoft-label-recognizer@3.0.30/dist/dlr.js"></script>
   <script src="https://unpkg.com/dynamsoft-capture-vision-router@2.0.32/dist/cvr.js"></script>
@@ -226,7 +226,7 @@ The simplest way to include the SDK is to use either the [jsDelivr](https://jsde
 In some rare cases (such as some restricted areas), you might not be able to access the CDN. If this happens, you can use the following files for the test.
 
 - https://download2.dynamsoft.com/packages/dynamsoft-core@3.0.32/dist/core.js
-- https://download2.dynamsoft.com/packages/dynamsoft-license@3.0.20/dist/license.js
+- https://download2.dynamsoft.com/packages/dynamsoft-license@3.0.40/dist/license.js
 - https://download2.dynamsoft.com/packages/dynamsoft-utility@1.0.21/dist/utility.js
 - https://download2.dynamsoft.com/packages/dynamsoft-label-recognizer@3.0.30/dist/dlr.js
 - https://download2.dynamsoft.com/packages/dynamsoft-capture-vision-router@2.0.32/dist/cvr.js
@@ -248,7 +248,7 @@ Options to download the SDK:
 
   ```cmd
   yarn add dynamsoft-core@3.0.32 --save
-  yarn add dynamsoft-license@3.0.20 --save
+  yarn add dynamsoft-license@3.0.40 --save
   yarn add dynamsoft-utility@1.0.21 --save
   yarn add dynamsoft-label-recognizer@3.0.30 --save
   yarn add dynamsoft-capture-vision-router@2.0.32 --save
@@ -259,7 +259,7 @@ Options to download the SDK:
 
   ```cmd
   npm install dynamsoft-core@3.0.32 --save
-  npm install dynamsoft-license@3.0.20 --save
+  npm install dynamsoft-license@3.0.40 --save
   npm install dynamsoft-utility@1.0.21 --save
   npm install dynamsoft-label-recognizer@3.0.30 --save
   npm install dynamsoft-capture-vision-router@2.0.32 --save
@@ -270,7 +270,7 @@ Depending on how you downloaded the SDK and how you intend to use it, you can ty
 
 ```html
 <script src="./dynamsoft/distributables/dynamsoft-core@3.0.32/dist/core.js"></script>
-<script src="./dynamsoft/distributables/dynamsoft-license@3.0.20/dist/license.js"></script>
+<script src="./dynamsoft/distributables/dynamsoft-license@3.0.40/dist/license.js"></script>
 <script src="./dynamsoft/distributables/dynamsoft-utility@1.0.21/dist/utility.js"></script>
 <script src="./dynamsoft/distributables/dynamsoft-label-recognizer@3.0.30/dist/dlr.js"></script>
 <script src="./dynamsoft/distributables/dynamsoft-capture-vision-router@2.0.32/dist/cvr.js"></script>
@@ -340,7 +340,7 @@ The purpose is to tell the SDK where to find the engine files (\*.worker.js, \*.
 ```javascript
 // The following code uses the jsDelivr CDN, feel free to change it to your own location of these files
 Dynamsoft.Core.CoreModule.engineResourcePaths.core = "https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.32/dist/";
-Dynamsoft.Core.CoreModule.engineResourcePaths.license = "https://cdn.jsdelivr.net/npm/dynamsoft-license@3.0.20/dist/";
+Dynamsoft.Core.CoreModule.engineResourcePaths.license = "https://cdn.jsdelivr.net/npm/dynamsoft-license@3.0.40/dist/";
 Dynamsoft.Core.CoreModule.engineResourcePaths.dlr = "https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer@3.0.30/dist/";
 Dynamsoft.Core.CoreModule.engineResourcePaths.cvr = "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.32/dist/";
 Dynamsoft.Core.CoreModule.engineResourcePaths.dce = "https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@4.0.1/dist/";
