@@ -13,8 +13,6 @@ breadcrumbText: CharacterResult
 
 The `CharacterResult` class represents the result of a character recognition process. It contains the characters recognized (high, medium, and low confidence), their respective confidences, and the location of the character in a quadrilateral shape.
 
-## Definition
-
 ```typescript
 interface CharacterResult {
     characterH: string;
@@ -27,8 +25,8 @@ interface CharacterResult {
 }
 ```
 
-| Method                                          | Description                                                    |
-| ----------------------------------------------- | -------------------------------------------------------------- |
+| Method                                        | Description                                                    |
+| --------------------------------------------- | -------------------------------------------------------------- |
 | [characterH](#characterh)                     | Returns thecharacter with high confidence.                     |
 | [characterM](#characterm)                     | Returns thecharacter with medium confidence.                   |
 | [characterL](#characterl)                     | Returns thecharacter with low confidence.                      |
@@ -37,7 +35,7 @@ interface CharacterResult {
 | [characterMConfidence](#charactermconfidence) | Returns theconfidence of the character with medium confidence. |
 | [characterLConfidence](#characterlconfidence) | Returns theconfidence of the character with low confidence.    |
 
-### characterH
+## characterH
 
 Returns thecharacter with high confidence.
 
@@ -45,7 +43,7 @@ Returns thecharacter with high confidence.
 characterH: string
 ```
 
-### characterM
+## characterM
 
 Returns thecharacter with medium confidence.
 
@@ -53,7 +51,7 @@ Returns thecharacter with medium confidence.
 characterM: string
 ```
 
-### characterL
+## characterL
 
 Returns thecharacter with low confidence.
 
@@ -61,7 +59,7 @@ Returns thecharacter with low confidence.
 characterL: string
 ```
 
-### location
+## location
 
 Returns thelocation of the character in a quadrilateral shape.
 
@@ -73,7 +71,7 @@ location: Quadrilateral;
 
 * [Quadrilateral]({{ site.dcv_js_api }}core/basic-structures/quadrilateral.html)
 
-### characterHConfidence
+## characterHConfidence
 
 Returns theconfidence of the character with high confidence.
 
@@ -81,7 +79,7 @@ Returns theconfidence of the character with high confidence.
 characterHConfidence: number
 ```
 
-### characterMConfidence
+## characterMConfidence
 
 Returns theconfidence of the character with medium confidence.
 
@@ -89,7 +87,7 @@ Returns theconfidence of the character with medium confidence.
 characterMConfidence: number
 ```
 
-### characterLConfidence
+## characterLConfidence
 
 Returns theconfidence of the character with low confidence.
 

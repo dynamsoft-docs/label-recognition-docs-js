@@ -11,10 +11,10 @@ noTitleIndex: true
 
 # Dynamsoft Label Recognizer JavaScript Edition API Reference
 
-In versions 10.x and higher, Dynamsoft Label Recognizer JavaScript Edition includes the following modules:
+In versions 3.x and higher, Dynamsoft Label Recognizer JavaScript Edition includes the following modules:
 
-* [LabelRecognizer](./label-recognizer-module.md)
-* [CaptureVisionRouter]({{ site.dcv_js_api }}capture-vision-router/capture-vision-router-module.md)
-* [License]({{ site.dcv_js_api }}license/license-module.md)
-* [Utility]({{ site.dcv_js_api }}utility/utility-module.md)
-* [Core]({{ site.dcv_js_api }}core/core-module.md)
+* [DynamsoftCaptureVisionRouter]({{ site.dcv_js_api }}capture-vision-router/capture-vision-router-module.html)
+* [DynamsoftLabelRecognizer](./label-recognizer-module.md)
+* [DynamsoftLicense]({{ site.dcv_js_api }}license/license-module.html)
+* [DynamsoftUtility]({{ site.dcv_js_api }}utility/utility-module.html)
+* [DynamsoftCore]({{ site.dcv_js_api }}core/core-module.html)

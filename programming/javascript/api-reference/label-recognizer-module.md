@@ -15,11 +15,13 @@ The LabelRecognizer module is defined in the namespace `Dynamsoft.DLR`. It inclu
 
 ## LabelRecognizerModule Class
 
-This class defines common functionality in the `LabelRecognizer` module. At present, there is only one API.
+This class defines common functionality in the `LabelRecognizer` module.
 
-| API Name                                                               | Description                                        |
-| ---------------------------------------------------------------------- | -------------------------------------------------- |
-| `static` [getVersion()](./label-recognizer-module-class.md#getversion) | Returns the version of the LabelRecognizer module. |
+| API Name                                                                                           | Description                                                                           |
+| -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `static` [getVersion()](./label-recognizer-module-class.md#getversion)                             | Returns the version of the `LabelRecognizer` module.                                  |
+| `static` [loadRecognitionData()](./label-recognizer-module-class.md#loadrecognitiondata)           | Loads a specific data file containing recognition information.                        |
+| `static` [onDataLoadProgressChanged](./label-recognizer-module-class.md#ondataloadprogresschanged) | An event that repeatedly fires during the loading of a recognition data file (.data). |
 
 ## Interfaces
 

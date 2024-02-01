@@ -10,18 +10,21 @@ breadcrumbText: v3.x Release Notes
 
 # Release Notes - JavaScript 3.x
 
-## 3.0.20 (01/xx/2024)
+## 3.0.30 (02/01/2024)
 
-### ADDED
+### Changelog
 
-* Added option `captureAndRecognizeInParallel` to the interface `ScanSettings` to control whether to speed up the recognition by capturing the next frame in advance.
+In this version, the SDK has been refactored under the `DynamsoftCaptureVision` (DCV) architecture. To learn more about the architecture, please see [Architecture of Dynamsoft Capture Vision](https://www.dynamsoft.com/capture-vision/docs/core/architecture/){:target="_blank"}. The following highlights the major changes: 
 
-### CHANGED
+* The class `LabelRecognizer` is removed and its functionalities are now incorporated into the newly added Class `CaptureVisionRouter`.
 
-* The method `setImageSource()` now takes an additional parameter `options` which helps to pass the information needed by the `LabelRecognizer` object, such as the definition (`Dynamsoft.DCE.DrawingItem`) for creating the shapes that highlight barcodes.
-* The method `pauseScanning()` now accepts an optional parameter `options`, which can control the behavior of the pause, such as whether to keep results highlighted (`keepResultsHighlighted`).
-* This version uses [Dynamsoft Camera Enhancer version 3.0.1](https://www.dynamsoft.com/camera-enhancer/docs/programming/javascript/release-note/release-notes-3.x.html?ver=latest#301-08042022).
+* License-related functions are handled by class [Dynamsoft.License.LicenseManager]({{ site.dcv_js_api }}license/license-manager.html#initLicense).
 
-### FIXED
+* Camera-related functions are handled by [DynamsoftCameraEnhancer(DCE)](https://www.dynamsoft.com/camera-enhancer/docs/web/programming/javascript/){:target="_blank"}. Please note that the following features are grouped together as enhanced features that require a license:
+  * Enhanced-focus.
+  * Auto-zoom.
+  * Tap-to-focus.
 
-* Fix a bug with VIN result verification, which may lead to errors when the VIN code start and end with the character "1".
+* This version of `LabelRecognizer` only accepts `DynamsoftCameraEnhancer(DCE)` version 4.0.1 and above, which has been refactored to be compliant with the [ImageSourceAdapter (ISA) interface](https://www.dynamsoft.com/capture-vision/docs/core/architecture/input.html#image-source-adapter){:target="_blank"}, as a valid image source.
+
+* Recognized text results are returned via the [CapturedResultReceiver (CRR) interface](https://www.dynamsoft.com/capture-vision/docs/core/architecture/output.html#captured-result-receiver){:target="_blank"}.

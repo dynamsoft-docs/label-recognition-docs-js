@@ -13,8 +13,6 @@ breadcrumbText: LocalizedTextLineElement
 
 The `LocalizedTextLineElement` class represents a localized text line element.
 
-## Definition
-
 ```typescript
 interface LocalizedTextLineElement extends Core.RegionObjectElement {
     characterQuads: Array<Core.Quadrilateral>;
@@ -22,12 +20,12 @@ interface LocalizedTextLineElement extends Core.RegionObjectElement {
 }
 ```
 
-| Method                              | Description                                                    |
-| ----------------------------------- | -------------------------------------------------------------- |
+| Method                            | Description                                                    |
+| --------------------------------- | -------------------------------------------------------------- |
 | [characterQuads](#characterquads) | Returns the quadrilaterals of all characters in the text line. |
 | [rowNumber](#rownumber)           | Returns the row number of the text line.                       |
 
-### characterQuads
+## characterQuads
 
 Returns the quadrilaterals of all characters in the text line.
 
@@ -39,7 +37,7 @@ characterQuads: Array<Quadrilateral>;
 
 * [Quadrilateral]({{ site.dcv_js_api }}core/basic-structures/quadrilateral.html)
 
-### rowNumber
+## rowNumber
 
 Returns the row number of the text line.
 

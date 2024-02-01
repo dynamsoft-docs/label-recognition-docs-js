@@ -13,19 +13,17 @@ breadcrumbText: LocalizedTextLinesUnit
 
 The `LocalizedTextLinesUnit` class represents a unit that contains localized text lines.
 
-## Definition
-
 ```typescript
 interface LocalizedTextLinesUnit extends Core.IntermediateResultUnit {
     localizedTextLines: Array<LocalizedTextLineElement>;
 }
 ```
 
-| Method                                      | Description                               |
-| ------------------------------------------- | ----------------------------------------- |
+| Method                                    | Description                               |
+| ----------------------------------------- | ----------------------------------------- |
 | [localizedTextLines](#localizedtextlines) | Returns the localized text line elements. |
 
-### localizedTextLines
+## localizedTextLines
 
 Returns the localized text line elements.
 

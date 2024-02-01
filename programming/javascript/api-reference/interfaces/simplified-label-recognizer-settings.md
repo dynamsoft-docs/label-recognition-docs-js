@@ -13,8 +13,6 @@ breadcrumbText: SimplifiedLabelRecognizerSettings
 
 This interface defines simplified settings for label recognizing tasks.
 
-## Definition
-
 ```typescript
 interface SimplifiedLabelRecognizerSettings {
     grayscaleTransformationModes: Array<Core.EnumGrayscaleTransformationMode>;
@@ -25,15 +23,15 @@ interface SimplifiedLabelRecognizerSettings {
 }
 ```
 
-| Property                                                        | Description                                                                           |
-| --------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| Property                                                      | Description                                                                           |
+| ------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
 | [grayscaleTransformationModes](#grayscaletransformationmodes) | Sets the grayscale transformation modes.                                              |
 | [grayscaleEnhancementModes](#grayscaleenhancementmodes)       | Sets the grayscale enhancement modes.                                                 |
 | [characterModelName](#charactermodelname)                     | Specifies a character model by its name.                                              |
 | [lineStringRegExPattern](#linestringregexpattern)             | Sets the RegEx pattern of the text line string to filter out the unqualified results. |
 | [scaleDownThreshold](#scaledownthreshold)                     | Sets the threshold value that determines when the original image is scaled down.      |
 
-### grayscaleTransformationModes
+## grayscaleTransformationModes
 
 Sets the grayscale transformation modes.
 
@@ -45,7 +43,7 @@ grayscaleTransformationModes: Array<EnumGrayscaleTransformationMode>
 
 View the parameter reference page of [EnumGrayscaleTransformationMode]({{ site.dcv_parameter_reference }}image-parameter/grayscale-transformation-modes.html){:target="_blank"} for more detail about how to set grayscale transformation modes.
 
-### grayscaleEnhancementModes
+## grayscaleEnhancementModes
 
 Sets the grayscale enhancement modes.
 
@@ -57,7 +55,7 @@ grayscaleEnhancementModes: Array<EnumGrayscaleEnhancementMode>;
 
 View the reference page of [EnumGrayscaleEnhancementMode]({{ site.dcv_parameter_reference }}image-parameter/grayscale-enhancement-modes.html){:target="_blank"} for more detail about how to set grayscale enhancement modes.
 
-### characterModelName
+## characterModelName
 
 Specifies a character model by its name.
 
@@ -69,7 +67,7 @@ characterModelName: string;
 
 View the parameter reference of [CharacterModelName]({{ site.dcv_parameter_reference }}text-line-specification/character-model-name.html) for more details about how to use the parameter.
 
-### lineStringRegExPattern
+## lineStringRegExPattern
 
 Sets the RegEx pattern of the text line string to filter out the unqualified results.
 
@@ -77,7 +75,7 @@ Sets the RegEx pattern of the text line string to filter out the unqualified res
 lineStringRegExPattern: string;
 ```
 
-### scaleDownThreshold
+## scaleDownThreshold
 
 Sets the threshold value that determines when the original image is scaled down.
 

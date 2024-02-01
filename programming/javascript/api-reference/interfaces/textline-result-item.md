@@ -13,8 +13,6 @@ breadcrumbText: TextLineResultItem
 
 The `TextLineResultItem` class represents a text line result item recognized by the library.
 
-## Definition
-
 ```typescript
 interface TextLineResultItem extends Core.CapturedResultItem {
     text: string;
@@ -24,14 +22,14 @@ interface TextLineResultItem extends Core.CapturedResultItem {
 }
 ```
 
-| Method                                  | Description                                                           |
-| --------------------------------------- | --------------------------------------------------------------------- |
+| Method                                | Description                                                           |
+| ------------------------------------- | --------------------------------------------------------------------- |
 | [text](#text)                         | Returns the text content of the text line.                            |
 | [location](#location)                 | Returns the location of the text line in the form of a quadrilateral. |
 | [confidence](#confidence)             | Returns the confidence of the text line recognition result.           |
 | [characterResults](#characterresults) | Returns all the characters in the text line.                          |
 
-### Text
+## Text
 
 Returns the text content of the text line.
 
@@ -39,7 +37,7 @@ Returns the text content of the text line.
 text: string;
 ```
 
-### Location
+## Location
 
 Returns the location of the text line in the form of a quadrilateral.
 
@@ -51,7 +49,7 @@ location: Quadrilateral;
 
 * [Quadrilateral]({{ site.dcv_js_api }}core/basic-structures/quadrilateral.html)
 
-### confidence
+## confidence
 
 It is used to get the confidence of the text line recognition result.
 
@@ -59,7 +57,7 @@ It is used to get the confidence of the text line recognition result.
 confidence: number;
 ```
 
-### characterResults
+## characterResults
 
 Returns all the characters in the text line.
 

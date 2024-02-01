@@ -13,7 +13,7 @@ js: /label-recognition/docs/web/programming/javascript/
 dlr_js_api: /label-recognition/docs/web/programming/javascript/api-reference/
 js_release_notes: /label-recognition/docs/web/programming/javascript/release-notes/
 dcv_js_api: /capture-vision/docs/web/programming/javascript/api-reference/
-
+enums: /capture-vision/docs/core/enums/
 assets: /label-recognition/docs/core/assets/
 edit_icon: /label-recognition/docs/core/assets/img-icon/edit-icon.png
 smile_icon: /label-recognition/docs/core/assets/img-icon/icon-smile.png

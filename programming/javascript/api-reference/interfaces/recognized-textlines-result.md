@@ -13,8 +13,6 @@ breadcrumbText: RecognizedTextLinesResult
 
 The `RecognizedTextLinesResult` class represents the result of a text recognition process. It provides access to information about the recognized text lines, the original image, and any errors that occurred during the recognition process.
 
-## Definition
-
 ```typescript
 interface RecognizedTextLinesResult {
     originalImageHashId: string;
@@ -25,15 +23,15 @@ interface RecognizedTextLinesResult {
 }
 ```
 
-| Method                                          | Description                                        |
-| ----------------------------------------------- | -------------------------------------------------- |
+| Method                                        | Description                                        |
+| --------------------------------------------- | -------------------------------------------------- |
 | [originalImageHashId](#originalimagehashid)   | Returns the hash ID of the original image.         |
 | [originalImageTag](#originalimagetag)         | Returns the tag of the original image.             |
 | [textLinesResultItems](#textlinesresultitems) | Returns all the recognized text line result items. |
 | [errorCode](#errorcode)                       | Returns the error code, if an error occurred.      |
 | [errorMessage](#errormessage)                 | Returns the error message, if an error occurred.   |
 
-### originalImageHashId
+## originalImageHashId
 
 Returns the hash ID of the original image.
 
@@ -41,7 +39,7 @@ Returns the hash ID of the original image.
 originalImageHashId: string;
 ```
 
-### originalImageTag
+## originalImageTag
 
 Returns the tag of the original image.
 
@@ -53,7 +51,7 @@ originalImageTag: ImageTag;
 
 * [ImageTag]({{ site.dcv_js_api }}core/basic-structure/image-tag.html)
 
-### textLinesResultItems
+## textLinesResultItems
 
 Returns all the recognized text line result items. 
 
@@ -65,7 +63,7 @@ textLinesResultItems: Array<TextLineResultItem>;
 
 * [TextLineResultItem](./textline-result-item.md)
 
-### errorCode
+## errorCode
 
 Returns the error code, if an error occurred.
 
@@ -73,7 +71,7 @@ Returns the error code, if an error occurred.
 errorCode: number;
 ```
 
-### errorMessage
+## errorMessage
 
 Returns the error message, if an error occurred.
 

@@ -13,8 +13,6 @@ breadcrumbText: RecognizedTextLineElement
 
 The `RecognizedTextLineElement` class represents a line of recognized text in an image.
 
-## Definition
-
 ```typescript
 interface RecognizedTextLineElement extends Core.RegionObjectElement {
     text: string;
@@ -24,14 +22,14 @@ interface RecognizedTextLineElement extends Core.RegionObjectElement {
 }
 ```
 
-| Method                                  | Description                                               |
-| --------------------------------------- | --------------------------------------------------------- |
+| Method                                | Description                                               |
+| ------------------------------------- | --------------------------------------------------------- |
 | [text](#text)                         | Returns the recognized text.                              |
 | [confidence](#confidence)             | Returns the confidence level of the recognized text.      |
 | [characterResults](#characterresults) | Returns all the characters contained by the textline.     |
 | [rowNumber](#rownumber)               | Returns the row number of the text line within the image. |
 
-### text
+## text
 
 Returns the recognized text.
 
@@ -39,7 +37,7 @@ Returns the recognized text.
 text: string;
 ```
 
-### confidence
+## confidence
 
 Returns the confidence level of the recognized text.
 
@@ -47,7 +45,7 @@ Returns the confidence level of the recognized text.
 confidence: number;
 ```
 
-### characterResults
+## characterResults
 
 Returns all the characters contained by the textline in an array of [CharacterResult](character-result.md).
 
@@ -55,7 +53,7 @@ Returns all the characters contained by the textline in an array of [CharacterRe
 characterResults: Array<CharacterResult>;
 ```
 
-### rowNumber
+## rowNumber
 
 Returns the row number of the text line within the image.
 

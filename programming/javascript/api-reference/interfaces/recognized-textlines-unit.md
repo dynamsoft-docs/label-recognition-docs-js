@@ -13,8 +13,6 @@ breadcrumbText: RecognizedTextLinesUnit
 
 The `RecognizedTextLinesUnit` class represents an intermediate result unit containing recognized text lines.
 
-## Definition
-
 ```typescript
 interface RecognizedTextLinesUnit extends Core.IntermediateResultUnit {
     recognizedTextLines: Array<RecognizedTextLineElement>;
@@ -25,7 +23,7 @@ interface RecognizedTextLinesUnit extends Core.IntermediateResultUnit {
 | ------------------------------------------- | -------------------------------------------------- |
 | [recognizedTextLines](#recognizedtextlines) | Returns all the RecognizedTextLineElement objects. |
 
-### recognizedTextLines
+## recognizedTextLines
 
 Returns all the RecognizedTextLineElement objects.
 

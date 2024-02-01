@@ -4,7 +4,7 @@ version_info_list_js:
   - value: latest version
   - value: 3.x
     child:
-      - 3.0.20(latest)
+      - 3.0.30(latest)
   - value: 2.x
     child:
       - 2.2.31

@@ -5,7 +5,7 @@ description: This is the user guide page of Dynamsoft Label Recognizer for JavaS
 keywords: javascript, user guide
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
-permalink: /programming/javascript/user-guide.html
+permalink: /programming/javascript/user-guide-v2.2.31.html
 ---
 
 <!--The original doc is hosted here => https://github.com/dynamsoft-docs/label-recognition-docs/blob/master/programming/javascript/user-guide.md -->
