@@ -17,13 +17,13 @@ Interface used to get or set (via the RuntimeSettings) the reference region used
 
 | Attribute | Type |
 |---------- | ---- |
-| [`localizationSourceType`](#localizationsourcetype) | [`DLRLocalizationSourceType`]({{ site.enumerations }}localization-source-type.html) |
-| [`points`](#points) | [`Point`](point.md)[4] |
-| [`regionMeasuredByPercentage`](#regionmeasuredbypercentage) | *number* |
-| [`regionPredetectionModesIndex`](#regionpredetectionmodesindex) | *number* |
-| [`barcodeFormatIds`](#barcodeformatids) | *number* |
-| [`barcodeFormatIds_2`](#barcodeformatids_2) | *number* |
-| [`barcodeTextRegExPattern`](#barcodetextregexpattern) | *string* |
+| [localizationSourceType](#localizationsourcetype) | [DLRLocalizationSourceType]({{ site.enumerations }}localization-source-type.html) |
+| [points](#points) | [Point](point.md)[4] |
+| [regionMeasuredByPercentage](#regionmeasuredbypercentage) | *number* |
+| [regionPredetectionModesIndex](#regionpredetectionmodesindex) | *number* |
+| [barcodeFormatIds](#barcodeformatids) | *number* |
+| [barcodeFormatIds_2](#barcodeformatids_2) | *number* |
+| [barcodeTextRegExPattern](#barcodetextregexpattern) | *string* |
 
 ### localizationSourceType
 
@@ -31,7 +31,7 @@ The source type used to localize the reference region(s).
 
 **Value Range**
 
-A value of [`DLRLocalizationSourceType`]({{ site.enumerations }}other-enums.html#dlrlocalizationsourcetype) Enumeration items.
+A value of [DLRLocalizationSourceType]({{ site.enumerations }}other-enums.html#dlrlocalizationsourcetype) Enumeration items.
 
 **Default value**
 
@@ -89,7 +89,7 @@ The formats of the barcode in BarcodeFormat group 1.
 
 **Value Range**
 
-A combined value of [`DLRBarcodeFormat`]({{ site.enumerations }}other-enums.html#dlrbarcodeformat) Enumeration items
+A combined value of [DLRBarcodeFormat]({{ site.enumerations }}other-enums.html#dlrbarcodeformat) Enumeration items
 
 **Default value**
 
@@ -107,7 +107,7 @@ The formats of the barcode in BarcodeFormat group 2.
 
 **Value Range**
 
-A combined value of [`DLRBarcodeFormat_2`]({{ site.enumerations }}other-enums.html#dlrbarcodeformat_2) Enumeration items
+A combined value of [DLRBarcodeFormat_2]({{ site.enumerations }}other-enums.html#dlrbarcodeformat_2) Enumeration items
 
 **Default value**
 

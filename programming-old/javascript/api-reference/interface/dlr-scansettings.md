@@ -17,13 +17,13 @@ Interface for scan behaviour customization.
 
 | Attribute | Type |
 |---------- | ---- |
-| [`intervalTime`](#intervaltime-number) | *number* |
-| [`duplicateForgetTime`](#duplicateforgettime-number) | *number* |
-| [`whenToPlaySoundforSuccessfulRead`](#whentoplaysoundforsuccessfulread-string) | *string* |
-| [`soundOnSuccessfullRead`](#soundonsuccessfullread-string) | *string* |
-| [`whenToVibrateforSuccessfulRead`](#whentovibrateforsuccessfulread-string) | *string* |
-| [`vibrateDuration`](#duplicateforgettime-number) | *number* |
-| [`captureAndRecognizeInParallel`](#captureAndRecognizeInParallel-boolean) | *boolean* |
+| [intervalTime](#intervaltime-number) | *number* |
+| [duplicateForgetTime](#duplicateforgettime-number) | *number* |
+| [whenToPlaySoundforSuccessfulRead](#whentoplaysoundforsuccessfulread-string) | *string* |
+| [soundOnSuccessfullRead](#soundonsuccessfullread-string) | *string* |
+| [whenToVibrateforSuccessfulRead](#whentovibrateforsuccessfulread-string) | *string* |
+| [vibrateDuration](#duplicateforgettime-number) | *number* |
+| [captureAndRecognizeInParallel](#captureAndRecognizeInParallel-boolean) | *boolean* |
 
 ### intervalTime?: *number*
 

@@ -45,7 +45,7 @@ permalink: /programming/javascript/release-notes/javascript-2.html
 
 ### ADDED
 
-* Added event [`onVINRead`](../api-reference/recognize.md#onvinread). This event is used when the SDK is configured with the template "VIN" or "video-VIN" in which case extra processing is applied for better recognition of VIN codes.
+* Added event [onVINRead](../api-reference/recognize.md#onvinread). This event is used when the SDK is configured with the template "VIN" or "video-VIN" in which case extra processing is applied for better recognition of VIN codes.
 
 ### IMPROVED
 
@@ -57,16 +57,16 @@ permalink: /programming/javascript/release-notes/javascript-2.html
 
 ### ADDED
 
-* Added method `setImageSource()` to specify an Image Source which provides images of the type [`DSImage`](../api-reference/interface/dsimage.md) for continuous scanning.
+* Added method `setImageSource()` to specify an Image Source which provides images of the type [DSImage](../api-reference/interface/dsimage.md) for continuous scanning.
 
 ### IMPROVED
 
-* Improved the built-in sound which is played when recognition succeeds. Check out more on [`whenToPlaySoundforSuccessfulRead`](../api-reference/interface/dlr-scansettings.md#whentoplaysoundforsuccessfulread-string) and [`soundOnSuccessfullRead`](../api-reference/interface/dlr-scansettings.md#soundonsuccessfullread-string).
+* Improved the built-in sound which is played when recognition succeeds. Check out more on [whenToPlaySoundforSuccessfulRead](../api-reference/interface/dlr-scansettings.md#whentoplaysoundforsuccessfulread-string) and [soundOnSuccessfullRead](../api-reference/interface/dlr-scansettings.md#soundonsuccessfullread-string).
 
 ### CHANGED
 
 * Renamed event `onFrameRead` to `onImageRead`.
-* Moved the following properties to [`ScanSettings`](../api-reference/interface/dlr-scansettings.md).
+* Moved the following properties to [ScanSettings](../api-reference/interface/dlr-scansettings.md).
   * `whenToPlaySoundforSuccessfulRead`
   * `soundOnSuccessfullRead`
   * `whenToVibrateforSuccessfulRead`
@@ -92,7 +92,7 @@ permalink: /programming/javascript/release-notes/javascript-2.html
 ### ADDED
 
 * Added event `onResourcesLoadProgress` which is triggered multiple times when the resource file for a particular template is beling loaded.
-* Added event [`onMRZRead`](../api-reference/recognize.md#onmrzread). This event is used when the SDK is configured with one of the templates `passportMRZ` , `video-passportMRZ` , `visaMRZ` , `video-visaMRZ` , `MRZ` or `video-MRZ` in which case extra processing is applied for better recognition of MRZ strings.
+* Added event [onMRZRead](../api-reference/recognize.md#onmrzread). This event is used when the SDK is configured with one of the templates `passportMRZ` , `video-passportMRZ` , `visaMRZ` , `video-visaMRZ` , `MRZ` or `video-MRZ` in which case extra processing is applied for better recognition of MRZ strings.
 
 ### CHANGED
 
@@ -105,7 +105,7 @@ permalink: /programming/javascript/release-notes/javascript-2.html
 * Added a new template `MRZ` for recognizing Passports, Visas and IDs with Machine-readable zones.
 * Added property `isCheckDigitMatched` to the interface `DLRLineResult`.
 * Added events `onResourcesLoadStarted` / `onResourcesLoaded` which gets triggered when the resource file for a particular template starts to be loaded / finishes loading.
-* Added method `updateReferenceRegionFromBarcodeResults` to make it possible for a DLR instance to use the results of DBR as the reference region.
+* Added method `updateReferenceRegionFromBarcodeResults` to make it possible for a DLR instance to use the results of DLR as the reference region.
 
 ### IMPROVED
 

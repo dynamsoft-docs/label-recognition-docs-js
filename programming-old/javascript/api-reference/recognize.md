@@ -49,7 +49,7 @@ recognize(source: Blob | Buffer | ArrayBuffer | Uint8Array | Uint8ClampedArray |
 
 **Return value**
 
-A promise resolving to a [`DLRResult`](interface/dlr-result.md) object that contains all the label results found in this image.
+A promise resolving to a [DLRResult](interface/dlr-result.md) object that contains all the label results found in this image.
 
 **Code snippet**
 
@@ -105,7 +105,7 @@ recognizeBase64String(base64Str: string): Promise<DLRResult[]>
 
 **Return value**
 
-A promise resolving to a [`DLRResult`](interface/dlr-result.md) object that contains all the label results found in this image.
+A promise resolving to a [DLRResult](interface/dlr-result.md) object that contains all the label results found in this image.
 
 **Code snippet**
 
@@ -136,7 +136,7 @@ recognizeUrl(url: string): Promise<DLRResult[]>
 
 **Return value**
 
-A promise resolving to a [`DLRResult`](interface/dlr-result.md) object that contains all the label results found in this image.
+A promise resolving to a [DLRResult](interface/dlr-result.md) object that contains all the label results found in this image.
 
 **Code snippet**
 
@@ -175,7 +175,7 @@ recognizeBuffer(buffer: Blob | Buffer | ArrayBuffer | Uint8Array | Uint8ClampedA
 
 **Return value**
 
-A promise resolving to a [`DLRResult`](interface/dlr-result.md) object that contains all the label results found in this image.
+A promise resolving to a [DLRResult](interface/dlr-result.md) object that contains all the label results found in this image.
 
 **Code snippet**
 
@@ -230,7 +230,7 @@ await recognizer.startScanning(true);
 
 ## onUniqueRead
 
-This event is triggered when a new, unduplicated label is found. This event is only triggered when decoding via video using the [`startScanning`](#startscanning) method.
+This event is triggered when a new, unduplicated label is found. This event is only triggered when decoding via video using the [startScanning](#startscanning) method.
 
 <!--TODO: result format may not right-->
 
@@ -266,7 +266,7 @@ recognizer.startScanning(true);
 
 ## onMRZRead
 
-This event is triggered after the library finishes scanning an image based on one of the built-in templates  `passportMRZ` , `video-passportMRZ` , `visaMRZ` , `video-visaMRZ` , `MRZ` or `video-MRZ` . This event is only triggered when decoding via video using the [`startScanning`](#startscanning) method.
+This event is triggered after the library finishes scanning an image based on one of the built-in templates  `passportMRZ` , `video-passportMRZ` , `visaMRZ` , `video-visaMRZ` , `MRZ` or `video-MRZ` . This event is only triggered when decoding via video using the [startScanning](#startscanning) method.
 
 ```typescript
 onMRZRead: (txt: string, results: DLRLineResult[]) => void
@@ -300,7 +300,7 @@ recognizer.startScanning(true);
 
 ## onVINRead
 
-This event is triggered after the library finishes scanning a frame based on one of the built-in templates `VIN`, `video-VIN`, `VIN_NA` or `video-VIN_NA`. This event is only triggered when decoding via video using the [`startScanning`](#startscanning) method.
+This event is triggered after the library finishes scanning a frame based on one of the built-in templates `VIN`, `video-VIN`, `VIN_NA` or `video-VIN_NA`. This event is only triggered when decoding via video using the [startScanning](#startscanning) method.
 
 ```typescript
 onVINRead: (txt: string, result: DLRLineResult) => void
@@ -331,7 +331,7 @@ recognizer.startScanning(true);
 
 ## onImageRead
 
-This event is triggered after the library finishes scanning a image. This event is only triggered when decoding via video using the [`startScanning`](#startscanning) method.
+This event is triggered after the library finishes scanning a image. This event is only triggered when decoding via video using the [startScanning](#startscanning) method.
 
 ```typescript
 onImageRead: (results: DLRResult[]) => void

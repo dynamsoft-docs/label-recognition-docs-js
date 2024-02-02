@@ -1,11 +1,17 @@
-version_info_list:
-  - latest version
-  - 2.2.30
-  - 2.2.20
-  - 2.2.11
-  - 2.2.10
-  - 2.2.0
-  - 2.0.0
-  - 1.2.1
-  - 1.2
-  - 1.0
+useGroupedVersion: true
+
+version_info_list_js:
+  - value: latest version
+  - value: 3.x
+    child:
+      - 3.0.30(latest)
+  - value: 2.x
+    child:
+      - 2.2.31
+      - 2.2.30
+      - 2.2.11
+      - 2.2.10
+      - 2.2.4
+      - 2.2.2
+      - 2.2.1
+      - 2.2.0

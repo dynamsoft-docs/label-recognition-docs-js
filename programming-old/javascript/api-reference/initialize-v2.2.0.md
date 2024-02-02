@@ -165,7 +165,7 @@ Returns the version of the library including the detailed version numbers of the
 Only valid after [loadWasm](#loadwasm) has been called.
 
 ```typescript
-readonly static getVersion(): string
+static getVersion(): string
 ```
 
 **Code Snippet**

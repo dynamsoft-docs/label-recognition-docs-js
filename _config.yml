@@ -7,11 +7,13 @@ docHomePage: /label-recognition/docs/web/programming/javascript/
 
 parameters-reference: /label-recognition/docs/core/parameters/reference/
 enumerations: /label-recognition/docs/core/parameters/enum/
+dcv_enumerations: /capture-vision/docs/core/enums/
 
 js: /label-recognition/docs/web/programming/javascript/
-js-api: /label-recognition/docs/web/programming/javascript/api-reference/
-js-release-notes: /label-recognition/docs/web/programming/javascript/release-notes/
-
+dlr_js_api: /label-recognition/docs/web/programming/javascript/api-reference/
+js_release_notes: /label-recognition/docs/web/programming/javascript/release-notes/
+dcv_js_api: /capture-vision/docs/web/programming/javascript/api-reference/
+enums: /capture-vision/docs/core/enums/
 assets: /label-recognition/docs/core/assets/
 edit_icon: /label-recognition/docs/core/assets/img-icon/edit-icon.png
 smile_icon: /label-recognition/docs/core/assets/img-icon/icon-smile.png
@@ -19,9 +21,6 @@ sad_icon: /label-recognition/docs/core/assets/img-icon/icon-sad.png
 dbr_icon: /label-recognition/docs/core/assets/img-icon/icon-dbr.svg
 dwt_icon: /label-recognition/docs/core/assets/img-icon/icon-dwt.svg
 dnt_icon: /label-recognition/docs/core/assets/img-icon/icon-dnt.svg
-
-release-notes: /label-recognition/docs/core/release-notes/
-license-activation: /label-recognition/docs/core/license-activation/
 
 useVersionTree: true
 
@@ -34,6 +33,8 @@ plugins:
   - jekyll-redirect-from
   - jekyll-readme-index
   - jekyll-seo-tag
+
+edition: js
 
 url: "https://www.dynamsoft.com" # sitemap root
 

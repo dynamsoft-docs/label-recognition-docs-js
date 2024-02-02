@@ -1,6 +1,6 @@
 ---
 layout: default-layout
-title: Main Page - Dynamsoft Label Recognizer for JavaScript
+title: Dynamsoft Label Recognizer JavaScript Edition v3.x API Reference - Main Page
 description: This is the main page of Dynamsoft Label Recognizer for JavaScript Language.
 keywords: javascript
 needAutoGenerateSidebar: true
@@ -12,7 +12,7 @@ permalink: /programming/javascript/index.html
 
 ## Getting Started
 
-- [User Guide]({{site.js}}user-guide.html)
+- [User Guide](user-guide/index.md)
 
 ## API Reference
 
@@ -20,4 +20,5 @@ permalink: /programming/javascript/index.html
 
 ## Release Notes
 
+- [Version 3.x](release-notes/javascript-3.html)
 - [Version 2.x](release-notes/javascript-2.html)
