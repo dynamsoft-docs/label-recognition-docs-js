@@ -61,7 +61,7 @@ In this guide, you will learn step by step on how to integrate this SDK into you
 
 Let's start by testing an example that demonstrates how to enable a web page to recognize the text in the machine readable zone (MRZ) of a passport from a live video stream.
 
-* Basic Requirementscument
+* Basic Requirements
   * Internet connection  
   * [A supported browser](#system-requirements)
   * An accessible Camera
