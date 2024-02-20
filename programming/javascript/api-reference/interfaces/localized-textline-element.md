@@ -1,7 +1,7 @@
 ---
 layout: default-layout
 title: Interface LocalizedTextLineElement - Dynamsoft Label Recognizer JS Edition API Reference
-description: The class LocalizedTextLineElement of Dynamsoft Label Recognizer represents a localized text line element.
+description: The class LocalizedTextLineElement of Dynamsoft Label Recognizer JS edition represents a localized text line element.
 keywords: Localized text line element
 needGenerateH3Content: true
 needAutoGenerateSidebar: true

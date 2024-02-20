@@ -1,7 +1,7 @@
 ---
 layout: default-layout
 title: Interface TextLineResultItem - Dynamsoft Label Recognizer JS Edition API Reference
-description: The class TextLineResultItem of Dynamsoft Label Recognizer represents a text line result item recognized by a document layout analysis engine.
+description: The class TextLineResultItem of Dynamsoft Label Recognizer JS edition represents a text line result item recognized by a document layout analysis engine.
 keywords: Text line result item
 needGenerateH3Content: true
 needAutoGenerateSidebar: true

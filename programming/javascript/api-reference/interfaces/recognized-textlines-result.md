@@ -1,7 +1,7 @@
 ---
 layout: default-layout
 title: Interface RecognizedTextLinesResult - Dynamsoft Label Recognizer JS Edition API Reference
-description: The class RecognizedTextLinesResult of Dynamsoft Label Recognizer represents the result of a text recognition process.
+description: The class RecognizedTextLinesResult of Dynamsoft Label Recognizer JS edition represents the result of a text recognition process.
 keywords: Recognized text lines result
 needGenerateH3Content: true
 needAutoGenerateSidebar: true

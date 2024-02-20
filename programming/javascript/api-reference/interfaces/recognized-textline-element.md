@@ -1,7 +1,7 @@
 ---
 layout: default-layout
 title: Interface RecognizedTextLineElement - Dynamsoft Label Recognizer JS Edition API Reference
-description: The class RecognizedTextLineElement of Dynamsoft Label Recognizer represents a line of recognized text in an image.
+description: The class RecognizedTextLineElement of Dynamsoft Label Recognizer JS edition represents a line of recognized text in an image.
 keywords: Recognized text line element
 needGenerateH3Content: true
 needAutoGenerateSidebar: true

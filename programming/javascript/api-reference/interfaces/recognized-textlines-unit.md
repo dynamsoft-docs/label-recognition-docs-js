@@ -1,7 +1,7 @@
 ---
 layout: default-layout
 title: Interface RecognizedTextLinesUnit - Dynamsoft Label Recognizer JS Edition API Reference
-description: The class RecognizedTextLinesUnit of Dynamsoft Label Recognizer represents an intermediate result unit containing recognized text lines.
+description: The class RecognizedTextLinesUnit of Dynamsoft Label Recognizer JS edition represents an intermediate result unit containing recognized text lines.
 keywords: Recognized text lines unit
 needGenerateH3Content: true
 needAutoGenerateSidebar: true

@@ -1,7 +1,7 @@
 ---
 layout: default-layout
 title: Interface CharacterResult - Dynamsoft Label Recognizer JS Edition API Reference
-description: The class CharacterResult of Dynamsoft Label Recognizer represents the result of a character recognition process.
+description: The class CharacterResult of Dynamsoft Label Recognizer JS edition represents the result of a character recognition process.
 keywords: Character result
 needGenerateH3Content: true
 needAutoGenerateSidebar: true

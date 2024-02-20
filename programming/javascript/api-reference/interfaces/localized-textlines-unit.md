@@ -1,7 +1,7 @@
 ---
 layout: default-layout
 title: Interface LocalizedTextLinesUnit - Dynamsoft Label Recognizer JS Edition API Reference
-description: The class LocalizedTextLinesUnit of Dynamsoft Label Recognizer represents a unit that contains localized text lines.
+description: The class LocalizedTextLinesUnit of Dynamsoft Label Recognizer JS edition represents a unit that contains localized text lines.
 keywords: Localized text lines unit
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
