@@ -11,7 +11,7 @@ breadcrumbText: SimplifiedLabelRecognizerSettings
 
 # SimplifiedLabelRecognizerSettings
 
-This interface defines simplified settings for label recognizing tasks.
+The `SimplifiedLabelRecognizerSettings` interface defines simplified settings for label recognizing.
 
 ```typescript
 interface SimplifiedLabelRecognizerSettings {

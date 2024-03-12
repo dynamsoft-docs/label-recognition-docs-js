@@ -33,4 +33,4 @@ localizedTextLines: Array<LocalizedTextLineElement>;
 
 **See Also**
 
-* [LocalizedTextLineElement](./localized-text-line-element.md)
+* [LocalizedTextLineElement]({{ site.dlr_js_api }}interfaces/localized-textline-element.html)

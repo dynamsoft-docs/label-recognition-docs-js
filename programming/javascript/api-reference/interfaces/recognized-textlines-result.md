@@ -49,7 +49,7 @@ originalImageTag: ImageTag;
 
 **See Also**
 
-* [ImageTag]({{ site.dcv_js_api }}core/basic-structure/image-tag.html)
+* [ImageTag]({{ site.dcv_js_api }}core/basic-structures/image-tag.html)
 
 ## textLinesResultItems
 

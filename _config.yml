@@ -8,6 +8,7 @@ docHomePage: /label-recognition/docs/web/programming/javascript/
 parameters-reference: /label-recognition/docs/core/parameters/reference/
 enumerations: /label-recognition/docs/core/parameters/enum/
 dcv_enumerations: /capture-vision/docs/core/enums/
+dcv_parameter_reference: /capture-vision/docs/core/parameters/reference/
 
 js: /label-recognition/docs/web/programming/javascript/
 dlr_js_api: /label-recognition/docs/web/programming/javascript/api-reference/

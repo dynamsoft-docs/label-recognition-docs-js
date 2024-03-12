@@ -27,17 +27,17 @@ interface CharacterResult {
 
 | Method                                        | Description                                                    |
 | --------------------------------------------- | -------------------------------------------------------------- |
-| [characterH](#characterh)                     | Returns thecharacter with high confidence.                     |
-| [characterM](#characterm)                     | Returns thecharacter with medium confidence.                   |
-| [characterL](#characterl)                     | Returns thecharacter with low confidence.                      |
-| [location](#location)                         | Returns thelocation of the character in a quadrilateral shape. |
-| [characterHConfidence](#characterhconfidence) | Returns theconfidence of the character with high confidence.   |
-| [characterMConfidence](#charactermconfidence) | Returns theconfidence of the character with medium confidence. |
-| [characterLConfidence](#characterlconfidence) | Returns theconfidence of the character with low confidence.    |
+| [characterH](#characterh)                     | Returns the character with high confidence.                     |
+| [characterM](#characterm)                     | Returns the character with medium confidence.                   |
+| [characterL](#characterl)                     | Returns the character with low confidence.                      |
+| [location](#location)                         | Returns the location of the character in a quadrilateral shape. |
+| [characterHConfidence](#characterhconfidence) | Returns the confidence of the character with high confidence.   |
+| [characterMConfidence](#charactermconfidence) | Returns the confidence of the character with medium confidence. |
+| [characterLConfidence](#characterlconfidence) | Returns the confidence of the character with low confidence.    |
 
 ## characterH
 
-Returns thecharacter with high confidence.
+Returns the character with high confidence.
 
 ```typescript
 characterH: string
@@ -45,7 +45,7 @@ characterH: string
 
 ## characterM
 
-Returns thecharacter with medium confidence.
+Returns the character with medium confidence.
 
 ```typescript
 characterM: string
@@ -53,7 +53,7 @@ characterM: string
 
 ## characterL
 
-Returns thecharacter with low confidence.
+Returns the character with low confidence.
 
 ```typescript
 characterL: string
@@ -61,7 +61,7 @@ characterL: string
 
 ## location
 
-Returns thelocation of the character in a quadrilateral shape.
+Returns the location of the character in a quadrilateral shape.
 
 ```typescript
 location: Quadrilateral;
@@ -73,7 +73,7 @@ location: Quadrilateral;
 
 ## characterHConfidence
 
-Returns theconfidence of the character with high confidence.
+Returns the confidence of the character with high confidence.
 
 ```typescript
 characterHConfidence: number
@@ -81,7 +81,7 @@ characterHConfidence: number
 
 ## characterMConfidence
 
-Returns theconfidence of the character with medium confidence.
+Returns the confidence of the character with medium confidence.
 
 ```typescript
 characterMConfidence: number
@@ -89,7 +89,7 @@ characterMConfidence: number
 
 ## characterLConfidence
 
-Returns theconfidence of the character with low confidence.
+Returns the confidence of the character with low confidence.
 
 ```typescript
 characterLConfidence: number

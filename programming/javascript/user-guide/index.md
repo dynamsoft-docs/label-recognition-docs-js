@@ -428,7 +428,7 @@ router.addResultReceiver({
 });
 ```
 
-Check out [CapturedResultReceiver](https://www.dynamsoft.com/capture-vision/docs/web/programming/javascript/api-reference/core/basic-structures/captured-result-receiver.html) for more information.
+Check out [CapturedResultReceiver](https://www.dynamsoft.com/capture-vision/docs/web/programming/javascript/api-reference/capture-vision-router/captured-result-receiver.html) for more information.
 
 #### Start the process
 
@@ -456,6 +456,8 @@ await router.startCapturing("passport-mrz");
 | **RecognizeNumbersAndLetters**          | Reads both numbers and English alphabets (any case).       |
 | **RecognizeNumbersAndUppercaseLetters** | Scans numbers and uppercase English alphabets.             |
 | **RecognizeUppercaseLetters**           | Focuses on recognizing uppercase English alphabets.        |
+
+Read more on the [preset CaptureVisionTemplates](./preset-templates.md).
 
 ### Customize the process
 

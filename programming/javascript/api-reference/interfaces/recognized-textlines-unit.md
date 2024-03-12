@@ -33,4 +33,4 @@ recognizedTextLines: Array<RecognizedTextLineElement>;
 
 **See Also**
 
-* [RecognizedTextLineElement](./recognized-text-line-element.md)
+* [RecognizedTextLineElement]({{ site.dlr_js_api }}interfaces/recognized-textline-element.html)
