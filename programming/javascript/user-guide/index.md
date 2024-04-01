@@ -252,6 +252,7 @@ Options to download the SDK:
   yarn add dynamsoft-capture-vision-std@1.2.0 --save
   yarn add dynamsoft-image-processing@2.2.10 --save
   yarn add dynamsoft-capture-vision-dnn@1.0.10 --save
+  yarn add dynamsoft-label-recognizer-data@1.0.10 --save
   ```
 
 - npm
@@ -266,6 +267,7 @@ Options to download the SDK:
   npm install dynamsoft-capture-vision-std@1.2.0 --save
   npm install dynamsoft-image-processing@2.2.10 --save
   npm install dynamsoft-capture-vision-dnn@1.0.10 --save
+  npm install dynamsoft-label-recognizer-data@1.0.10 --save
   ```
 
 Depending on how you downloaded the SDK and how you intend to use it, you can typically include it like this:
@@ -340,17 +342,19 @@ This is usually only required with frameworks like Angular or React, etc. where 
 The purpose is to tell the SDK where to find the engine files (\*.worker.js, \*.wasm.js and \*.wasm, etc.). The API is called `Dynamsoft.Core.CoreModule.engineResourcePaths`:
 
 ```javascript
-// The following code uses the jsDelivr CDN, feel free to change it to your own location of these files
-Dynamsoft.Core.CoreModule.engineResourcePaths.core = "https://cdn.jsdelivr.net/npm/dynamsoft-core@3.2.10/dist/";
-Dynamsoft.Core.CoreModule.engineResourcePaths.license = "https://cdn.jsdelivr.net/npm/dynamsoft-license@3.2.10/dist/";
-Dynamsoft.Core.CoreModule.engineResourcePaths.dlr = "https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer@3.2.10/dist/";
-Dynamsoft.Core.CoreModule.engineResourcePaths.cvr = "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.2.10/dist/";
-Dynamsoft.Core.CoreModule.engineResourcePaths.dce = "https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@4.0.2/dist/";
-Dynamsoft.Core.CoreModule.engineResourcePaths.std = "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-std@1.2.0/dist/";
-Dynamsoft.Core.CoreModule.engineResourcePaths.dip = "https://cdn.jsdelivr.net/npm/dynamsoft-image-processing@2.2.10/dist/";
-Dynamsoft.Core.CoreModule.engineResourcePaths.dnn = "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-dnn@1.0.10/dist/";
-// "dlrData" refers to the location of the Convolutional Neural Network (CNN) inference model used for dlr recognition.
-Dynamsoft.Core.CoreModule.engineResourcePaths.dlrData = "https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer-data@1.0.0/dist/";
+Object.assign(Dynamsoft.Core.CoreModule.engineResourcePaths, {
+  // The following code uses the jsDelivr CDN, feel free to change it to your own location of these files
+  Dynamsoft.Core.CoreModule.engineResourcePaths.core = "https://cdn.jsdelivr.net/npm/dynamsoft-core@3.2.10/dist/",
+  Dynamsoft.Core.CoreModule.engineResourcePaths.license = "https://cdn.jsdelivr.net/npm/dynamsoft-license@3.2.10/dist/",
+  Dynamsoft.Core.CoreModule.engineResourcePaths.dlr = "https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer@3.2.10/dist/",
+  Dynamsoft.Core.CoreModule.engineResourcePaths.cvr = "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.2.10/dist/",
+  Dynamsoft.Core.CoreModule.engineResourcePaths.dce = "https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@4.0.2/dist/",
+  Dynamsoft.Core.CoreModule.engineResourcePaths.std = "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-std@1.2.0/dist/",
+  Dynamsoft.Core.CoreModule.engineResourcePaths.dip = "https://cdn.jsdelivr.net/npm/dynamsoft-image-processing@2.2.10/dist/",
+  Dynamsoft.Core.CoreModule.engineResourcePaths.dnn = "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-dnn@1.0.10/dist/",
+  // "dlrData" refers to the location of the Convolutional Neural Network (CNN) inference model used for dlr recognition.
+  Dynamsoft.Core.CoreModule.engineResourcePaths.dlrData = "https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer-data@1.0.10/dist/"
+});
 ```
 
 ### Set up and start image processing
