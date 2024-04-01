@@ -19,9 +19,9 @@ interface LocalizedTextLinesUnit extends Core.IntermediateResultUnit {
 }
 ```
 
-| Method                                    | Description                               |
+<!-- | Method                                    | Description                               |
 | ----------------------------------------- | ----------------------------------------- |
-| [localizedTextLines](#localizedtextlines) | Returns the localized text line elements. |
+| [localizedTextLines](#localizedtextlines) | Returns the localized text line elements. | -->
 
 ## localizedTextLines
 

@@ -22,12 +22,12 @@ interface TextLineResultItem extends Core.CapturedResultItem {
 }
 ```
 
-| Method                                | Description                                                           |
+<!-- | Method                                | Description                                                           |
 | ------------------------------------- | --------------------------------------------------------------------- |
 | [text](#text)                         | Returns the text content of the text line.                            |
 | [location](#location)                 | Returns the location of the text line in the form of a quadrilateral. |
 | [confidence](#confidence)             | Returns the confidence of the text line recognition result.           |
-| [characterResults](#characterresults) | Returns all the characters in the text line.                          |
+| [characterResults](#characterresults) | Returns all the characters in the text line.                          | -->
 
 ## Text
 

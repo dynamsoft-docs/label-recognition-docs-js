@@ -74,12 +74,12 @@ The complete code of the example is shown below
 <!DOCTYPE html>
 <html>
 <body>
-  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.2.10/dist/core.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-license@3.2.10/dist/license.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-utility@1.2.10/dist/utility.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer@3.2.10/dist/dlr.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.2.10/dist/cvr.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@4.0.2/dist/dce.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.32/dist/core.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-license@3.0.40/dist/license.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-utility@1.0.21/dist/utility.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer@3.0.30/dist/dlr.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.32/dist/cvr.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@4.0.1/dist/dce.js"></script>
   <div id="cameraViewContainer" style="width: 100%; height: 60vh"></div>
   <textarea id="results" style="width: 100%; min-height: 10vh; font-size: 3vmin; overflow: auto" disabled></textarea>
   <script>
@@ -107,8 +107,12 @@ The complete code of the example is shown below
       router.addResultReceiver(resultReceiver);
       
       let filter = new Dynamsoft.Utility.MultiFrameResultCrossFilter();
-      filter.enableResultCrossVerification("text_line", true);
-      filter.enableResultDeduplication("text_line", true);
+      filter.enableResultCrossVerification(
+        Dynamsoft.Core.EnumCapturedResultItemType.CRIT_TEXT_LINE, true
+      );
+      filter.enableResultDeduplication(
+        Dynamsoft.Core.EnumCapturedResultItemType.CRIT_TEXT_LINE, true
+      );
       await router.addResultFilter(filter);
 
       await router.initSettings("https://tst.dynamsoft.com/public/samples/dcvTemplates/readPassportMRZ.json");
@@ -200,33 +204,33 @@ The simplest way to include the SDK is to use either the [jsDelivr](https://jsde
 - jsDelivr
 
   ```html
-  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.2.10/dist/core.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-license@3.2.10/dist/license.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-utility@1.2.10/dist/utility.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer@3.2.10/dist/dlr.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.2.10/dist/cvr.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@4.0.2/dist/dce.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.32/dist/core.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-license@3.0.40/dist/license.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-utility@1.0.21/dist/utility.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer@3.0.30/dist/dlr.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.32/dist/cvr.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@4.0.1/dist/dce.js"></script>
   ```
 
 - UNPKG  
 
   ```html
-  <script src="https://unpkg.com/dynamsoft-core@3.2.10/dist/core.js"></script>
-  <script src="https://unpkg.com/dynamsoft-license@3.2.10/dist/license.js"></script>
-  <script src="https://unpkg.com/dynamsoft-utility@1.2.10/dist/utility.js"></script>
-  <script src="https://unpkg.com/dynamsoft-label-recognizer@3.2.10/dist/dlr.js"></script>
-  <script src="https://unpkg.com/dynamsoft-capture-vision-router@2.2.10/dist/cvr.js"></script>
-  <script src="https://unpkg.com/dynamsoft-camera-enhancer@4.0.2/dist/dce.js"></script>
+  <script src="https://unpkg.com/dynamsoft-core@3.0.32/dist/core.js"></script>
+  <script src="https://unpkg.com/dynamsoft-license@3.0.40/dist/license.js"></script>
+  <script src="https://unpkg.com/dynamsoft-utility@1.0.21/dist/utility.js"></script>
+  <script src="https://unpkg.com/dynamsoft-label-recognizer@3.0.30/dist/dlr.js"></script>
+  <script src="https://unpkg.com/dynamsoft-capture-vision-router@2.0.32/dist/cvr.js"></script>
+  <script src="https://unpkg.com/dynamsoft-camera-enhancer@4.0.1/dist/dce.js"></script>
   ```
 
 In some rare cases (such as some restricted areas), you might not be able to access the CDN. If this happens, you can use the following files for the test.
 
-- https://download2.dynamsoft.com/packages/dynamsoft-core@3.2.10/dist/core.js
-- https://download2.dynamsoft.com/packages/dynamsoft-license@3.2.10/dist/license.js
-- https://download2.dynamsoft.com/packages/dynamsoft-utility@1.2.10/dist/utility.js
-- https://download2.dynamsoft.com/packages/dynamsoft-label-recognizer@3.2.10/dist/dlr.js
-- https://download2.dynamsoft.com/packages/dynamsoft-capture-vision-router@2.2.10/dist/cvr.js
-- https://download2.dynamsoft.com/packages/dynamsoft-camera-enhancer@4.0.2/dist/dce.js
+- https://download2.dynamsoft.com/packages/dynamsoft-core@3.0.32/dist/core.js
+- https://download2.dynamsoft.com/packages/dynamsoft-license@3.0.40/dist/license.js
+- https://download2.dynamsoft.com/packages/dynamsoft-utility@1.0.21/dist/utility.js
+- https://download2.dynamsoft.com/packages/dynamsoft-label-recognizer@3.0.30/dist/dlr.js
+- https://download2.dynamsoft.com/packages/dynamsoft-capture-vision-router@2.0.32/dist/cvr.js
+- https://download2.dynamsoft.com/packages/dynamsoft-camera-enhancer@4.0.1/dist/dce.js
 
 However, please **DO NOT** use `download2.dynamsoft.com` resources in a production application as they are for temporary testing purposes only. Instead, you can try hosting the SDK yourself.
 
@@ -243,40 +247,34 @@ Options to download the SDK:
 - yarn
 
   ```cmd
-  yarn add dynamsoft-core@3.2.10 --save
-  yarn add dynamsoft-license@3.2.10 --save
-  yarn add dynamsoft-utility@1.2.10 --save
-  yarn add dynamsoft-label-recognizer@3.2.10 --save
-  yarn add dynamsoft-capture-vision-router@2.2.10 --save
-  yarn add dynamsoft-camera-enhancer@4.0.2 --save
-  yarn add dynamsoft-capture-vision-std@1.2.0 --save
-  yarn add dynamsoft-image-processing@2.2.10 --save
-  yarn add dynamsoft-capture-vision-dnn@1.0.10 --save
+  yarn add dynamsoft-core@3.0.32 --save
+  yarn add dynamsoft-license@3.0.40 --save
+  yarn add dynamsoft-utility@1.0.21 --save
+  yarn add dynamsoft-label-recognizer@3.0.30 --save
+  yarn add dynamsoft-capture-vision-router@2.0.32 --save
+  yarn add dynamsoft-camera-enhancer@4.0.1 --save
   ```
 
 - npm
 
   ```cmd
-  npm install dynamsoft-core@3.2.10 --save
-  npm install dynamsoft-license@3.2.10 --save
-  npm install dynamsoft-utility@1.2.10 --save
-  npm install dynamsoft-label-recognizer@3.2.10 --save
-  npm install dynamsoft-capture-vision-router@2.2.10 --save
-  npm install dynamsoft-camera-enhancer@4.0.2 --save
-  npm install dynamsoft-capture-vision-std@1.2.0 --save
-  npm install dynamsoft-image-processing@2.2.10 --save
-  npm install dynamsoft-capture-vision-dnn@1.0.10 --save
+  npm install dynamsoft-core@3.0.32 --save
+  npm install dynamsoft-license@3.0.40 --save
+  npm install dynamsoft-utility@1.0.21 --save
+  npm install dynamsoft-label-recognizer@3.0.30 --save
+  npm install dynamsoft-capture-vision-router@2.0.32 --save
+  npm install dynamsoft-camera-enhancer@4.0.1 --save
   ```
 
 Depending on how you downloaded the SDK and how you intend to use it, you can typically include it like this:
 
 ```html
-<script src="./dynamsoft/distributables/dynamsoft-core@3.2.10/dist/core.js"></script>
-<script src="./dynamsoft/distributables/dynamsoft-license@3.2.10/dist/license.js"></script>
-<script src="./dynamsoft/distributables/dynamsoft-utility@1.2.10/dist/utility.js"></script>
-<script src="./dynamsoft/distributables/dynamsoft-label-recognizer@3.2.10/dist/dlr.js"></script>
-<script src="./dynamsoft/distributables/dynamsoft-capture-vision-router@2.2.10/dist/cvr.js"></script>
-<script src="./dynamsoft/distributables/dynamsoft-camera-enhancer@4.0.2/dist/dce.js"></script>
+<script src="./dynamsoft/distributables/dynamsoft-core@3.0.32/dist/core.js"></script>
+<script src="./dynamsoft/distributables/dynamsoft-license@3.0.40/dist/license.js"></script>
+<script src="./dynamsoft/distributables/dynamsoft-utility@1.0.21/dist/utility.js"></script>
+<script src="./dynamsoft/distributables/dynamsoft-label-recognizer@3.0.30/dist/dlr.js"></script>
+<script src="./dynamsoft/distributables/dynamsoft-capture-vision-router@2.0.32/dist/cvr.js"></script>
+<script src="./dynamsoft/distributables/dynamsoft-camera-enhancer@4.0.1/dist/dce.js"></script>
 ```
 
 or
@@ -341,16 +339,16 @@ The purpose is to tell the SDK where to find the engine files (\*.worker.js, \*.
 
 ```javascript
 // The following code uses the jsDelivr CDN, feel free to change it to your own location of these files
-Dynamsoft.Core.CoreModule.engineResourcePaths.core = "https://cdn.jsdelivr.net/npm/dynamsoft-core@3.2.10/dist/";
-Dynamsoft.Core.CoreModule.engineResourcePaths.license = "https://cdn.jsdelivr.net/npm/dynamsoft-license@3.2.10/dist/";
-Dynamsoft.Core.CoreModule.engineResourcePaths.dlr = "https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer@3.2.10/dist/";
-Dynamsoft.Core.CoreModule.engineResourcePaths.cvr = "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.2.10/dist/";
-Dynamsoft.Core.CoreModule.engineResourcePaths.dce = "https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@4.0.2/dist/";
-Dynamsoft.Core.CoreModule.engineResourcePaths.std = "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-std@1.2.0/dist/";
-Dynamsoft.Core.CoreModule.engineResourcePaths.dip = "https://cdn.jsdelivr.net/npm/dynamsoft-image-processing@2.2.10/dist/";
-Dynamsoft.Core.CoreModule.engineResourcePaths.dnn = "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-dnn@1.0.10/dist/";
-// "dlrData" refers to the location of the Convolutional Neural Network (CNN) inference model used for dlr recognition.
-Dynamsoft.Core.CoreModule.engineResourcePaths.dlrData = "https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer-data@1.0.0/dist/";
+Dynamsoft.Core.CoreModule.engineResourcePaths.core = "https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.32/dist/";
+Dynamsoft.Core.CoreModule.engineResourcePaths.license = "https://cdn.jsdelivr.net/npm/dynamsoft-license@3.0.40/dist/";
+Dynamsoft.Core.CoreModule.engineResourcePaths.dlr = "https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer@3.0.30/dist/";
+Dynamsoft.Core.CoreModule.engineResourcePaths.cvr = "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.32/dist/";
+Dynamsoft.Core.CoreModule.engineResourcePaths.dce = "https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@4.0.1/dist/";
+Dynamsoft.Core.CoreModule.engineResourcePaths.std = "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-std@1.0.0/dist/";
+Dynamsoft.Core.CoreModule.engineResourcePaths.dip = "https://cdn.jsdelivr.net/npm/dynamsoft-image-processing@2.0.30/dist/";
+Dynamsoft.Core.CoreModule.engineResourcePaths.utility = "https://cdn.jsdelivr.net/npm/dynamsoft-utility@1.0.21/dist/";
+// "dcm" refers to the location of the Convolutional Neural Network (CNN) inference model used for dlr recognition.
+Dynamsoft.Core.CoreModule.engineResourcePaths.dcm = "https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer-data@1.0.0/dist/";
 ```
 
 ### Set up and start image processing
@@ -554,7 +552,9 @@ While processing video frames, it's common for the same text line to be detected
 
 ```js
 let filter = new Dynamsoft.Utility.MultiFrameResultCrossFilter();
-filter.enableResultCrossVerification("text_line", true);
+filter.enableResultCrossVerification(
+  Dynamsoft.Core.EnumCapturedResultItemType.CRIT_TEXT_LINE, true
+);
 await router.addResultFilter(filter);
 ```
 
@@ -566,7 +566,9 @@ await router.addResultFilter(filter);
 
 ```js
 let filter = new Dynamsoft.Utility.MultiFrameResultCrossFilter();
-filter.enableResultDeduplication("text_line", true);
+filter.enableResultDeduplication(
+  Dynamsoft.Core.EnumCapturedResultItemType.CRIT_TEXT_LINE, true
+);
 await router.addResultFilter(filter);
 ```
 
@@ -588,8 +590,12 @@ You can also enable both options at the same time:
 
 ```js
 let filter = new Dynamsoft.Utility.MultiFrameResultCrossFilter();
-filter.enableResultCrossVerification("text_line", true);
-filter.enableResultDeduplication("text_line", true);
+filter.enableResultCrossVerification(
+  Dynamsoft.Core.EnumCapturedResultItemType.CRIT_TEXT_LINE, true
+);
+filter.enableResultDeduplication(
+  Dynamsoft.Core.EnumCapturedResultItemType.CRIT_TEXT_LINE, true
+);
 filter.setDuplicateForgetTime(5000);
 await router.addResultFilter(filter);
 ```

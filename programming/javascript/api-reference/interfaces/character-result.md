@@ -25,7 +25,7 @@ interface CharacterResult {
 }
 ```
 
-| Method                                        | Description                                                    |
+<!-- | Method                                        | Description                                                    |
 | --------------------------------------------- | -------------------------------------------------------------- |
 | [characterH](#characterh)                     | Returns the character with high confidence.                     |
 | [characterM](#characterm)                     | Returns the character with medium confidence.                   |
@@ -33,7 +33,7 @@ interface CharacterResult {
 | [location](#location)                         | Returns the location of the character in a quadrilateral shape. |
 | [characterHConfidence](#characterhconfidence) | Returns the confidence of the character with high confidence.   |
 | [characterMConfidence](#charactermconfidence) | Returns the confidence of the character with medium confidence. |
-| [characterLConfidence](#characterlconfidence) | Returns the confidence of the character with low confidence.    |
+| [characterLConfidence](#characterlconfidence) | Returns the confidence of the character with low confidence.    | -->
 
 ## characterH
 

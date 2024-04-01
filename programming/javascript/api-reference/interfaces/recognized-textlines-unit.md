@@ -19,9 +19,9 @@ interface RecognizedTextLinesUnit extends Core.IntermediateResultUnit {
 }
 ```
 
-| Method                                      | Description                                        |
+<!-- | Method                                      | Description                                        |
 | ------------------------------------------- | -------------------------------------------------- |
-| [recognizedTextLines](#recognizedtextlines) | Returns all the RecognizedTextLineElement objects. |
+| [recognizedTextLines](#recognizedtextlines) | Returns all the RecognizedTextLineElement objects. | -->
 
 ## recognizedTextLines
 

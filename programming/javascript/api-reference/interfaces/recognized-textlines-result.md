@@ -23,13 +23,13 @@ interface RecognizedTextLinesResult {
 }
 ```
 
-| Method                                        | Description                                        |
+<!-- | Method                                        | Description                                        |
 | --------------------------------------------- | -------------------------------------------------- |
 | [originalImageHashId](#originalimagehashid)   | Returns the hash ID of the original image.         |
 | [originalImageTag](#originalimagetag)         | Returns the tag of the original image.             |
 | [textLinesResultItems](#textlinesresultitems) | Returns all the recognized text line result items. |
 | [errorCode](#errorcode)                       | Returns the error code, if an error occurred.      |
-| [errorMessage](#errormessage)                 | Returns the error message, if an error occurred.   |
+| [errorMessage](#errormessage)                 | Returns the error message, if an error occurred.   | -->
 
 ## originalImageHashId
 

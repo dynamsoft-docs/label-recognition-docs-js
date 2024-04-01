@@ -19,11 +19,11 @@ interface LocalizedTextLineElement extends Core.RegionObjectElement {
     rowNumber: number;
 }
 ```
-
+<!-- 
 | Method                            | Description                                                    |
 | --------------------------------- | -------------------------------------------------------------- |
 | [characterQuads](#characterquads) | Returns the quadrilaterals of all characters in the text line. |
-| [rowNumber](#rownumber)           | Returns the row number of the text line.                       |
+| [rowNumber](#rownumber)           | Returns the row number of the text line.                       | -->
 
 ## characterQuads
 
