@@ -344,16 +344,16 @@ The purpose is to tell the SDK where to find the engine files (\*.worker.js, \*.
 ```javascript
 Object.assign(Dynamsoft.Core.CoreModule.engineResourcePaths, {
   // The following code uses the jsDelivr CDN, feel free to change it to your own location of these files
-  Dynamsoft.Core.CoreModule.engineResourcePaths.core = "https://cdn.jsdelivr.net/npm/dynamsoft-core@3.2.10/dist/",
-  Dynamsoft.Core.CoreModule.engineResourcePaths.license = "https://cdn.jsdelivr.net/npm/dynamsoft-license@3.2.10/dist/",
-  Dynamsoft.Core.CoreModule.engineResourcePaths.dlr = "https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer@3.2.10/dist/",
-  Dynamsoft.Core.CoreModule.engineResourcePaths.cvr = "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.2.10/dist/",
-  Dynamsoft.Core.CoreModule.engineResourcePaths.dce = "https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@4.0.2/dist/",
-  Dynamsoft.Core.CoreModule.engineResourcePaths.std = "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-std@1.2.0/dist/",
-  Dynamsoft.Core.CoreModule.engineResourcePaths.dip = "https://cdn.jsdelivr.net/npm/dynamsoft-image-processing@2.2.10/dist/",
-  Dynamsoft.Core.CoreModule.engineResourcePaths.dnn = "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-dnn@1.0.10/dist/",
+  core: "https://cdn.jsdelivr.net/npm/dynamsoft-core@3.2.10/dist/",
+  license: "https://cdn.jsdelivr.net/npm/dynamsoft-license@3.2.10/dist/",
+  dlr: "https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer@3.2.10/dist/",
+  cvr: "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.2.10/dist/",
+  dce: "https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@4.0.2/dist/",
+  std: "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-std@1.2.0/dist/",
+  dip: "https://cdn.jsdelivr.net/npm/dynamsoft-image-processing@2.2.10/dist/",
+  dnn: "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-dnn@1.0.10/dist/",
   // "dlrData" refers to the location of the Convolutional Neural Network (CNN) inference model used for dlr recognition.
-  Dynamsoft.Core.CoreModule.engineResourcePaths.dlrData = "https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer-data@1.0.10/dist/"
+  dlrData: "https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer-data@1.0.10/dist/"
 });
 ```
 
