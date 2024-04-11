@@ -178,7 +178,7 @@ To make sure your web application can access the camera, please configure your w
 3. Tomcat: [Setting Up SSL on Tomcat in 5 minutes](https://dzone.com/articles/setting-ssl-tomcat-5-minutes)
 4. Node.js: [npm tls](https://nodejs.org/docs/v0.4.1/api/tls.html)
 
-If the test doesn't go as expected, you can [contact us](https://www.dynamsoft.com/company/contact/?ver=3.0.30&utm_source=guide&product=dlr&package=js).
+If the test doesn't go as expected, you can [contact us](https://www.dynamsoft.com/company/contact/?ver=3.2.10&utm_source=guide&product=dlr&package=js).
 
 ## Building your own page
 
@@ -238,7 +238,7 @@ Options to download the SDK:
 
 - From the website
 
-  [Download Dynamsoft Label Recognizer JavaScript Package](https://www.dynamsoft.com/label-recognition/downloads/?ver=3.0.30&utm_source=guide&product=dlr&package=js)
+  [Download Dynamsoft Label Recognizer JavaScript Package](https://www.dynamsoft.com/label-recognition/downloads/?ver=3.2.10&utm_source=guide&product=dlr&package=js)
 
 - yarn
 
@@ -331,7 +331,7 @@ To enable the SDK's functionality, you must provide a valid license. Utilize the
 Dynamsoft.License.LicenseManager.initLicense("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9");
 ```
 
-As previously stated, the key "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9" serves as a test license valid for 24 hours, applicable to any newly authorized browser. To test the SDK further, you can request a 30-day free trial license via the [customer portal](https://www.dynamsoft.com/customer/license/trialLicense?ver=3.0.30&utm_source=guide&product=dlr&package=js).
+As previously stated, the key "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9" serves as a test license valid for 24 hours, applicable to any newly authorized browser. To test the SDK further, you can request a 30-day free trial license via the [customer portal](https://www.dynamsoft.com/customer/license/trialLicense?ver=3.2.10&utm_source=guide&product=dlr&package=js).
 
 > Upon registering a Dynamsoft account and obtaining the SDK package from the official website, Dynamsoft will automatically create a 30-day free trial license and embed the corresponding license key into all the provided SDK samples.
 
@@ -365,7 +365,7 @@ The image processing logic is encapsulated within .wasm library files, and these
 
 ```js
 // Preload the .wasm files
-await Dynamsoft.Core.CoreModule.loadWasm(["dlr"]);
+Dynamsoft.Core.CoreModule.loadWasm(["dlr"]);
 ```
 
 
@@ -658,11 +658,11 @@ Apart from the browsers, the operating systems may impose some limitations of th
 
 ## Release Notes
 
-Learn about what are included in each release at [https://www.dynamsoft.com/label-recognition/docs/web/programming/javascript/release-notes/index.html](https://www.dynamsoft.com/label-recognition/docs/web/programming/javascript/release-notes/index.html?ver=3.0.30&utm_source=guide).
+Learn about what are included in each release at [https://www.dynamsoft.com/label-recognition/docs/web/programming/javascript/release-notes/index.html](https://www.dynamsoft.com/label-recognition/docs/web/programming/javascript/release-notes/index.html?ver=3.2.10&utm_source=guide).
 
 ## Next Steps
 
 Now that you have got the SDK integrated, you can choose to move forward in the following directions
 
 1. Check out the [Official Samples](https://github.com/Dynamsoft/label-recognizer-javascript-samples/)
-2. Learn about the [APIs of the SDK](https://www.dynamsoft.com/label-recognition/docs/web/programming/javascript/api-reference/?ver=3.0.30).
+2. Learn about the [APIs of the SDK](https://www.dynamsoft.com/label-recognition/docs/web/programming/javascript/api-reference/?ver=3.2.10).

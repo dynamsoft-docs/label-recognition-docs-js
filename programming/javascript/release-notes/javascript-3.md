@@ -10,7 +10,7 @@ breadcrumbText: v3.x Release Notes
 
 # Release Notes - JavaScript 3.x
 
-## 3.2.10 (04/02/2024)
+## 3.2.10 (04/12/2024)
 
 ### New
 
@@ -60,6 +60,7 @@ breadcrumbText: v3.x Release Notes
 ### Fixed
 
 - Fix the issue of camera not opening in iOS 17.4.
+- Fixed the issue where some intermediate results could not be retrieved correctly.
 
 ## 3.0.30 (02/02/2024)
 
