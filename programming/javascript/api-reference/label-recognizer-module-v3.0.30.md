@@ -26,9 +26,6 @@ This class defines common functionality in the `LabelRecognizer` module.
 ## Interfaces
 
 * [SimplifiedLabelRecognizerSettings](./interfaces/simplified-label-recognizer-settings.md)
-* [BufferedCharacterItem](./interfaces/buffered-character-item.md)
-* [BufferedCharacterItemSet](./interfaces/buffered-character-item-set.md)
-* [CharacterCluster](./interfaces/character-cluster.md)
 * [CharacterResult](./interfaces/character-result.md)
 * [LocalizedTextLineElement](./interfaces/localized-textline-element.md)
 * [RecognizedTextLineElement](./interfaces/recognized-textline-element.md)

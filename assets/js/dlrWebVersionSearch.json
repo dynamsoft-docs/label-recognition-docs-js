@@ -1,46 +1,46 @@
 [   
   {
-    "version": "3.2.10",
+    "version": "3.2.30",
     "matchList": {
       "javascript": {
         "dcvRepoWeb": [
           {
             "path": "/programming/javascript/api-reference/utility",
-            "version": "1.2.10"
+            "version": "1.2.20"
           },
           {
             "path": "/programming/javascript/api-reference/license",
-            "version": "3.2.10"
+            "version": "3.2.20"
           },
           {
             "path": "/programming/javascript/api-reference/capture-vision-router",
-            "version": "2.2.10"
+            "version": "2.2.30"
           },
           {
             "path": "/programming/javascript/api-reference/core",
-            "version": "3.2.10"
+            "version": "3.2.30"
           },
           {
             "path": "/programming/javascript/api-reference/image-processing",
-            "version": "2.2.10"
+            "version": "2.2.30"
           }
         ],
         "dcvRepoCore": [
           {
             "path": "/enums/capture-vision-router",
-            "version": "2.2.10"
+            "version": "2.2.30"
           },
           {
             "path": "/enums/core",
-            "version": "3.2.10"
+            "version": "3.2.30"
           },
           {
             "path": "/parameters/reference/capture-vision-template",
-            "version": "2.2.10"
+            "version": "2.2.30"
           },
           {
             "path": "/parameters/reference/target-roi-def",
-            "version": "2.2.10"
+            "version": "2.2.30"
           },
           {
             "path": "/parameters/reference/barcode-reader-task-settings",

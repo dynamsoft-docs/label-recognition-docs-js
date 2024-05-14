@@ -1,7 +1,7 @@
 ---
 layout: default-layout
 title: Interface RecognizedTextLinesResult - Dynamsoft Label Recognizer JS Edition API Reference
-description: The class RecognizedTextLinesResult of Dynamsoft Label Recognizer JS edition represents the result of a text recognition process.
+description: The interface RecognizedTextLinesResult of Dynamsoft Label Recognizer JS edition represents the result of a text recognition process.
 keywords: Recognized text lines result
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
@@ -11,7 +11,7 @@ breadcrumbText: RecognizedTextLinesResult
 
 # RecognizedTextLinesResult
 
-The `RecognizedTextLinesResult` class represents the result of a text recognition process. It provides access to information about the recognized text lines, the original image, and any errors that occurred during the recognition process.
+The `RecognizedTextLinesResult` interface represents the result of a text recognition process. It provides access to information about the recognized text lines, the original image, and any errors that occurred during the recognition process.
 
 ```typescript
 interface RecognizedTextLinesResult {
@@ -33,7 +33,7 @@ interface RecognizedTextLinesResult {
 
 ## originalImageHashId
 
-Returns the hash ID of the original image.
+The hash ID of the original image.
 
 ```typescript
 originalImageHashId: string;
@@ -41,7 +41,7 @@ originalImageHashId: string;
 
 ## originalImageTag
 
-Returns the tag of the original image.
+The tag of the original image.
 
 ```typescript
 originalImageTag: ImageTag;
@@ -53,7 +53,7 @@ originalImageTag: ImageTag;
 
 ## textLinesResultItems
 
-Returns all the recognized text line result items. 
+All the recognized text line result items. 
 
 ```typescript
 textLinesResultItems: Array<TextLineResultItem>;
@@ -65,7 +65,7 @@ textLinesResultItems: Array<TextLineResultItem>;
 
 ## errorCode
 
-Returns the error code, if an error occurred.
+The error code, if an error occurred.
 
 ```typescript
 errorCode: number;
@@ -73,7 +73,7 @@ errorCode: number;
 
 ## errorMessage
 
-Returns the error message, if an error occurred.
+The error message, if an error occurred.
 
 ```typescript
 errorMessage: string;
