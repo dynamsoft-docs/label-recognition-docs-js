@@ -186,7 +186,7 @@ To utilize the SDK, the initial step involves including the corresponding resour
 For simplification, starting from version 3.2.30, we introduced dlr.bundle.js. Including this file is equivalent to incorporating all six packages.
 
 * dynamsoft-core@3.2.30/dist/core.js
-* dynamsoft-license@3.2.20/dist/license.js
+* dynamsoft-license@3.2.21/dist/license.js
 * dynamsoft-utility@1.2.20/dist/utility.js
 * dynamsoft-label-recognizer@3.2.30/dist/dlr.js
 * dynamsoft-capture-vision-router@2.2.30/dist/cvr.js
@@ -309,7 +309,7 @@ The purpose is to tell the SDK where to find the engine files (\*.worker.js, \*.
 Object.assign(Dynamsoft.Core.CoreModule.engineResourcePaths, {
   // The following code uses the jsDelivr CDN, feel free to change it to your own location of these files
   core: "https://cdn.jsdelivr.net/npm/dynamsoft-core@3.2.30/dist/",
-  license: "https://cdn.jsdelivr.net/npm/dynamsoft-license@3.2.20/dist/",
+  license: "https://cdn.jsdelivr.net/npm/dynamsoft-license@3.2.21/dist/",
   dlr: "https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer@3.2.30/dist/",
   cvr: "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.2.30/dist/",
   dce: "https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@4.0.3/dist/",
@@ -331,7 +331,6 @@ The image processing logic is encapsulated within .wasm library files, and these
 // Preload the .wasm files
 Dynamsoft.Core.CoreModule.loadWasm(["dlr"]);
 ```
-
 
 #### Create a CaptureVisionRouter object
 
