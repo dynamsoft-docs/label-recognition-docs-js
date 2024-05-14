@@ -78,9 +78,8 @@ The complete code of the example is shown below
   <div id="cameraViewContainer" style="width: 100%; height: 60vh"></div>
   <textarea id="results" style="width: 100%; min-height: 10vh; font-size: 3vmin; overflow: auto" disabled></textarea>
   <script>
-    Dynamsoft.License.LicenseManager.initLicense(
-      "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9"
-    );
+    Dynamsoft.License.LicenseManager.initLicense("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9");
+    Dynamsoft.Core.CoreModule.loadWasm(["dlr"]);
     (async () => {
       let cvRouter = await Dynamsoft.CVR.CaptureVisionRouter.createInstance();
 
@@ -90,16 +89,14 @@ The complete code of the example is shown below
       cvRouter.setInput(cameraEnhancer);
 
       const resultsContainer = document.querySelector("#results");
-      const resultReceiver = new Dynamsoft.CVR.CapturedResultReceiver(); 
-      resultReceiver.onRecognizedTextLinesReceived = (result) => {
+      cvRouter.addResultReceiver({ onRecognizedTextLinesReceived: (result) => {
         if (result.textLineResultItems.length > 0) {
           resultsContainer.textContent = "";
           for (let item of result.textLineResultItems) {
             resultsContainer.textContent += `${item.text}\n`;
           }
         }
-      };
-      cvRouter.addResultReceiver(resultReceiver);
+      }});
       
       let filter = new Dynamsoft.Utility.MultiFrameResultCrossFilter();
       filter.enableResultCrossVerification("text_line", true);
@@ -126,7 +123,9 @@ The complete code of the example is shown below
 
 - `Dynamsoft.License.LicenseManager.initLicense()`: This method initializes the license for using the SDK in the application. Note that the string "**DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9**" used in this example points to an online license that requires a network connection to work. Read more on [Specify the license](#specify-the-license).
 
-- `Dynamsoft.CVR.CaptureVisionRouter.createInstance()`: This method creates a `CaptureVisionRouter` object `router` which controls the entire process in three steps:
+- `Dynamsoft.Core.CoreModule.loadWasm(["dlr"])`: This is an optional code. Used to load wasm resources in advance, reducing latency between video playing and label recognizing.
+
+- `Dynamsoft.CVR.CaptureVisionRouter.createInstance()`: This method creates a `CaptureVisionRouter` object `cvRouter` which controls the entire process in three steps:
   - **Retrieve Images from the Image Source**
     - `cvRouter` connects to the image source through the [ImageSourceAdapter](https://www.dynamsoft.com/capture-vision/docs/core/architecture/input.html#image-source-adapter?lang=js) interface with the method `setInput()`.
       ```js
@@ -237,20 +236,20 @@ Options to download the SDK:
 
   ```cmd
   npm i dynamsoft-label-recognizer-bundle@3.2.3000 -E
-  npm i dynamsoft-capture-vision-std@1.2.0 -E
-  npm i dynamsoft-image-processing@2.2.10 -E
-  npm i dynamsoft-capture-vision-dnn@1.0.10 -E
-  npm i dynamsoft-label-recognizer-data@1.0.10 -E
+  npm i dynamsoft-capture-vision-std@1.2.10 -E
+  npm i dynamsoft-image-processing@2.2.30 -E
+  npm i dynamsoft-capture-vision-dnn@1.0.20 -E
+  npm i dynamsoft-label-recognizer-data@1.0.11 -E
   ```
 
 - yarn
 
   ```cmd
   yarn add dynamsoft-label-recognizer@3.2.3000 -E
-  yarn add dynamsoft-capture-vision-std@1.2.0 -E
-  yarn add dynamsoft-image-processing@2.2.10 -E
-  yarn add dynamsoft-capture-vision-dnn@1.0.10 -E
-  yarn add dynamsoft-label-recognizer-data@1.0.10 -E
+  yarn add dynamsoft-capture-vision-std@1.2.10 -E
+  yarn add dynamsoft-image-processing@2.2.30 -E
+  yarn add dynamsoft-capture-vision-dnn@1.0.20 -E
+  yarn add dynamsoft-label-recognizer-data@1.0.11 -E
   ```
 
 Depending on how you downloaded the SDK and how you intend to use it, you can typically include it like this:
@@ -405,7 +404,7 @@ Check out [CapturedResultReceiver](https://www.dynamsoft.com/capture-vision/docs
 
 With the setup now complete, we can proceed to process the images in two straightforward steps:
 
-1. Initiate the image source to commence image acquisition. In our scenario, we invoke the `open()` method on `cameraEnhancer` to initiate video streaming and simultaneously initiate the collection of images. These collected images will be dispatched to `router` as per its request.
+1. Initiate the image source to commence image acquisition. In our scenario, we invoke the `open()` method on `cameraEnhancer` to initiate video streaming and simultaneously initiate the collection of images. These collected images will be dispatched to `cvRouter` as per its request.
 2. Specify a template to commence image processing. In our case, we utilize the `RecognizeTextLines_Default` template.
 
 ```javascript
@@ -450,17 +449,12 @@ await cvRouter.startCapturing("RecognizeTextLines_Default");
 Please be aware that it is necessary to update the `CapturedResultReceiver` object to obtain the original image. For instance:
 
 ```javascript
-const resultReceiver = new Dynamsoft.CVR.CapturedResultReceiver(); 
+const EnumCRIT = Dynamsoft.Core.EnumCapturedResultItemType;
 resultReceiver.onCapturedResultReceived = (result) => {
-  let textLines = result.items.filter(
-    (item) =>
-      item.type === Dynamsoft.Core.EnumCapturedResultItemType.CRIT_TEXT_LINE
-  );
+  let textLines = result.items.filter(item => item.type === EnumCRIT.CRIT_TEXT_LINE);
   if (textLines.length > 0) {
     let image = result.items.filter(
-      (item) =>
-        item.type ===
-        Dynamsoft.Core.EnumCapturedResultItemType.CRIT_ORIGINAL_IMAGE
+      item => item.type === EnumCRIT.CRIT_ORIGINAL_IMAGE
     )[0].imageData;
     // The image that we found the text on.
   }
