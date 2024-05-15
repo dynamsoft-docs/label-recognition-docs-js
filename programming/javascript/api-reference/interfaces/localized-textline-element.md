@@ -1,7 +1,7 @@
 ---
 layout: default-layout
 title: Interface LocalizedTextLineElement - Dynamsoft Label Recognizer JS Edition API Reference
-description: The class LocalizedTextLineElement of Dynamsoft Label Recognizer represents a localized text line element.
+description: The interface LocalizedTextLineElement of Dynamsoft Label Recognizer JS edition represents a localized text line element.
 keywords: Localized text line element
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
@@ -11,7 +11,7 @@ breadcrumbText: LocalizedTextLineElement
 
 # LocalizedTextLineElement
 
-The `LocalizedTextLineElement` class represents a localized text line element.
+The `LocalizedTextLineElement` interface represents a localized text line element.
 
 ```typescript
 interface LocalizedTextLineElement extends Core.RegionObjectElement {
@@ -19,15 +19,15 @@ interface LocalizedTextLineElement extends Core.RegionObjectElement {
     rowNumber: number;
 }
 ```
-
+<!-- 
 | Method                            | Description                                                    |
 | --------------------------------- | -------------------------------------------------------------- |
 | [characterQuads](#characterquads) | Returns the quadrilaterals of all characters in the text line. |
-| [rowNumber](#rownumber)           | Returns the row number of the text line.                       |
+| [rowNumber](#rownumber)           | Returns the row number of the text line.                       | -->
 
 ## characterQuads
 
-Returns the quadrilaterals of all characters in the text line.
+The quadrilaterals of all characters in the text line.
 
 ```typescript
 characterQuads: Array<Quadrilateral>;
@@ -39,7 +39,7 @@ characterQuads: Array<Quadrilateral>;
 
 ## rowNumber
 
-Returns the row number of the text line.
+The row number of the text line.
 
 ```typescript
 rowNumber: number

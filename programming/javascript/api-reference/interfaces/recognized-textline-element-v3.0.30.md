@@ -19,7 +19,6 @@ interface RecognizedTextLineElement extends Core.RegionObjectElement {
     confidence: number;
     characterResults: Array<CharacterResult>;
     rowNumber: number;
-    specificationName: string; 
 }
 ```
 
@@ -60,12 +59,4 @@ The row number of the text line within the image.
 
 ```typescript
 rowNumber: number;
-```
-
-## specificationName
-
-The name of the text line specification that generated this element.
-
-```typescript
-specificationName: string;
 ```

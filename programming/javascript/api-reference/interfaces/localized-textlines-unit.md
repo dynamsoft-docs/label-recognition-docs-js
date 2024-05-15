@@ -1,7 +1,7 @@
 ---
 layout: default-layout
 title: Interface LocalizedTextLinesUnit - Dynamsoft Label Recognizer JS Edition API Reference
-description: The class LocalizedTextLinesUnit of Dynamsoft Label Recognizer represents a unit that contains localized text lines.
+description: The interface LocalizedTextLinesUnit of Dynamsoft Label Recognizer JS edition represents a unit that contains localized text lines.
 keywords: Localized text lines unit
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
@@ -11,7 +11,7 @@ breadcrumbText: LocalizedTextLinesUnit
 
 # LocalizedTextLinesUnit
 
-The `LocalizedTextLinesUnit` class represents a unit that contains localized text lines.
+The `LocalizedTextLinesUnit` interface represents a unit that contains localized text lines.
 
 ```typescript
 interface LocalizedTextLinesUnit extends Core.IntermediateResultUnit {
@@ -19,13 +19,13 @@ interface LocalizedTextLinesUnit extends Core.IntermediateResultUnit {
 }
 ```
 
-| Method                                    | Description                               |
+<!-- | Method                                    | Description                               |
 | ----------------------------------------- | ----------------------------------------- |
-| [localizedTextLines](#localizedtextlines) | Returns the localized text line elements. |
+| [localizedTextLines](#localizedtextlines) | Returns the localized text line elements. | -->
 
 ## localizedTextLines
 
-Returns the localized text line elements.
+The localized text line elements.
 
 ```typescript
 localizedTextLines: Array<LocalizedTextLineElement>;
@@ -33,4 +33,4 @@ localizedTextLines: Array<LocalizedTextLineElement>;
 
 **See Also**
 
-* [LocalizedTextLineElement](./localized-text-line-element.md)
+* [LocalizedTextLineElement]({{ site.dlr_js_api }}interfaces/localized-textline-element.html)

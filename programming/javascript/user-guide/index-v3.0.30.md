@@ -59,7 +59,7 @@ In this guide, you will learn step by step on how to integrate this SDK into you
 
 ## Example Usage
 
-Let's start by testing an example that demonstrates how to enable a web page to recognize the text from a live video stream.
+Let's start by testing an example that demonstrates how to enable a web page to recognize the text in the machine readable zone (MRZ) of a passport from a live video stream.
 
 * Basic Requirements
   * Internet connection  
@@ -74,37 +74,51 @@ The complete code of the example is shown below
 <!DOCTYPE html>
 <html>
 <body>
-  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer-bundle@3.2.3000/dist/dlr.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.32/dist/core.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-license@3.0.40/dist/license.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-utility@1.0.21/dist/utility.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer@3.0.30/dist/dlr.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.32/dist/cvr.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@4.0.1/dist/dce.js"></script>
   <div id="cameraViewContainer" style="width: 100%; height: 60vh"></div>
   <textarea id="results" style="width: 100%; min-height: 10vh; font-size: 3vmin; overflow: auto" disabled></textarea>
   <script>
-    Dynamsoft.License.LicenseManager.initLicense("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9");
-    Dynamsoft.Core.CoreModule.loadWasm(["dlr"]);
+    Dynamsoft.License.LicenseManager.initLicense(
+      "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9"
+    );
     (async () => {
-      let cvRouter = await Dynamsoft.CVR.CaptureVisionRouter.createInstance();
+      let router = await Dynamsoft.CVR.CaptureVisionRouter.createInstance();
 
       let view = await Dynamsoft.DCE.CameraView.createInstance();
       let cameraEnhancer = await Dynamsoft.DCE.CameraEnhancer.createInstance(view);
       document.querySelector("#cameraViewContainer").append(view.getUIElement());
-      cvRouter.setInput(cameraEnhancer);
+      router.setInput(cameraEnhancer);
 
       const resultsContainer = document.querySelector("#results");
-      cvRouter.addResultReceiver({ onRecognizedTextLinesReceived: (result) => {
+      const resultReceiver = new Dynamsoft.CVR.CapturedResultReceiver(); 
+      resultReceiver.onRecognizedTextLinesReceived = (result) => {
         if (result.textLineResultItems.length > 0) {
           resultsContainer.textContent = "";
           for (let item of result.textLineResultItems) {
             resultsContainer.textContent += `${item.text}\n`;
           }
         }
-      }});
+      };
+      router.addResultReceiver(resultReceiver);
       
       let filter = new Dynamsoft.Utility.MultiFrameResultCrossFilter();
-      filter.enableResultCrossVerification("text_line", true);
-      filter.enableResultDeduplication("text_line", true);
-      await cvRouter.addResultFilter(filter);
+      filter.enableResultCrossVerification(
+        Dynamsoft.Core.EnumCapturedResultItemType.CRIT_TEXT_LINE, true
+      );
+      filter.enableResultDeduplication(
+        Dynamsoft.Core.EnumCapturedResultItemType.CRIT_TEXT_LINE, true
+      );
+      await router.addResultFilter(filter);
+
+      await router.initSettings("https://tst.dynamsoft.com/public/samples/dcvTemplates/readPassportMRZ.json");
 
       await cameraEnhancer.open();
-      await cvRouter.startCapturing("RecognizeTextLines_Default");
+      await router.startCapturing("passport-mrz");
     })();
   </script>
 </body>
@@ -123,28 +137,28 @@ The complete code of the example is shown below
 
 - `Dynamsoft.License.LicenseManager.initLicense()`: This method initializes the license for using the SDK in the application. Note that the string "**DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9**" used in this example points to an online license that requires a network connection to work. Read more on [Specify the license](#specify-the-license).
 
-- `Dynamsoft.Core.CoreModule.loadWasm(["dlr"])`: This is an optional code. Used to load wasm resources in advance, reducing latency between video playing and label recognizing.
-
-- `Dynamsoft.CVR.CaptureVisionRouter.createInstance()`: This method creates a `CaptureVisionRouter` object `cvRouter` which controls the entire process in three steps:
+- `Dynamsoft.CVR.CaptureVisionRouter.createInstance()`: This method creates a `CaptureVisionRouter` object `router` which controls the entire process in three steps:
   - **Retrieve Images from the Image Source**
-    - `cvRouter` connects to the image source through the [ImageSourceAdapter](https://www.dynamsoft.com/capture-vision/docs/core/architecture/input.html#image-source-adapter?lang=js) interface with the method `setInput()`.
+    - `router` connects to the image source through the [ImageSourceAdapter](https://www.dynamsoft.com/capture-vision/docs/core/architecture/input.html#image-source-adapter?lang=js) interface with the method `setInput()`.
       ```js
-      cvRouter.setInput(cameraEnhancer);
+      router.setInput(cameraEnhancer);
       ```
     > The image source in our case is a [CameraEnhancer](https://www.dynamsoft.com/camera-enhancer/docs/web/programming/javascript/user-guide/index.html) object created with `Dynamsoft.DCE.CameraEnhancer.createInstance(view)`
   - **Coordinate Image-Processing Tasks**
-    - The coordination happens behind the scenes. `cvRouter` starts the process by specifying a template "RecognizeTextLines_Default" in the method `startCapturing()`.
+    - The coordination happens behind the scenes. `router` starts the process by specifying a template "passport-mrz" in the method `startCapturing()`.
       ```js
-      await cvRouter.startCapturing("RecognizeTextLines_Default");
+      // Loads the file that contains the template "passport-mrz".
+      await router.initSettings("https://tst.dynamsoft.com/public/samples/dcvTemplates/readPassportMRZ.json");
+      await router.startCapturing("passport-mrz");
       ```
   - **Dispatch Results to Listening Objects**
-    - The processing results are returned through the [CapturedResultReceiver](https://www.dynamsoft.com/capture-vision/docs/core/architecture/output.html#captured-result-receiver?lang=js) interface. The `CapturedResultReceiver` object `resultReceiver` is registered to `cvRouter` via the method `addResultReceiver()`.
+    - The processing results are returned through the [CapturedResultReceiver](https://www.dynamsoft.com/capture-vision/docs/core/architecture/output.html#captured-result-receiver?lang=js) interface. The `CapturedResultReceiver` object `resultReceiver` is registered to `router` via the method `addResultReceiver()`.
       ```js
-      cvRouter.addResultReceiver(resultReceiver);
+      router.addResultReceiver(resultReceiver);
       ```
-    - Also note that reading from video is extremely fast and there could be many duplicate results. We can use a [filter](#filter-the-results-important) with result verification and deduplication enabled to filter out unnecessary results. The object is registered to `cvRouter` via the method `addResultFilter()`.
+    - Also note that reading from video is extremely fast and there could be many duplicate results. We can use a [filter](#filter-the-results-important) with result verification and deduplication enabled to filter out unnecessary results. The object is registered to `router` via the method `addResultFilter()`.
       ```js
-      await cvRouter.addResultFilter(filter);
+      await router.addResultFilter(filter);
       ```
 
 > Read more on [Capture Vision Router](https://www.dynamsoft.com/capture-vision/docs/core/architecture/#capture-vision-router).
@@ -155,7 +169,7 @@ The easiest way to run the example is to use the [JSFiddle code editor](https://
 
 When the text is recognized, you will see it show up below the video and the location will be highlighted in the video feed.
 
-Alternatively, you can test locally by copying and pasting the code shown above into a local file (e.g. "read-text.html") and opening it in your browser.
+Alternatively, you can test locally by copying and pasting the code shown above into a local file (e.g. "read-passport-mrz.html") and opening it in your browser.
 
 *Note*:
 
@@ -168,7 +182,7 @@ To make sure your web application can access the camera, please configure your w
 3. Tomcat: [Setting Up SSL on Tomcat in 5 minutes](https://dzone.com/articles/setting-ssl-tomcat-5-minutes)
 4. Node.js: [npm tls](https://nodejs.org/docs/v0.4.1/api/tls.html)
 
-If the test doesn't go as expected, you can [contact us](https://www.dynamsoft.com/company/contact/?ver=3.2.10&utm_source=guide&product=dlr&package=js).
+If the test doesn't go as expected, you can [contact us](https://www.dynamsoft.com/company/contact/?ver=3.0.30&utm_source=guide&product=dlr&package=js).
 
 ## Building your own page
 
@@ -183,21 +197,6 @@ To utilize the SDK, the initial step involves including the corresponding resour
 * `cvr.js` introduces the `CaptureVisionRouter` class, which governs the entire image processing workflow.
 * `dce.js` comprises classes that offer camera support and basic user interface functionalities.
 
-For simplification, starting from version 3.2.30, we introduced dlr.bundle.js. Including this file is equivalent to incorporating all six packages.
-
-* dynamsoft-core@3.2.30/dist/core.js
-* dynamsoft-license@3.2.21/dist/license.js
-* dynamsoft-utility@1.2.20/dist/utility.js
-* dynamsoft-label-recognizer@3.2.30/dist/dlr.js
-* dynamsoft-capture-vision-router@2.2.30/dist/cvr.js
-* dynamsoft-camera-enhancer@4.0.2/dist/dce.js
-
-Equivalent to
-
-* dynamsoft-label-recognizer-bundle@3.2.3000/dist/dlr.bundle.js
-
-In the following chapters, we will use `dlr.bundle.js`.
-
 #### Use a public CDN
 
 The simplest way to include the SDK is to use either the [jsDelivr](https://jsdelivr.com/) or [UNPKG](https://unpkg.com/) CDN. The "hello world" example above uses **jsDelivr**.
@@ -205,20 +204,33 @@ The simplest way to include the SDK is to use either the [jsDelivr](https://jsde
 - jsDelivr
 
   ```html
-  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer-bundle@3.2.3000/dist/dlr.bundle.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.32/dist/core.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-license@3.0.40/dist/license.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-utility@1.0.21/dist/utility.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer@3.0.30/dist/dlr.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.32/dist/cvr.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@4.0.1/dist/dce.js"></script>
   ```
 
 - UNPKG  
 
   ```html
-  <script src="https://unpkg.com/dynamsoft-label-recognizer-bundle@3.2.3000/dist/dlr.bundle.js"></script>
+  <script src="https://unpkg.com/dynamsoft-core@3.0.32/dist/core.js"></script>
+  <script src="https://unpkg.com/dynamsoft-license@3.0.40/dist/license.js"></script>
+  <script src="https://unpkg.com/dynamsoft-utility@1.0.21/dist/utility.js"></script>
+  <script src="https://unpkg.com/dynamsoft-label-recognizer@3.0.30/dist/dlr.js"></script>
+  <script src="https://unpkg.com/dynamsoft-capture-vision-router@2.0.32/dist/cvr.js"></script>
+  <script src="https://unpkg.com/dynamsoft-camera-enhancer@4.0.1/dist/dce.js"></script>
   ```
 
-- In some rare cases (such as some restricted areas), you might not be able to access the CDN. If this happens, you can use the following files for the test.
+In some rare cases (such as some restricted areas), you might not be able to access the CDN. If this happens, you can use the following files for the test.
 
-  ```html
-  <script src="download2.dynamsoft.com/packages/dynamsoft-label-recognizer-bundle@3.2.3000/dist/dlr.bundle.js"></script>
-  ```
+- https://download2.dynamsoft.com/packages/dynamsoft-core@3.0.32/dist/core.js
+- https://download2.dynamsoft.com/packages/dynamsoft-license@3.0.40/dist/license.js
+- https://download2.dynamsoft.com/packages/dynamsoft-utility@1.0.21/dist/utility.js
+- https://download2.dynamsoft.com/packages/dynamsoft-label-recognizer@3.0.30/dist/dlr.js
+- https://download2.dynamsoft.com/packages/dynamsoft-capture-vision-router@2.0.32/dist/cvr.js
+- https://download2.dynamsoft.com/packages/dynamsoft-camera-enhancer@4.0.1/dist/dce.js
 
 However, please **DO NOT** use `download2.dynamsoft.com` resources in a production application as they are for temporary testing purposes only. Instead, you can try hosting the SDK yourself.
 
@@ -230,41 +242,61 @@ Options to download the SDK:
 
 - From the website
 
-  [Download Dynamsoft Label Recognizer JavaScript Package](https://www.dynamsoft.com/label-recognition/downloads/?ver=3.2.10&utm_source=guide&product=dlr&package=js)
-
-- npm
-
-  ```cmd
-  npm i dynamsoft-label-recognizer-bundle@3.2.3000 -E
-  npm i dynamsoft-capture-vision-std@1.2.10 -E
-  npm i dynamsoft-image-processing@2.2.30 -E
-  npm i dynamsoft-capture-vision-dnn@1.0.20 -E
-  npm i dynamsoft-label-recognizer-data@1.0.11 -E
-  ```
+  [Download Dynamsoft Label Recognizer JavaScript Package](https://www.dynamsoft.com/label-recognition/downloads/?ver=3.0.30&utm_source=guide&product=dlr&package=js)
 
 - yarn
 
   ```cmd
-  yarn add dynamsoft-label-recognizer@3.2.3000 -E
-  yarn add dynamsoft-capture-vision-std@1.2.10 -E
-  yarn add dynamsoft-image-processing@2.2.30 -E
-  yarn add dynamsoft-capture-vision-dnn@1.0.20 -E
-  yarn add dynamsoft-label-recognizer-data@1.0.11 -E
+  yarn add dynamsoft-core@3.0.32 --save
+  yarn add dynamsoft-license@3.0.40 --save
+  yarn add dynamsoft-utility@1.0.21 --save
+  yarn add dynamsoft-label-recognizer@3.0.30 --save
+  yarn add dynamsoft-capture-vision-router@2.0.32 --save
+  yarn add dynamsoft-camera-enhancer@4.0.1 --save
+  ```
+
+- npm
+
+  ```cmd
+  npm install dynamsoft-core@3.0.32 --save
+  npm install dynamsoft-license@3.0.40 --save
+  npm install dynamsoft-utility@1.0.21 --save
+  npm install dynamsoft-label-recognizer@3.0.30 --save
+  npm install dynamsoft-capture-vision-router@2.0.32 --save
+  npm install dynamsoft-camera-enhancer@4.0.1 --save
   ```
 
 Depending on how you downloaded the SDK and how you intend to use it, you can typically include it like this:
 
-- From the website
+```html
+<script src="./dynamsoft/distributables/dynamsoft-core@3.0.32/dist/core.js"></script>
+<script src="./dynamsoft/distributables/dynamsoft-license@3.0.40/dist/license.js"></script>
+<script src="./dynamsoft/distributables/dynamsoft-utility@1.0.21/dist/utility.js"></script>
+<script src="./dynamsoft/distributables/dynamsoft-label-recognizer@3.0.30/dist/dlr.js"></script>
+<script src="./dynamsoft/distributables/dynamsoft-capture-vision-router@2.0.32/dist/cvr.js"></script>
+<script src="./dynamsoft/distributables/dynamsoft-camera-enhancer@4.0.1/dist/dce.js"></script>
+```
 
-  ```html
-  <script src="./dynamsoft/distributables/dynamsoft-label-recognizer-bundle@3.2.3000/dist/dlr.js"></script>
-  ```
+or
 
-- yarn or npm
+```html
+<script src="/node_modules/dynamsoft-core/dist/core.js"></script>
+<script src="/node_modules/dynamsoft-license/dist/license.js"></script>
+<script src="/node_modules/dynamsoft-utility/dist/utility.js"></script>
+<script src="/node_modules/dynamsoft-label-recognizer/dist/dlr.js"></script>
+<script src="/node_modules/dynamsoft-capture-vision-router/dist/cvr.js"></script>
+<script src="/node_modules/dynamsoft-camera-enhancer/dist/dce.js"></script>
+```
 
-  ```html
-  <script src="/node_modules/dynamsoft-label-recognizer-bundle@3.2.3000/dist/dlr.js"></script>
-  ```
+or
+
+```typescript
+import "dynamsoft-license";
+import "dynamsoft-capture-vision-router";
+import "dynamsoft-label-recognizer";
+import { CoreModule } from 'dynamsoft-core';
+import { LicenseManager } from 'dynamsoft-license';
+```
 
 *Note*:
 
@@ -295,7 +327,7 @@ To enable the SDK's functionality, you must provide a valid license. Utilize the
 Dynamsoft.License.LicenseManager.initLicense("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9");
 ```
 
-As previously stated, the key "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9" serves as a test license valid for 24 hours, applicable to any newly authorized browser. To test the SDK further, you can request a 30-day free trial license via the [customer portal](https://www.dynamsoft.com/customer/license/trialLicense?ver=3.2.10&utm_source=guide&product=dlr&package=js).
+As previously stated, the key "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9" serves as a test license valid for 24 hours, applicable to any newly authorized browser. To test the SDK further, you can request a 30-day free trial license via the [customer portal](https://www.dynamsoft.com/customer/license/trialLicense?ver=3.0.30&utm_source=guide&product=dlr&package=js).
 
 > Upon registering a Dynamsoft account and obtaining the SDK package from the official website, Dynamsoft will automatically create a 30-day free trial license and embed the corresponding license key into all the provided SDK samples.
 
@@ -306,19 +338,17 @@ This is usually only required with frameworks like Angular or React, etc. where 
 The purpose is to tell the SDK where to find the engine files (\*.worker.js, \*.wasm.js and \*.wasm, etc.). The API is called `Dynamsoft.Core.CoreModule.engineResourcePaths`:
 
 ```javascript
-Object.assign(Dynamsoft.Core.CoreModule.engineResourcePaths, {
-  // The following code uses the jsDelivr CDN, feel free to change it to your own location of these files
-  core: "https://cdn.jsdelivr.net/npm/dynamsoft-core@3.2.30/dist/",
-  license: "https://cdn.jsdelivr.net/npm/dynamsoft-license@3.2.21/dist/",
-  dlr: "https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer@3.2.30/dist/",
-  cvr: "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.2.30/dist/",
-  dce: "https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@4.0.2/dist/",
-  std: "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-std@1.2.10/dist/",
-  dip: "https://cdn.jsdelivr.net/npm/dynamsoft-image-processing@2.2.30/dist/",
-  dnn: "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-dnn@1.0.20/dist/",
-  // "dlrData" refers to the location of the Convolutional Neural Network (CNN) inference model used for dlr recognition.
-  dlrData: "https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer-data@1.0.11/dist/"
-});
+// The following code uses the jsDelivr CDN, feel free to change it to your own location of these files
+Dynamsoft.Core.CoreModule.engineResourcePaths.core = "https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.32/dist/";
+Dynamsoft.Core.CoreModule.engineResourcePaths.license = "https://cdn.jsdelivr.net/npm/dynamsoft-license@3.0.40/dist/";
+Dynamsoft.Core.CoreModule.engineResourcePaths.dlr = "https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer@3.0.30/dist/";
+Dynamsoft.Core.CoreModule.engineResourcePaths.cvr = "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.32/dist/";
+Dynamsoft.Core.CoreModule.engineResourcePaths.dce = "https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@4.0.1/dist/";
+Dynamsoft.Core.CoreModule.engineResourcePaths.std = "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-std@1.0.0/dist/";
+Dynamsoft.Core.CoreModule.engineResourcePaths.dip = "https://cdn.jsdelivr.net/npm/dynamsoft-image-processing@2.0.30/dist/";
+Dynamsoft.Core.CoreModule.engineResourcePaths.utility = "https://cdn.jsdelivr.net/npm/dynamsoft-utility@1.0.21/dist/";
+// "dcm" refers to the location of the Convolutional Neural Network (CNN) inference model used for dlr recognition.
+Dynamsoft.Core.CoreModule.engineResourcePaths.dcm = "https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer-data@1.0.0/dist/";
 ```
 
 ### Set up and start image processing
@@ -329,8 +359,9 @@ The image processing logic is encapsulated within .wasm library files, and these
 
 ```js
 // Preload the .wasm files
-Dynamsoft.Core.CoreModule.loadWasm(["dlr"]);
+await Dynamsoft.Core.CoreModule.loadWasm(["dlr"]);
 ```
+
 
 #### Create a CaptureVisionRouter object
 
@@ -339,9 +370,9 @@ To use the SDK, we first create a `CaptureVisionRouter` object.
 ```javascript
 Dynamsoft.License.LicenseManager.initLicense("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9");
 
-let cvRouter = null;
+let router = null;
 try {
-    cvRouter = await Dynamsoft.CVR.CaptureVisionRouter.createInstance();
+    router = await Dynamsoft.CVR.CaptureVisionRouter.createInstance();
 } catch (ex) {
     console.error(ex);
 }
@@ -349,7 +380,7 @@ try {
 
 #### Connect an image source
 
-The `CaptureVisionRouter` object, denoted as `cvRouter`, is responsible for handling images provided by an image source. In our scenario, we aim to detect text directly from a live video stream. To facilitate this, we initialize a `CameraEnhancer` object, identified as `cameraEnhancer`, which is specifically designed to capture image frames from the video feed and subsequently forward them to `cvRouter`.
+The `CaptureVisionRouter` object, denoted as `router`, is responsible for handling images provided by an image source. In our scenario, we aim to detect text directly from a live video stream. To facilitate this, we initialize a `CameraEnhancer` object, identified as `cameraEnhancer`, which is specifically designed to capture image frames from the video feed and subsequently forward them to `router`.
 
 To enable video streaming on the webpage, we create a `CameraView` object referred to as `view`, which is then passed to `cameraEnhancer`, and its content is displayed on the webpage.
 
@@ -361,7 +392,7 @@ To enable video streaming on the webpage, we create a `CameraView` object referr
 let view = await Dynamsoft.DCE.CameraView.createInstance();
 let cameraEnhancer = await Dynamsoft.DCE.CameraEnhancer.createInstance(view);
 document.querySelector("#cameraViewContainer").append(view.getUIElement());
-cvRouter.setInput(cameraEnhancer);
+router.setInput(cameraEnhancer);
 ```
 
 #### Register a result receiver
@@ -379,13 +410,13 @@ resultReceiver.onRecognizedTextLinesReceived = (result) => {
     }
   }
 };
-cvRouter.addResultReceiver(resultReceiver);
+router.addResultReceiver(resultReceiver);
 ```
 
 You can also write code like this. It is the same.
 
 ```javascript
-cvRouter.addResultReceiver({
+router.addResultReceiver({
   onRecognizedTextLinesReceived: (result) => {
     if (result.textLineResultItems.length > 0) {
       resultsContainer.textContent = "";
@@ -403,18 +434,19 @@ Check out [CapturedResultReceiver](https://www.dynamsoft.com/capture-vision/docs
 
 With the setup now complete, we can proceed to process the images in two straightforward steps:
 
-1. Initiate the image source to commence image acquisition. In our scenario, we invoke the `open()` method on `cameraEnhancer` to initiate video streaming and simultaneously initiate the collection of images. These collected images will be dispatched to `cvRouter` as per its request.
-2. Specify a template to commence image processing. In our case, we utilize the `RecognizeTextLines_Default` template.
+1. Initiate the image source to commence image acquisition. In our scenario, we invoke the `open()` method on `cameraEnhancer` to initiate video streaming and simultaneously initiate the collection of images. These collected images will be dispatched to `router` as per its request.
+2. Specify a template to commence image processing. In our case, we utilize the "passport-mrz" template, specifically tailored for processing the machine readable zone (MRZ) of a passport. Note that this template doesn't come with the SDK, it is loaded from the JSON file "readPassportMRZ.json" with the method `initSettings()`;
 
 ```javascript
 await cameraEnhancer.open();
-await cvRouter.startCapturing("RecognizeTextLines_Default");
+await router.initSettings("https://tst.dynamsoft.com/public/samples/dcvTemplates/readPassportMRZ.json");
+await router.startCapturing("passport-mrz");
 ```
 
 *Note*:
 
-* `cvRouter` is engineered to consistently request images from the image source.
-* The following preset templates are at your disposal.
+* `router` is engineered to consistently request images from the image source.
+* Without loading a settings file, the following preset templates are at your disposal. But in this guide, we assume the template "readPassportMRZ.json", which is loaded from the file `readPassportMRZ.json`, is used.
 
 | Template Name                           | Function Description                                       |
 | --------------------------------------- | ---------------------------------------------------------- |
@@ -438,22 +470,27 @@ When making adjustments to some basic tasks, we often only need to modify [Simpl
 We have the option to modify the template to retrieve the original image containing the text. For example:
 
 ```javascript
-let settings = await cvRouter.getSimplifiedSettings("RecognizeTextLines_Default");
+let settings = await router.getSimplifiedSettings("passport-mrz");
 settings.capturedResultItemTypes |= 
   Dynamsoft.Core.EnumCapturedResultItemType.CRIT_ORIGINAL_IMAGE;
-await cvRouter.updateSettings("RecognizeTextLines_Default", settings);
-await cvRouter.startCapturing("RecognizeTextLines_Default");
+await router.updateSettings("passport-mrz", settings);
+await router.startCapturing("passport-mrz");
 ```
 
 Please be aware that it is necessary to update the `CapturedResultReceiver` object to obtain the original image. For instance:
 
 ```javascript
-const EnumCRIT = Dynamsoft.Core.EnumCapturedResultItemType;
+const resultReceiver = new Dynamsoft.CVR.CapturedResultReceiver(); 
 resultReceiver.onCapturedResultReceived = (result) => {
-  let textLines = result.items.filter(item => item.type === EnumCRIT.CRIT_TEXT_LINE);
+  let textLines = result.items.filter(
+    (item) =>
+      item.type === Dynamsoft.Core.EnumCapturedResultItemType.CRIT_TEXT_LINE
+  );
   if (textLines.length > 0) {
     let image = result.items.filter(
-      item => item.type === EnumCRIT.CRIT_ORIGINAL_IMAGE
+      (item) =>
+        item.type ===
+        Dynamsoft.Core.EnumCapturedResultItemType.CRIT_ORIGINAL_IMAGE
     )[0].imageData;
     // The image that we found the text on.
   }
@@ -467,10 +504,10 @@ The SDK is initially configured to process images sequentially without any break
 > Please bear in mind that in the following code, if an image's processing time is shorter than 500 milliseconds, the SDK will wait for the full 500 milliseconds before proceeding to process the next image. Conversely, if an image's processing time exceeds 500 milliseconds, the subsequent image will be processed immediately upon completion.
 
 ```javascript
-let settings = await cvRouter.getSimplifiedSettings("RecognizeTextLines_Default");
+let settings = await router.getSimplifiedSettings("passport-mrz");
 settings.minImageCaptureInterval = 500;
-await cvRouter.updateSettings("RecognizeTextLines_Default", settings);
-await cvRouter.startCapturing("RecognizeTextLines_Default");
+await router.updateSettings("passport-mrz", settings);
+await router.startCapturing("passport-mrz");
 ```
 
 ##### Specify a scan region
@@ -478,7 +515,7 @@ await cvRouter.startCapturing("RecognizeTextLines_Default");
 You can use the parameter `roi` (region of interest) together with the parameter `roiMeasuredInPercentage` to configure the SDK to only read a specific region on the image frames. For example:
 
 ```javascript
-let settings = await cvRouter.getSimplifiedSettings("RecognizeTextLines_Default");
+let settings = await router.getSimplifiedSettings("passport-mrz");
 settings.roiMeasuredInPercentage = true;
 settings.roi.points = [
   { x: 5, y: 70 },
@@ -486,8 +523,8 @@ settings.roi.points = [
   { x: 95, y: 90 },
   { x: 5, y: 90 },
 ];
-await cvRouter.updateSettings("RecognizeTextLines_Default", settings);
-await cvRouter.startCapturing("RecognizeTextLines_Default");
+await router.updateSettings("passport-mrz", settings);
+await router.startCapturing("passport-mrz");
 ```
 
 While the code above accomplishes the task, a more effective approach is to restrict the scan region directly at the image source, as demonstrated in the following code snippet.
@@ -515,8 +552,10 @@ While processing video frames, it's common for the same text line to be detected
 
 ```js
 let filter = new Dynamsoft.Utility.MultiFrameResultCrossFilter();
-filter.enableResultCrossVerification("text_line", true);
-await cvRouter.addResultFilter(filter);
+filter.enableResultCrossVerification(
+  Dynamsoft.Core.EnumCapturedResultItemType.CRIT_TEXT_LINE, true
+);
+await router.addResultFilter(filter);
 ```
 
 *Note*:
@@ -527,8 +566,10 @@ await cvRouter.addResultFilter(filter);
 
 ```js
 let filter = new Dynamsoft.Utility.MultiFrameResultCrossFilter();
-filter.enableResultDeduplication("text_line", true);
-await cvRouter.addResultFilter(filter);
+filter.enableResultDeduplication(
+  Dynamsoft.Core.EnumCapturedResultItemType.CRIT_TEXT_LINE, true
+);
+await router.addResultFilter(filter);
 ```
 
 *Note*:
@@ -542,17 +583,21 @@ Under certain circumstances, this duration can be extended with the method `setD
 ```js
 let filter = new Dynamsoft.Utility.MultiFrameResultCrossFilter();
 filter.setDuplicateForgetTime(5000); // Extend the duration to 5 seconds.
-await cvRouter.addResultFilter(filter);
+await router.addResultFilter(filter);
 ```
 
 You can also enable both options at the same time:
 
 ```js
 let filter = new Dynamsoft.Utility.MultiFrameResultCrossFilter();
-filter.enableResultCrossVerification("text_line", true);
-filter.enableResultDeduplication("text_line", true);
+filter.enableResultCrossVerification(
+  Dynamsoft.Core.EnumCapturedResultItemType.CRIT_TEXT_LINE, true
+);
+filter.enableResultDeduplication(
+  Dynamsoft.Core.EnumCapturedResultItemType.CRIT_TEXT_LINE, true
+);
 filter.setDuplicateForgetTime(5000);
-await cvRouter.addResultFilter(filter);
+await router.addResultFilter(filter);
 ```
 
 #### Add feedback
@@ -568,7 +613,7 @@ resultReceiver.onRecognizedTextLinesReceived = (result) => {
     Dynamsoft.DCE.Feedback.beep();
   }
 };
-await cvRouter.addResultReceiver(resultReceiver);
+await router.addResultReceiver(resultReceiver);
 ```
 
 ### Customize the UI
@@ -615,11 +660,11 @@ Apart from the browsers, the operating systems may impose some limitations of th
 
 ## Release Notes
 
-Learn about what are included in each release at [https://www.dynamsoft.com/label-recognition/docs/web/programming/javascript/release-notes/index.html](https://www.dynamsoft.com/label-recognition/docs/web/programming/javascript/release-notes/index.html?ver=3.2.10&utm_source=guide).
+Learn about what are included in each release at [https://www.dynamsoft.com/label-recognition/docs/web/programming/javascript/release-notes/index.html](https://www.dynamsoft.com/label-recognition/docs/web/programming/javascript/release-notes/index.html?ver=3.0.30&utm_source=guide).
 
 ## Next Steps
 
 Now that you have got the SDK integrated, you can choose to move forward in the following directions
 
 1. Check out the [Official Samples](https://github.com/Dynamsoft/label-recognizer-javascript-samples/)
-2. Learn about the [APIs of the SDK](https://www.dynamsoft.com/label-recognition/docs/web/programming/javascript/api-reference/?ver=3.2.10).
+2. Learn about the [APIs of the SDK](https://www.dynamsoft.com/label-recognition/docs/web/programming/javascript/api-reference/?ver=3.0.30).

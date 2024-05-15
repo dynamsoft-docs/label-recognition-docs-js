@@ -1,7 +1,7 @@
 ---
 layout: default-layout
 title: JavaScript 2.x Release Notes  - Dynamsoft Label Recognizer
-description: This is the Release Notes page for Dynamsoft Label Recognizer JavaScript SDK.
+description: This is the Release Notes page for Dynamsoft Label Recognizer JavaScript 2.x SDK.
 keywords:  label recognizer, release notes, javascript
 needAutoGenerateSidebar: true
 noTitleIndex: true

@@ -18,8 +18,7 @@ interface TextLineResultItem extends Core.CapturedResultItem {
     text: string;
     location: Core.Quadrilateral;
     confidence: number;
-    characterResults: Array<CharacterResult>;
-    specificationName: string; 
+    characterResults: Array<CharacterResult>
 }
 ```
 
@@ -69,11 +68,3 @@ characterResults: Array<CharacterResult>;
 **See Also**
 
 * [CharacterResult](./character-result.md)
-
-## specificationName
-
-The name of the text line specification that generated this element.
-
-```typescript
-specificationName: string;
-```

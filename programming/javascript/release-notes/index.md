@@ -10,6 +10,7 @@ breadcrumbText: Release Notes
 
 # Release Notes
 
+- [3.2.30 (05/15/2024)](javascript-3.html#3230-05152024)
 - [3.0.30 (02/02/2024)](javascript-3.html#3030-02022024)
 - [2.2.31 (08/07/2023)](javascript-2.html#2231-08072023)
 - [2.2.30 (07/24/2023)](javascript-2.html#2230-07242023)
