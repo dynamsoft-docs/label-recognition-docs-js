@@ -74,7 +74,7 @@ The complete code of the example is shown below
 <!DOCTYPE html>
 <html>
 <body>
-  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer-bundle@3.2.3000/dist/dlr.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer-bundle@3.2.3000/dist/dlr.bundle.js"></script>
   <div id="cameraViewContainer" style="width: 100%; height: 60vh"></div>
   <textarea id="results" style="width: 100%; min-height: 10vh; font-size: 3vmin; overflow: auto" disabled></textarea>
   <script>
@@ -257,13 +257,13 @@ Depending on how you downloaded the SDK and how you intend to use it, you can ty
 - From the website
 
   ```html
-  <script src="./dynamsoft/distributables/dynamsoft-label-recognizer-bundle@3.2.3000/dist/dlr.js"></script>
+  <script src="./dynamsoft/distributables/dynamsoft-label-recognizer-bundle@3.2.3000/dist/dlr.bundle.js"></script>
   ```
 
 - yarn or npm
 
   ```html
-  <script src="/node_modules/dynamsoft-label-recognizer-bundle@3.2.3000/dist/dlr.js"></script>
+  <script src="/node_modules/dynamsoft-label-recognizer-bundle@3.2.3000/dist/dlr.bundle.js"></script>
   ```
 
 *Note*:
