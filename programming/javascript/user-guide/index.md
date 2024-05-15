@@ -190,7 +190,7 @@ For simplification, starting from version 3.2.30, we introduced dlr.bundle.js. I
 * dynamsoft-utility@1.2.20/dist/utility.js
 * dynamsoft-label-recognizer@3.2.30/dist/dlr.js
 * dynamsoft-capture-vision-router@2.2.30/dist/cvr.js
-* dynamsoft-camera-enhancer@4.0.3/dist/dce.js
+* dynamsoft-camera-enhancer@4.0.2/dist/dce.js
 
 Equivalent to
 
@@ -312,7 +312,7 @@ Object.assign(Dynamsoft.Core.CoreModule.engineResourcePaths, {
   license: "https://cdn.jsdelivr.net/npm/dynamsoft-license@3.2.21/dist/",
   dlr: "https://cdn.jsdelivr.net/npm/dynamsoft-label-recognizer@3.2.30/dist/",
   cvr: "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.2.30/dist/",
-  dce: "https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@4.0.3/dist/",
+  dce: "https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@4.0.2/dist/",
   std: "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-std@1.2.10/dist/",
   dip: "https://cdn.jsdelivr.net/npm/dynamsoft-image-processing@2.2.30/dist/",
   dnn: "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-dnn@1.0.20/dist/",
