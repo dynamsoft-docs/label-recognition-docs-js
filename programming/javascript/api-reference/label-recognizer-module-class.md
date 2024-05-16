@@ -43,7 +43,7 @@ static loadRecognitionData(dataName: string, dataPath?: string): Promise<void>;
 
 **Parameters**
 
-* `dataName`: specifies the name of the recognition data. 
+* `dataName`: specifies the name of the recognition data. Available values are "MRZ", "VIN", "Letter", "Number", "NumberLetter", "UpperCase", "NumberUppercase".
 * `dataPath`: specifies the path to find the data file. If not specified, the default path points to the package "dynamsoft-label-recognizer-data" which has the same root path as the package "dynamsoft-label-recognizer".
 
 **Code snippet**
