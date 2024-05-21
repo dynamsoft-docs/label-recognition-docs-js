@@ -245,7 +245,7 @@ Options to download the SDK:
 - yarn
 
   ```cmd
-  yarn add dynamsoft-label-recognizer@3.2.3000 -E
+  yarn add dynamsoft-label-recognizer-bundle@3.2.3000 -E
   yarn add dynamsoft-capture-vision-std@1.2.10 -E
   yarn add dynamsoft-image-processing@2.2.30 -E
   yarn add dynamsoft-capture-vision-dnn@1.0.20 -E
