@@ -425,7 +425,7 @@ await cvRouter.startCapturing("RecognizeTextLines_Default");
 | **RecognizeNumbersAndUppercaseLetters** | Scans numbers and uppercase English alphabets.             |
 | **RecognizeUppercaseLetters**           | Focuses on recognizing uppercase English alphabets.        |
 
-Read more on the [preset CaptureVisionTemplates](./preset-templates.md).
+Read more on the [preset CaptureVisionTemplates](https://www.dynamsoft.com/capture-vision/docs/web/programming/javascript/api-reference/capture-vision-router/preset-templates.html).
 
 ### Customize the process
 
