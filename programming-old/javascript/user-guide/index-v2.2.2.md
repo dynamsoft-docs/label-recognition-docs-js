@@ -399,7 +399,7 @@ If no license is specified, a [free public trial license](https://www.dynamsoft.
 
 > Network connection is required for the free public trial license to work.
 
-After that, if you want to evaluate the library further, you can [register for a Dynamsoft account](https://www.dynamsoft.com/api-common/Regist/Regist?utm_source=guide&product=dlr&package=js) (if you haven't already done so) and request a 30-day trial in the [customer portal](https://www.dynamsoft.com/customer/license/trialLicense?utm_source=guide&product=dlr&package=js).
+After that, if you want to evaluate the library further, you can [register for a Dynamsoft account](https://www.dynamsoft.com/api-common/Regist/Regist?utm_source=guide&product=dlr&package=js) (if you haven't already done so) and request a 30-day trial license via the <a href="https://www.dynamsoft.com/customer/license/trialLicense?utm_source=guide&product=dlr&package=js" target="_blank">Request a Trial License</a> link.
 
 * If you like, you can also [contact our support team](https://www.dynamsoft.com/company/contact/?utm_source=guide&product=dlr&package=js) to get a trial license.
 
