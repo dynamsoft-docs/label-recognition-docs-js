@@ -1,31 +1,32 @@
 repositoryUrl: https://github.com/dynamsoft-docs/label-recognition-docs-js/blob/main
 repository: Dynamsoft-docs/label-recognition-docs-js
-docFullPath: https://www.dynamsoft.com/label-recognition/docs/web
-firstLevelUrl: /label-recognition/docs/web
+docFullPath: https://www.dynamsoft.com/label-recognition/docs-archive/web
+firstLevelUrl: /label-recognition/docs-archive/web
 docRootName: "Label Recognizer JS Edition" 
-docHomePage: /label-recognition/docs/web/programming/javascript/
+docHomePage: /label-recognition/docs-archive/web/programming/javascript/
 
-parameters-reference: /label-recognition/docs/core/parameters/reference/
-enumerations: /label-recognition/docs/core/parameters/enum/
-dcv_enumerations: /capture-vision/docs/core/enums/
-dcv_parameter_reference: /capture-vision/docs/core/parameters/reference/
+parameters-reference: /label-recognition/docs-archive/core/parameters/reference/
+enumerations: /label-recognition/docs-archive/core/parameters/enum/
+dcv_enumerations: /capture-vision/docs-archive/core/enums/
+dcv_parameter_reference: /capture-vision/docs-archive/core/parameters/reference/
 
-js: /label-recognition/docs/web/programming/javascript/
-dlr_js_api: /label-recognition/docs/web/programming/javascript/api-reference/
-js_release_notes: /label-recognition/docs/web/programming/javascript/release-notes/
-dcv_js_api: /capture-vision/docs/web/programming/javascript/api-reference/
-enums: /capture-vision/docs/core/enums/
-assets: /label-recognition/docs/core/assets/
-edit_icon: /label-recognition/docs/core/assets/img-icon/edit-icon.png
-smile_icon: /label-recognition/docs/core/assets/img-icon/icon-smile.png
-sad_icon: /label-recognition/docs/core/assets/img-icon/icon-sad.png
-dbr_icon: /label-recognition/docs/core/assets/img-icon/icon-dbr.svg
-dwt_icon: /label-recognition/docs/core/assets/img-icon/icon-dwt.svg
-dnt_icon: /label-recognition/docs/core/assets/img-icon/icon-dnt.svg
+js: /label-recognition/docs-archive/web/programming/javascript/
+dlr_js_api: /label-recognition/docs-archive/web/programming/javascript/api-reference/
+js_release_notes: /label-recognition/docs-archive/web/programming/javascript/release-notes/
+dcv_js_api: /capture-vision/docs-archive/web/programming/javascript/api-reference/
+enums: /capture-vision/docs-archive/core/enums/
+assets: /label-recognition/docs-archive/core/assets/
+edit_icon: /label-recognition/docs-archive/core/assets/img-icon/edit-icon.png
+smile_icon: /label-recognition/docs-archive/core/assets/img-icon/icon-smile.png
+sad_icon: /label-recognition/docs-archive/core/assets/img-icon/icon-sad.png
+dbr_icon: /label-recognition/docs-archive/core/assets/img-icon/icon-dbr.svg
+dwt_icon: /label-recognition/docs-archive/core/assets/img-icon/icon-dwt.svg
+dnt_icon: /label-recognition/docs-archive/core/assets/img-icon/icon-dnt.svg
+release-notes: /label-recognition/docs-archive/core/release-notes/
 
 useVersionTree: true
 
-baseurl: "/label-recognition/docs/web"
+baseurl: "/label-recognition/docs-archive/web"
 
 plugins:
   - jemoji
