@@ -15,7 +15,7 @@ The `RecognizedTextLineElement` interface represents a line of recognized text i
 
 ```typescript
 interface RecognizedTextLineElement extends Core.RegionObjectElement {
-    rawText: string;
+    text: string;
     confidence: number;
     characterResults: Array<CharacterResult>;
     rowNumber: number;
@@ -30,7 +30,7 @@ interface RecognizedTextLineElement extends Core.RegionObjectElement {
 | [characterResults](#characterresults) | Returns all the characters contained by the textline.     |
 | [rowNumber](#rownumber)               | Returns the row number of the text line within the image. | -->
 
-## rawText
+## text
 
 The recognized text.
 

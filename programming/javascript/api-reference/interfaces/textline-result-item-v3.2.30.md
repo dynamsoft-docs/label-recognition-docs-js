@@ -15,7 +15,7 @@ The `TextLineResultItem` interface represents a text line result item recognized
 
 ```typescript
 interface TextLineResultItem extends Core.CapturedResultItem {
-    rawText: string;
+    text: string;
     location: Core.Quadrilateral;
     confidence: number;
     characterResults: Array<CharacterResult>;
@@ -30,7 +30,7 @@ interface TextLineResultItem extends Core.CapturedResultItem {
 | [confidence](#confidence)             | Returns the confidence of the text line recognition result.           |
 | [characterResults](#characterresults) | Returns all the characters in the text line.                          | -->
 
-## rawText
+## Text
 
 The text content of the text line.
 
@@ -38,7 +38,7 @@ The text content of the text line.
 text: string;
 ```
 
-## location
+## Location
 
 The location of the text line in the form of a quadrilateral.
 
