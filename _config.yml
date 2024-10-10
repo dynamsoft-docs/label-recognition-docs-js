@@ -23,7 +23,8 @@ dbr_icon: /label-recognition/docs/core/assets/img-icon/icon-dbr.svg
 dwt_icon: /label-recognition/docs/core/assets/img-icon/icon-dwt.svg
 dnt_icon: /label-recognition/docs/core/assets/img-icon/icon-dnt.svg
 
-useVersionTree: true
+useVersionTree: false
+isDCV: true
 
 baseurl: "/label-recognition/docs/web"
 
