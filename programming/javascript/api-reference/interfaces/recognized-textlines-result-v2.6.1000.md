@@ -15,7 +15,11 @@ The `RecognizedTextLinesResult` interface represents the result of a text recogn
 
 ```typescript
 interface RecognizedTextLinesResult {
+    originalImageHashId: string;
+    originalImageTag: Core.ImageTag;
     textLinesResultItems: Array<TextLineResultItem>;
+    errorCode: number;
+    errorString: string;
 }
 ```
 
@@ -26,6 +30,26 @@ interface RecognizedTextLinesResult {
 | [textLinesResultItems](#textlinesresultitems) | Returns all the recognized text line result items. |
 | [errorCode](#errorcode)                       | Returns the error code, if an error occurred.      |
 | [errorMessage](#errormessage)                 | Returns the error message, if an error occurred.   | -->
+
+## originalImageHashId
+
+The hash ID of the original image.
+
+```typescript
+originalImageHashId: string;
+```
+
+## originalImageTag
+
+The tag of the original image.
+
+```typescript
+originalImageTag: ImageTag;
+```
+
+**See Also**
+
+* [ImageTag]({{ site.dcv_js_api }}core/basic-structures/image-tag.html)
 
 ## textLinesResultItems
 
@@ -38,3 +62,19 @@ textLinesResultItems: Array<TextLineResultItem>;
 **See Also**
 
 * [TextLineResultItem](./textline-result-item.md)
+
+## errorCode
+
+The error code, if an error occurred.
+
+```typescript
+errorCode: number;
+```
+
+## errorMessage
+
+The error message, if an error occurred.
+
+```typescript
+errorMessage: string;
+```

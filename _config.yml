@@ -4,6 +4,8 @@ docFullPath: https://www.dynamsoft.com/label-recognition/docs/web
 firstLevelUrl: /label-recognition/docs/web
 docRootName: "Label Recognizer JS Edition" 
 docHomePage: /label-recognition/docs/web/programming/javascript/
+needSearchIndex: true
+searchNeedFilter: true
 
 parameters-reference: /label-recognition/docs/core/parameters/reference/
 enumerations: /label-recognition/docs/core/parameters/enum/

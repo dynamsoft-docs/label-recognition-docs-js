@@ -15,8 +15,7 @@ The `LabelRecognizerModule` Class is defined in the namespace `Dynamsoft.DLR`.
 | API Name                                                         | Description                                                                           |
 | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
 | `static` [getVersion()](#getversion)                             | Returns the version of the `LabelRecognizer` module.                                  |
-| `static` [loadConfusableCharsData()](#loadconfusablecharsdata)           | Loads a specific data file containing confusable characters information.                        |
-| `static` [loadOverlappingCharsData()](#loadoverlappingcharsdata)           | Loads a specific data file containing overlapping characters information.                        |
+| `static` [loadRecognitionData()](#loadrecognitiondata)           | Loads a specific data file containing recognition information.                        |
 | `static` [onDataLoadProgressChanged](#ondataloadprogresschanged) | An event that repeatedly fires during the loading of a recognition data file (.data). |
 
 ## getVersion
@@ -34,28 +33,9 @@ const version = Dynamsoft.DLR.LabelRecognizerModule.getVersion();
 console.log(version);
 ```
 
-## loadConfusableCharsData
+## loadRecognitionData
 
-Loads a specific data file containing confusable characters information.
-
-```typescript
-static loadRecognitionData(dataName: string, dataPath?: string): Promise<void>;
-```
-
-**Parameters**
-
-* `dataName`: specifies the name of the recognition data.
-* `dataPath`: specifies the path to find the data file. If not specified, the default path points to the package "dynamsoft-capture-vision-data".
-
-**Code snippet**
-
-```javascript
-await Dynamsoft.DLR.LabelRecognizerModule.loadRecognitionData("ConfusableChars.data");
-```
-
-## loadOverlappingCharsData
-
-Loads a specific data file containing overlapping characters information.
+Loads a specific data file containing recognition information to aid in identifying text composed of predetermined characters. This file typically comprises a Convolutional Neural Networks (CNN) model.
 
 ```typescript
 static loadRecognitionData(dataName: string, dataPath?: string): Promise<void>;
@@ -63,13 +43,13 @@ static loadRecognitionData(dataName: string, dataPath?: string): Promise<void>;
 
 **Parameters**
 
-* `dataName`: specifies the name of the recognition data.
-* `dataPath`: specifies the path to find the data file. If not specified, the default path points to the package "dynamsoft-capture-vision-data".
+* `dataName`: specifies the name of the recognition data. Available values are "MRZ", "VIN", "Letter", "Number", "NumberLetter", "UpperCase", "NumberUppercase".
+* `dataPath`: specifies the path to find the data file. If not specified, the default path points to the package "dynamsoft-label-recognizer-data" which has the same root path as the package "dynamsoft-label-recognizer".
 
 **Code snippet**
 
 ```javascript
-await Dynamsoft.DLR.LabelRecognizerModule.loadRecognitionData("OverlappingChars.data");
+await Dynamsoft.DLR.LabelRecognizerModule.loadRecognitionData("NumberLetter");
 ```
 
 ## onDataLoadProgressChanged
