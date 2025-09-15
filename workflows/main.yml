@@ -34,7 +34,7 @@ jobs:
 
   Build-v2:
     if: ${{ github.ref == 'refs/heads/v2' }}
-    uses: dynamsoft-docs/Docs-Template-Repo/.github/workflows/called-workflow-build-sync-testing.yml@DCV-v2
+    uses: dynamsoft-docs/Docs-Template-Repo/.github/workflows/called-workflow-build-sync-production.yml@DCV-v2
     with:
       doc-repo: label-recognition-docs-js
       doc-url: label-recognition/docs/v2/web
