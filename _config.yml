@@ -27,6 +27,7 @@ dnt_icon: /label-recognition/docs/core/assets/img-icon/icon-dnt.svg
 
 useVersionTree: false
 isDCV: true
+useJSVersionV3: true
 
 baseurl: "/label-recognition/docs/web"
 
