@@ -39,7 +39,7 @@ console.log(version);
 Loads a specific data file containing confusable characters information.
 
 ```typescript
-static loadRecognitionData(dataName: string, dataPath?: string): Promise<void>;
+static loadConfusableCharsData(dataName: string, dataPath?: string): Promise<void>;
 ```
 
 **Parameters**
@@ -50,7 +50,7 @@ static loadRecognitionData(dataName: string, dataPath?: string): Promise<void>;
 **Code snippet**
 
 ```javascript
-await Dynamsoft.DLR.LabelRecognizerModule.loadRecognitionData("ConfusableChars.data");
+await Dynamsoft.DLR.LabelRecognizerModule.loadConfusableCharsData("ConfusableChars.data");
 ```
 
 ## loadOverlappingCharsData
@@ -58,7 +58,7 @@ await Dynamsoft.DLR.LabelRecognizerModule.loadRecognitionData("ConfusableChars.d
 Loads a specific data file containing overlapping characters information.
 
 ```typescript
-static loadRecognitionData(dataName: string, dataPath?: string): Promise<void>;
+static loadOverlappingCharsData(dataName: string, dataPath?: string): Promise<void>;
 ```
 
 **Parameters**
@@ -69,7 +69,7 @@ static loadRecognitionData(dataName: string, dataPath?: string): Promise<void>;
 **Code snippet**
 
 ```javascript
-await Dynamsoft.DLR.LabelRecognizerModule.loadRecognitionData("OverlappingChars.data");
+await Dynamsoft.DLR.LabelRecognizerModule.loadOverlappingCharsData("OverlappingChars.data");
 ```
 
 ## onDataLoadProgressChanged
@@ -92,5 +92,5 @@ static onDataLoadProgressChanged: (filePath: string, tag: "starting" | "in progr
 Dynamsoft.DLR.LabelRecognizerModule.onDataLoadProgressChanged = (filePath, tag, progress) => {
     console.log("The loading of the file " + filePath + " is " + tag +" ( " + progress.loaded + "/" + progress.total+ ").");
 }
-await Dynamsoft.DLR.LabelRecognizerModule.loadRecognitionData("NumberLetter");
+await Dynamsoft.DLR.LabelRecognizerModule.loadOverlappingCharsData("OverlappingChars.data");
 ```
