@@ -16,16 +16,18 @@ The `LocalizedTextLinesUnit` interface represents a unit that contains localized
 ```typescript
 interface LocalizedTextLinesUnit extends Core.IntermediateResultUnit {
     localizedTextLines: Array<LocalizedTextLineElement>;
+    auxiliaryRegionElements: Array<AuxiliaryRegionElement>;
 }
 ```
 
-<!-- | Method                                    | Description                               |
-| ----------------------------------------- | ----------------------------------------- |
-| [localizedTextLines](#localizedtextlines) | Returns the localized text line elements. | -->
+| Property                                                    | Description                                                      |
+| ----------------------------------------------------------- | ---------------------------------------------------------------- |
+| [localizedTextLines](#localizedtextlines)                   | An array of localized text line elements.                        |
+| [auxiliaryRegionElements](#auxiliaryregionelements)         | An array of auxiliary region elements.                           |
 
 ## localizedTextLines
 
-The localized text line elements.
+An array of `LocalizedTextLineElement` objects, each representing a localized text line.
 
 ```typescript
 localizedTextLines: Array<LocalizedTextLineElement>;
@@ -34,3 +36,15 @@ localizedTextLines: Array<LocalizedTextLineElement>;
 **See Also**
 
 * [LocalizedTextLineElement]({{ site.dlr_js_api }}interfaces/localized-textline-element.html)
+
+## auxiliaryRegionElements
+
+An array of `AuxiliaryRegionElement` objects, each representing an auxiliary region.
+
+```typescript
+auxiliaryRegionElements: Array<AuxiliaryRegionElement>;
+```
+
+**See Also**
+
+* [AuxiliaryRegionElement]({{ site.dcv_js_api }}core/intermediate-results/auxiliary-region-element.html)
