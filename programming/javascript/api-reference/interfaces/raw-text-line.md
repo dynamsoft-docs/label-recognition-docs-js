@@ -14,7 +14,7 @@ breadcrumbText: RawTextLine
 The `RawTextLine` interface represents a raw text line.
 
 ```typescript
-interface RawTextLine extends Core.RegionObjectElement{
+interface RawTextLine{
     text: string;
     confidence: number;
     characterResults: Array<CharacterResult>;
