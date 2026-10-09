@@ -53,7 +53,7 @@ grayscaleEnhancementModes: Array<EnumGrayscaleEnhancementMode>;
 
 **Remarks**
 
-View the reference page of [EnumGrayscaleEnhancementMode]({{ site.enums }}core/grayscale-enhancement-mode.html){:target="_blank"} for more detail about how to set grayscale enhancement modes.
+View the reference page of [EnumGrayscaleEnhancementMode](/capture-vision/docs/web/programming/javascript/api-reference/core/enum-grayscale-enhancement-mode.html){:target="_blank"} for more detail about how to set grayscale enhancement modes.
 
 ## characterModelName
 
